@@ -22,18 +22,20 @@ class programmesController extends Controller
         $xmlprogrammes=$xmlp->createElement('ProgrammesList');
         foreach($programmes as $prog){
             $xmlprog=$xmlp->createElement('Programme');
-            $xmlprogname=$xmlp->createElement('ProgrammeName',$prog->programme_name);
-            $xmlprogdesc=$xmlp->createElement('ProgrammeDescription',$prog->programme_desc);
-            $xmlprogfduration=$xmlp->createElement('ProgrammeFullTimeDuration',$prog->fulltime_duration);
-            $xmlprogpduration=$xmlp->createElement('ProgrammePartTimeDuration',$prog->parttime_duration);
-            $xmlprogpc=$xmlp->createElement('ProfessionalCertification',$prog->professional_certification);
+            $xmlprogname=$xmlp->createElement('programme_name',$prog->programme_name);
+            $xmlprogdesc=$xmlp->createElement('programme_desc',$prog->programme_desc);
+            $xmlprogfduration=$xmlp->createElement('fulltime_duration',$prog->fulltime_duration);
+            $xmlprogpduration=$xmlp->createElement('parttime_duration',$prog->parttime_duration);
+            $xmlprogpc=$xmlp->createElement('profcer',$prog->professional_certification);
             $xmlMER_SPM=$xmlp->createElement('MER_SPM',$prog->MER_SPM);
             $xmlMER_STPM=$xmlp->createElement('MER_STPM',$prog->MER_STPM);
             $xmlMER_UEC=$xmlp->createElement('MER_UEC',$prog->MER_UEC);
-            $xmlMER_UEC=$xmlp->createElement('MER_desc',$prog->MER_desc);
+            $xmlMER_desc=$xmlp->createElement('MER_desc',$prog->MER_desc);
+            $facultyname = faculty::where('faculty_id',$prog->faculty_id)->first();
+            $xmlfac=$xmlp->createElement('faculty',$facultyname->faculty_name);
 
-            $xmlprog->setAttribute('ProgrammeID',$prog->programme_id);
-            $xmlprog->setAttribute('ProgrammeCode',$prog->programme_code);
+            $xmlprog->setAttribute('programme_id',$prog->programme_id);
+            $xmlprog->setAttribute('programme_code',$prog->programme_code);
             $xmlprog->appendChild($xmlprogname);
             $xmlprog->appendChild($xmlprogdesc);
             $xmlprog->appendChild($xmlprogfduration);
@@ -42,13 +44,14 @@ class programmesController extends Controller
             $xmlprog->appendChild($xmlMER_SPM);
             $xmlprog->appendChild($xmlMER_STPM);
             $xmlprog->appendChild($xmlMER_UEC);
-
+            $xmlprog->appendChild($xmlMER_desc);
+            $xmlprog->appendChild($xmlfac);
 
             $xmlprogrammes->appendChild($xmlprog);
         }
         $xmlp->appendChild($xmlprogrammes);
         $xmlp->save("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml");
-        return view('faculty/programme_view',compact('programmes'));
+        return view('faculty/programme_view');
     }
 
     /**
@@ -77,7 +80,7 @@ class programmesController extends Controller
         }
         $xml->appendChild($xmlfaculties);
         $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/faculty.xml");
-        return view('programmes_create');
+        return view('faculty/programmes_create');
     }
 
     /**
@@ -91,6 +94,7 @@ class programmesController extends Controller
         $prog = new programme();
         $prog->programme_name = $request->get('programme_name');
         $prog->programme_code = $request->get('programme_code');
+        $prog->programme_desc = $request->get('programme_desc');
         $prog->fulltime_duration = $request->get('fduration');
         $prog->faculty_id = $request->get('faculty');
         $prog->parttime_duration = $request->get('pduration');
@@ -98,9 +102,10 @@ class programmesController extends Controller
         $prog->MER_SPM = $request->get('MER_SPM');
         $prog->MER_STPM = $request->get('MER_STPM');
         $prog->MER_UEC = $request->get('MER_UEC');
+        $prog->MER_desc = $request->get('MER_desc');
         $prog->timestamps=false;
         $prog->save();
-        return redirect('programmes')->with('success','Information has been added');
+        return redirect('programmes/create')->with('success','Information has been added');
     }
 
     /**
@@ -111,7 +116,11 @@ class programmesController extends Controller
      */
     public function show($id)
     {
-        //
+        //$progid = json_decode($id, true);
+        $programmes= programme::where('programme_id',$id)->first();
+        $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
+
+        return view('faculty/programme_details',compact('programmes','id'),compact('facultyname'));
     }
 
     /**
@@ -122,7 +131,10 @@ class programmesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $programmes= programme::where('programme_id',$id)->first();
+        $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
+
+        return view('faculty/programme_edit',compact('programmes','id'),compact('facultyname'));
     }
 
     /**
@@ -134,7 +146,23 @@ class programmesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prog = programme::find($id);
+
+        $prog->programme_name = $request->get('programme_name');
+        $prog->programme_code = $request->get('programme_code');
+        $prog->programme_desc = $request->get('programme_desc');
+        $prog->fulltime_duration = $request->get('fduration');
+        $prog->faculty_id = $request->get('faculty');
+        $prog->parttime_duration = $request->get('pduration');
+        $prog->professional_certification = $request->get('professional_certification');
+        $prog->MER_SPM = $request->get('MER_SPM');
+        $prog->MER_STPM = $request->get('MER_STPM');
+        $prog->MER_UEC = $request->get('MER_UEC');
+        $prog->MER_desc = $request->get('MER_desc');
+        $prog->timestamps=false;
+        $prog->save();
+
+        return \Redirect::route('programmes.show',array('id'=>$id))->with('success','Information has been modify');
     }
 
     /**
@@ -145,6 +173,7 @@ class programmesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $res=programme::where('programme_id',$id)->delete();
+        return redirect('programmes')->with('success','Information has been deleted');
     }
 }
