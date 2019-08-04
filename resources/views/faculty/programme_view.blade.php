@@ -51,35 +51,69 @@ and open the template in the editor.
 
     <!-- Main -->
     <div id="main" class="wrapper style1">
+
         <div class="container">
             <header class="major">
+
                 <h2>Programme List</h2>
 
             </header>
 
             <!-- Content -->
             <section id="content">
-                <form method="post" action="{{url('programmes')}}">
                     @csrf
-                    <p>
+                @if(\Session::has('success'))
+                    <div class="alert alert-success">
+                        <p> {{\Session::get('success')}}</p></div><br/>
+                @endif
+                    <table class="alt">
+                        <thead>
+                        <tr>
+                            <th align="center">Programme Code</th>
+                            <th align="center">Programme Name</th>
+                            <th align="center">Programme Description</th>
+                            <th align="center">Faculty</th>
+                            <th align="center">Action</th>
 
-                        @if(\Session::has('success'))
-                            <div class="alert alert-success">
-                    <p> {{\Session::get('success')}}</p>
-                    @endif
-                    <?php
-                    use App\XSLTTransformation as XSLTTrans;
+
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") or die("Failed to load");
+                        foreach($xmlprog as $prog){
+                            ?>
+                            <tr>
+                                <td align="center">
+                                    <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>
+                                </td>
+                                <td align="center">
+                                    <?php echo $prog->programme_name;?>
+                                </td>
+                                <td align="center">
+                                    <?php echo $prog->programme_desc;?>
+                                </td>
+                                <td align="center">
+                                    <?php echo $prog->faculty;?>
+                                </td>
+                                <td align="center">
 
 
-                    $programme = new XSLTTrans("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml","/xampp/htdocs/TARUCsystem/resources/views/xslt/programme.xsl");
-                    ?>
+                                        <a href="{{action('programmesController@show',$progattr['programme_id'])}}" class="button primary small">View Details</a>
+
+
+                                </td>
+
+
+                            </tr>
+                            <?php } ?>
+
+                        </tbody>
+
+                    </table>
 
         <br/>
-
-
-        </form>
         </section>
-
     </div>
 </div>
 
