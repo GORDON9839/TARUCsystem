@@ -1,2 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProgrammesList/>
+<ProgrammesList>
+  <Programme programme_id="1" programme_code="FOCS">
+    <programme_name>Software System Development</programme_name>
+    <programme_desc>Programmer</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>4</parttime_duration>
+    <profcer>Software Engineering</profcer>
+    <MER_SPM>5</MER_SPM>
+    <MER_STPM>5</MER_STPM>
+    <MER_UEC>3</MER_UEC>
+    <MER_desc>Pass in English</MER_desc>
+    <faculty>Faculty Of Accounting and Finance</faculty>
+  </Programme>
+  <Programme programme_id="3" programme_code="RAF">
+    <programme_name>Finance</programme_name>
+    <programme_desc>Finance</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>Finance</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>4</MER_UEC>
+    <MER_desc>Pass in English</MER_desc>
+    <faculty>Faculty Of Accounting and Finance</faculty>
+  </Programme>
+  <Programme programme_id="6" programme_code="RAB">
+    <programme_name>Business</programme_name>
+    <programme_desc>Business</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>Business</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>Pass in English</MER_desc>
+    <faculty>Faculty Of Accounting and Finance</faculty>
+  </Programme>
+  <Programme programme_id="8" programme_code="RAA">
+    <programme_name>Audit</programme_name>
+    <programme_desc>Audit</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>Audit</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>Pass in English</MER_desc>
+    <faculty>Faculty Of Accounting and Finance</faculty>
+  </Programme>
+</ProgrammesList>
