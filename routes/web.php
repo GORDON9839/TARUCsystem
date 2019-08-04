@@ -22,3 +22,6 @@ Route::get('programme',function(){
     return view('accommodation_create');
 });
 Route::resource('staffhome','staffhomeController');
+
+//Hawman's part below
+Route::resource('userprogrammes', 'userProgrammesController');
