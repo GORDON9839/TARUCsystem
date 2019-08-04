@@ -20,9 +20,9 @@
                     <a href="../../../app/Http/Controllers/DepartmentController.php">Manage Programme</a>
                     <ul>
 
-                        <li><a href="{{actions('programmesController@show','1')}}">Postgraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','2')}}">Undergraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','3')}}">Pre-University Programme</a></li>
+                        <li><a href="">Postgraduate Programme</a></li>
+                        <li><a href="">Undergraduate Programme</a></li>
+                        <li><a href="">Pre-University Programme</a></li>
                         <li>
                             <a href="#">Submenu</a>
                             <ul>
@@ -37,12 +37,14 @@
                 <li>
                     <a href="#">Campuses</a>
                     <ul>
-                        <li><a href="{{actions('programmesController@show','1')}}">Postgraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','2')}}">Undergraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','3')}}">Pre-University Programme</a></li></li>
+                        <li><a href="">Postgraduate Programme</a></li>
+                        <li><a href="">Undergraduate Programme</a></li>
+                        <li><a href="">Pre-University Programme</a></li></li>
 
 
                 <li><a href="#" class="button primary">Staff Login</a></li>
+            </ul>
+                </li>
             </ul>
         </nav>
     </header>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\department;
+use App\faculty;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'user_home';
 
     /**
      * Create a new controller instance.
@@ -63,10 +65,39 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        echo $data['role'];
+        if($data['create_for'] =="faculty"){
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'role' =>$data['role'],
+                'faculty_id' => $data['ddl_create_for']
+            ]);
+        }else{
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+                'role' =>$data['role'],
+                'department_id' => $data['ddl_create_for']
+            ]);
+        }
+    }
+    function index(){
+        $faculty = faculty::all();
+        $department = department::all();
+        return view('auth\register',compact('faculty'),compact('department'));
+
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+
+//        return $this->registered($request, $user)
+//            ?: redirect($this->redirectPath());
     }
 }
