@@ -28,13 +28,14 @@
                                     <th align="center">Belongs to</th>
 
                                 </tr>
-                                <?php $xmlstaff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/staff.xml") or die("Failed to load");
+                                <?php $xmlstaff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml") or die("Failed to load");
                                 foreach($xmlstaff as $staff){
                                     $belongs_to="";
-                                    if($staff->faculty_id !== ""){
-                                        $belongs_to="faculty";
-                                    }else{
+
+                                    if(empty($staff->faculty_id)){
                                         $belongs_to="department";
+                                    }else{
+                                        $belongs_to="faculty";
                                     }
                                 ?>
 
@@ -42,7 +43,7 @@
 
                                     <td align="center">{{$staff->name}}</td>
                                     <td align="center">{{$staff->email}}</td>
-                                    <td align="center"><form action="{{action('userControllers@update',$staff->id)}}" method="post">
+                                    <td align="center"><form action="{{action('faculty_staffController@update',$staff->id)}}" method="post">
                                             @csrf
                                             {{ method_field('PUT') }}
 
@@ -54,7 +55,7 @@
                                                 <option value="admin"  >ADMIN</option>
                                                 <option value="staff" selected="selected" >STAFF</option>
                                                 @endif
-                                        {{$staff->role}}</td>
+                                                {{$staff->role}}</select></td>
                                     </form>
                                     <td align="center">{{$belongs_to}}</td>
 

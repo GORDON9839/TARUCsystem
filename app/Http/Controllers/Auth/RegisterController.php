@@ -121,7 +121,7 @@ class RegisterController extends Controller
             $xmluser->appendChild($xmlstaff);
         }
         $xml->appendChild($xmluser);
-        $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/staff.xml");
+        $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml");
 
 
         return view('register_staff',compact('faculty'),compact('department'));

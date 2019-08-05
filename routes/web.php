@@ -15,11 +15,13 @@ use App\accommodation;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//go controller
 Route::resource('accommodations','accommodationsController');
 Route::resource('programmes','programmesController');
 Route::resource('registration','Auth\RegisterController');
-Route::resource('user','userControllers');
+Route::resource('staff','userControllers');
+Route::resource('faculty_manage_staff','faculty_staffController');
+
 Route::get('user_home',function(){
     return view('user\homepage');
 })->name('user_home');
@@ -33,6 +35,7 @@ Route::post('/login/custom',
 
 Route::resource('staffhome','staffhomeController');
 //only authenticated user can access this file
+
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/faculty/faculty_adminhomepage',function(){
         return view('/faculty/faculty_adminhomepage');
@@ -60,6 +63,7 @@ Route::get('staff.register',function(){
 Route::get('staff.manage',function(){
     return view('manage_staff');
 });
+
 //Authentication route
 Auth::routes();
 Auth::routes(['register' => false]);

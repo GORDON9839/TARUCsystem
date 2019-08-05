@@ -26,8 +26,8 @@ class userControllers
         $xmluser=$xml->createElement("StaffList");
         foreach ($users as $u){
             $xmlstaff=$xml->createElement('staff');
-            $xmlstaffid=$xml->createElement('id',$u->id);
-            $xmlstaffname=$xml->createElement('name',$u->name);
+            $xmlstaffid=$xml->createElement('id',$u->staff_id);
+            $xmlstaffname=$xml->createElement('name',$u->staff_name);
             $xmlstaffemail=$xml->createElement('email',$u->email);
             $xmlstaffremember_token=$xml->createElement('remember_token',$u->remember_token);
             $xmlstaffdepartment_id=$xml->createElement('department_id',$u->department_id);
@@ -46,7 +46,7 @@ class userControllers
             $xmluser->appendChild($xmlstaff);
         }
         $xml->appendChild($xmluser);
-        $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/staff.xml");
+        $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml");
 
 
 
