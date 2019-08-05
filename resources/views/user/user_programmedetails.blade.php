@@ -90,18 +90,12 @@ and open the template in the editor.
                                 <tr><td align="center">Minimum Entry Requirement (UEC)</td>
                                     <td> {{$programmes->MER_UEC}}</td>
 
-                                <tr><td align="center">Minimum Entry Requirement Description  </td>
+                                <tr><td align="center">Minimum Entry Requirement Description</td>
                                     <td> {{$programmes->MER_desc}}</td>
 
-{{--                                <tr><td align="center">--}}
-{{--                                        <a href="{{action('programmesController@edit',$programmes->programme_id)}}" class="button primary">Modify</a>--}}
-{{--                                    </td><td align="center">--}}
-{{--                                        <form action="{{action('programmesController@destroy',$programmes->programme_id)}}" method="post">--}}
-{{--                                            @csrf--}}
-{{--                                            {{method_field('delete')}}--}}
-{{--                                            <input type="submit" value="Delete" onclick="return confirm('Are you sure to delete?')" class="button"></a>--}}
-{{--                                        </form>--}}
-{{--                                    </td></tr>--}}
+                                <tr><td align="center">Fees</td>
+                                    <td>RM {{$programmes->fees}}</td>
+
                             </table>
                         </ul>
                         <!--                </xsl:if>-->

@@ -49,9 +49,7 @@ and open the template in the editor.
     <div id="main" class="wrapper style1">
 
         <div class="container">
-            <header class="major">
-                <h2>Programme List</h2>
-            </header>
+                <h2 style="text-align: center">Programme List</h2>
 
             <!-- Content -->
             <section id="content">
@@ -61,13 +59,77 @@ and open the template in the editor.
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
 
+                {{--shortlist filter part--}}
+                <h3>Shortlist by:</h3>
 
+                {{--faculty dropdown--}}
+                <div style="width: 270px; display: inline-block">
+                <label for="faculty" style="display: initial">Faculty</label>
+                <select id="dropdownfaculty" name="faculty" style="width: 250px;">
+                    <option value="any">Any</option>
+                    {{--get xml data required for options in dropdown lists--}}
+                    <?php $xmlfac = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userFaculty.xml") or die("Failed to load");
+                    foreach($xmlfac as $fac){
+                    $facattr = $fac->attributes();
+                    ?>
+                    <option value="<?php echo $facattr['faculty_id'];?>"><?php echo $fac->faculty_name;?></option>
+                        <?php } ?>
+                </select>
+                </div>
+
+                {{--level of study dropdown--}}
+                <div style="width: 270px; display: inline-block">
+                <label for="level_of_study" style="display: initial">Level of Study</label>
+                <select id="dropdownlevel_of_study" name="level_of_study" style="width: 250px">
+                    <option value="any">Any</option>
+                    {{--get xml data required for options in dropdown lists--}}
+                    <?php $xmllevos = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userLevelOfStudy.xml") or die("Failed to load");
+                    foreach($xmllevos as $levos){
+                    $levosattr = $levos->attributes();
+                    ?>
+                    <option value="<?php echo $levosattr['level_of_study_id'];?>"><?php echo $levos->level_of_study_name;?></option>
+                    <?php } ?>
+                </select>
+                </div>
+
+                {{--campus dropdown--}}
+                <div style="width: 270px; display: inline-block">
+                    <label for="campus" style="display: initial">Campus</label>
+                    <select id="dropdowncampus" name="campus" style="width: 250px">
+                        <option value="any">Any</option>
+                        {{--get xml data required for options in dropdown lists--}}
+                        <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userCampus.xml") or die("Failed to load");
+                        foreach($xmlcam as $cam){
+                        $camattr = $cam->attributes();
+                        ?>
+                        <option value="<?php echo $camattr['campus_id'];?>"><?php echo $cam->campus_name;?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                {{--shortlist button--}}
+                <div style="width: 270px; display: inline-block">
+                    <button onclick="shortlistFuntion()" class="button primary small">Shortlist</button>
+                </div>
+
+                <script>
+                    function shortlistFunction() {
+                        var facultyId = document.getElementById("dropdownfaculty").value;
+                        var level_of_studyId = document.getElementById("dropdownlevel_of_study").value;
+                        var campusId = document.getElementById("dropdowncampus").value;
+                        var arrayProg;
+
+                    }
+                </script>
+
+                <br/><br/>
+
+                {{--table for programme list--}}
                 <table class="alt">
                     <thead>
                     <tr>
                         <th align="center">Programme Name</th>
-                        <th align="center">Faculty</th>
-                        <th align="center">Campuses Offered</th>
+                        <th align="center">Description</th>
                         <th align="center">Action</th>
                     </tr>
                     </thead>
@@ -78,17 +140,11 @@ and open the template in the editor.
                     $progattr = $prog->attributes();
                     ?>
                     <tr>
-{{--                        <td align="center">--}}
-{{--                            <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>--}}
-{{--                        </td>--}}
                         <td align="center">
                             <?php echo $prog->programme_name;?>
                         </td>
                         <td align="center">
-                            <?php echo $prog->faculty_name;?>
-                        </td>
-                        <td align="center">
-                            <?php echo $prog->faculty_name;?>
+                            <?php echo $prog->programme_desc;?>
                         </td>
                         <td align="center">
                             <a href="{{action('userProgrammesController@show', $progattr['programme_id'])}}" class="button primary small">View Details</a>

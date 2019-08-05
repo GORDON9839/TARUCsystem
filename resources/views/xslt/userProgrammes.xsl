@@ -11,11 +11,8 @@
             </head>
             <body>
                 <h2></h2>
-                <xsl:for-each select="/ProgrammesList/Programme">
+                <xsl:for-each select="/userProgrammesList/Programme">
                     <tr>
-                        <td align="center">
-                            <xsl:value-of select="@programme_code"/>
-                        </td>
                         <td align="center">
                             <xsl:value-of select="programme_name"/>
                         </td>
@@ -23,19 +20,9 @@
                             <xsl:value-of select="programme_desc"/>
                         </td>
                         <td align="center">
-                            <xsl:value-of select="faculty" />
-                        </td>
-                        <td align="center">
-
-
-
-
                             <li>
                                 <a href="programmes/show" class="button primary small">View Details</a>
                             </li>
-
-
-
                         </td>
 
 

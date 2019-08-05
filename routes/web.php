@@ -12,6 +12,7 @@
 */
 use App\accommodation;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,4 +25,12 @@ Route::get('programme',function(){
 Route::resource('staffhome','staffhomeController');
 
 //Hawman's part below
-Route::resource('userprogrammes', 'userProgrammesController');
+
+//Route::resource('userviewprogrammes', 'user_viewprogrammes');
+Route::resource('userProgrammesController', 'userProgrammesController');
+//Route::resource('userFacultiesController', 'userFacultiesController');
+
+//Route::get('userviewprogrammes', function(){
+//    return view('user/user_viewprogrammes');
+//});
+

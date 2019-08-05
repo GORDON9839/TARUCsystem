@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CampusesList>
+  <Campus campus_id="1">
+    <campus_name>KL</campus_name>
+    <campus_desc/>
+    <campus_address>kuala lumpur</campus_address>
+  </Campus>
+  <Campus campus_id="2">
+    <campus_name>Perak</campus_name>
+    <campus_desc/>
+    <campus_address>perak state</campus_address>
+  </Campus>
+  <Campus campus_id="3">
+    <campus_name>Johor</campus_name>
+    <campus_desc/>
+    <campus_address>johor state</campus_address>
+  </Campus>
+</CampusesList>

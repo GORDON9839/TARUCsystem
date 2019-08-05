@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FacultiesList>
+  <Faculty faculty_id="1">
+    <faculty_name>Faculty of computing and science</faculty_name>
+    <faculty_short_name>focs</faculty_short_name>
+    <faculty_desc>blah cpu blah</faculty_desc>
+  </Faculty>
+  <Faculty faculty_id="2">
+    <faculty_name>Faculty of finance and business</faculty_name>
+    <faculty_short_name>FAFB</faculty_short_name>
+    <faculty_desc>finance and business woihh</faculty_desc>
+  </Faculty>
+</FacultiesList>
