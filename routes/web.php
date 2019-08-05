@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('accommodations','accommodationsController');
 Route::resource('programmes','programmesController');
 Route::resource('registration','Auth\RegisterController');
+Route::resource('user','userControllers');
 Route::get('user_home',function(){
     return view('user\homepage');
 })->name('user_home');
@@ -48,7 +49,19 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('programme',function(){
         return view('accommodation_create');
     })->name('programme');
+    Route::get('/faculty/faculty_manage_staff',function(){
+        return view('/faculty/faculty_manage_staff');
+    })->name('faculty.managestaff');
 });
+Route::get('staff.register',function(){
+    return view('register_staff');
+});
+
+Route::get('staff.manage',function(){
+    return view('manage_staff');
+});
+//Authentication route
 Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
