@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
 <head>
-    <title>No Sidebar - Landed by HTML5 UP</title>
+    <title>TARUC Education System</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
@@ -22,29 +22,39 @@ and open the template in the editor.
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
+                    <a href="#">Manage Programme</a>
                     <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
+                        <li><a href="{{action('programmesController@create')}}">Create New Programme</a></li>
+                        <li><a href="{{action('programmesController@index')}}">View Programmes</a></li>
+                        <li><a href="{{action('allstructureController@index')}}">View All Programmes Details</a></li>
 
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
+                    <a href="#">Manage Subjects</a>
                     <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-
-
+                        <li><a href="{{action('subjectsController@create')}}">Create New Subject</a></li>
+                        <li><a href="{{action('subjectsController@index')}}">View Subjects</a></li>
                     </ul>
 
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+                <li>
+                    <a href="#">Manage Programme Structure</a>
+                    <ul>
+                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
+                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="#">Manage Curriculum</a>
+                    <ul>
+                        <li><a href="{{action('curriculumsController@create')}}">Create New Curriculum</a></li>
+                        <li><a href="{{action('curriculumsController@index')}}">View Curriculum</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#" class="button primary">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -81,6 +91,8 @@ and open the template in the editor.
                                     <tr><td align="center">Minimmum Entry Requirement (STPM)</td><td> {{$programmes->MER_STPM}}</td></tr>
                                     <tr><td align="center">Minimmum Entry Requirement (UEC)</td><td> {{$programmes->MER_UEC}}</td></tr>
                                     <tr><td align="center">Minimmum Entry Requirement Description  </td><td> {{$programmes->MER_desc}}</td></tr>
+                                    <tr><td align="center">Incorporate Professional Curriculum </td><td>{{$curriculum->curriculum_name}}</td></tr>
+                                    <tr><td align="center">Level Of Studies </td><td> {{$level->level_of_study_name}}</td></tr>
                                     <tr><td align="center">
 
                                         <a href="{{action('programmesController@edit',$programmes->programme_id)}}" class="button primary">Modify</a>

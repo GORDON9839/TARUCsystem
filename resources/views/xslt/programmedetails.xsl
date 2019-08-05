@@ -1,4 +1,4 @@
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 
     <xsl:template match="/">
         <html>
@@ -14,28 +14,22 @@
                 <div class="row">
                 <div class="col-6 col-12-xsmall">
                     <xsl:for-each select="/ProgrammesList/Programme">
-                    <ul class="alt">
-                        <li>Programme Code &#160;&#160;&#160;&#160;&#160;<xsl:value-of select="@programme_code"/></li>
-                        <li>Programme Name &#160;&#160;&#160;&#160;&#160;<xsl:value-of select="programme_name"/></li>
-                        <li>Programme Description&#160;&#160;&#160;&#160;<xsl:value-of select="programme_desc"/></li>
-                        <li>Duration(Full Time)  &#160;&#160;&#160;&#160;<xsl:value-of select="fulltime_duration"/></li>
-                        <li>Duration(Part Time)  &#160;&#160;&#160;&#160;<xsl:value-of select="parttime_duration"/></li>
-                        <li>Faculty  &#160;&#160;&#160;&#160;&#160;&#160;<xsl:value-of select="faculty"/></li>
-                        <li>Professional Certification &#160;&#160;&#160;<xsl:value-of select="profcer"/></li>
-                        <li>Minimmum Entry Requirement (SPM) &#160;&#160;<xsl:value-of select="MER_SPM"/></li>
-                        <li>Minimmum Entry Requirement (STPM)&#160;&#160;<xsl:value-of select="MER_STPM"/></li>
-                        <li>Minimmum Entry Requirement (UEC) &#160;&#160;;<xsl:value-of select="MER_UEC"/></li>
-                        <li>Minimmum Entry Requirement Description &#160;<xsl:value-of select="MER_desc"/></li><br></br>
-                        <ul class="actions">
-                        <li>
-                            <a href="#" class="button primary">Modify</a>
-                        </li>
-                        <li>
-                            <a href="#" class="button">Delete</a>
-                        </li>
-                        </ul>
+                        <table>
+                            <tr><td>Programme Code </td><td><xsl:value-of select="@programme_code"/></td></tr>
+                            <tr><td>Programme Name </td><td><xsl:value-of select="programme_name"/></td></tr>
+                            <tr><td>Programme Description</td><td><xsl:value-of select="programme_desc"/></td></tr>
+                            <tr><td>Duration(Full Time)  </td><td><xsl:value-of select="fulltime_duration"/></td></tr>
+                            <tr><td>Duration(Part Time)  </td><td><xsl:value-of select="parttime_duration"/></td></tr>
+                            <tr><td>Faculty  </td><td><xsl:value-of select="faculty"/></td></tr>
+                            <tr><td>Professional Certification</td><td><xsl:value-of select="profcer"/></td></tr>
+                            <tr><td>Minimmum Entry Requirement (SPM)</td><td><xsl:value-of select="MER_SPM"/></td></tr>
+                            <tr><td>Minimmum Entry Requirement (STPM)</td><td><xsl:value-of select="MER_STPM"/></td></tr>
+                            <tr><td>Minimmum Entry Requirement (UEC) </td><td><xsl:value-of select="MER_UEC"/></td></tr>
+                            <tr><td>Minimmum Entry Requirement Description </td><td><xsl:value-of select="MER_desc"/></td></tr><br></br>
+                    </table>
 
-                    </ul>
+
+
 <!--                </xsl:if>-->
                     </xsl:for-each>
                 </div>

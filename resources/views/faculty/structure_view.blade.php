@@ -76,53 +76,51 @@ and open the template in the editor.
                     <div class="alert alert-success">
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
-                    <table class="alt">
-                        <thead>
-                        <tr>
-                            <th align="center">Programme Code</th>
-                            <th align="center">Programme Name</th>
-                            <th align="center">Programme Description</th>
-                            <th align="center">Faculty</th>
-                            <th align="center">Action</th>
+
+                <table class="alt">
+                    <thead>
+                    <tr>
+                        <th align="center">Programme Code</th>
+                        <th align="center">Programme Name</th>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
 
-                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;
-                        foreach($xmlprog as $prog){
-                            ?>
-                            <tr>
-                                <td align="center">
-                                    <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_name;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_desc;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->faculty;?>
-                                </td>
-                                <td align="center">
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;?>
+                    @foreach($xmlprog as $prog)
+
+                    <tr>
+                        <td align="center">
+                            {{$progattr=$prog->attributes()}} {{$progattr['programme_code']}}
+                        </td>
+                        <td align="center">
+                            {{$prog->programme_name}}
+                        </td>
+
+                        <td align="center">
 
 
-                                        <a href="{{action('programmesController@show',$progattr['programme_id'])}}" class="button primary small">View Details</a>
+                            <a href="{{action('structuresController@show',$progattr['programme_id'])}}" class="button primary small">View Subject</a>
 
 
-                                </td>
+                        </td>
 
 
-                            </tr>
-                            <?php } ?>
+                    </tr>
+                    @endforeach
 
-                        </tbody>
+                    </tbody>
 
-                    </table>
+                </table>
 
-        <br/>
+
+
+
+
+                <br/>
         </section>
     </div>
 </div>

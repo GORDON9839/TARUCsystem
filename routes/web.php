@@ -11,14 +11,21 @@
 |
 */
 use App\accommodation;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('accommodations','accommodationsController');
+Route::resource('accommodation','accommodationsController');
 Route::resource('programmes','programmesController');
-Route::get('programme',function(){
-    return view('accommodation_create');
-});
+Route::resource('subject','subjectsController');
+Route::resource('structure','structuresController');
+Route::resource('curriculum','curriculumsController');
+Route::resource('allstructure','allstructureController');
+Route::resource('campusoffered','programme_listsController');
+Route::resource('campus','campusesController');
+//Route::post('redirecttostructure',function(Request $request){
+//    return redirect()->route('structuresController@show',[$request->get('subject')]);
+//});
 Route::resource('staffhome','staffhomeController');
