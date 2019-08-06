@@ -1,5 +1,5 @@
-@extends("layouts.faculty_admin")
-@section("content")
+@extends('layouts.faculty_staff')
+@section('content')
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">

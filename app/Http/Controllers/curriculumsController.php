@@ -10,8 +10,10 @@ use Illuminate\Http\Request;
 
 class curriculumsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);
+        $request->user()->authorizeType(['faculty']);
         $curriculum = curriculum::where('curriculum_id','!=','1')->get();
 //
         $xmlc = new \DOMDocument("1.0","UTF-8");

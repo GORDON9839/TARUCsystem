@@ -14,7 +14,7 @@
         <h1 id="logo"><a href="index.php"><img src="images/logo2.png" alt="" /></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="">Home</a></li>
                 <li>
                     <a href="programmes">Manage Programme</a>
                     <ul>

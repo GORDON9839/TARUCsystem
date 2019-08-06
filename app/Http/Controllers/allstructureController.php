@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class allstructureController extends Controller
 {
-    public function index()
+    public function index(Reqeust $request)
     {
-
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $structure = structure::all();
 
         $xmls = new \DOMDocument("1.0","UTF-8");

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CurriculumList>
-  <Curriculum curriculum_id="42">
-    <curriculum_name>12345</curriculum_name>
-    <curriculum_uni>rtrdrdf</curriculum_uni>
-    <curriculum_desc>fgdgfd</curriculum_desc>
+  <Curriculum curriculum_id="2">
+    <curriculum_name>ACCA</curriculum_name>
+    <curriculum_uni>ACCA UNIVERSITY</curriculum_uni>
+    <curriculum_desc>It is a good cert</curriculum_desc>
+  </Curriculum>
+  <Curriculum curriculum_id="3">
+    <curriculum_name>Ricola</curriculum_name>
+    <curriculum_uni>Ricola University</curriculum_uni>
+    <curriculum_desc>Very sweet but expensive</curriculum_desc>
   </Curriculum>
 </CurriculumList>

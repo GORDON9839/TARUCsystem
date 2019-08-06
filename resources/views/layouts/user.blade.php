@@ -14,45 +14,20 @@
         <h1 id="logo"><a href="index.php"><img src="images/logo2.png" alt="" /></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="programmes">Manage Programme</a>
-                    <ul>
-
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
                         <li>
-                            <a href="#">Submenu</a>
-                            <ul>
-                                <li><a href="#">Option 1</a></li>
-                                <li><a href="#">Option 2</a></li>
-                                <li><a href="#">Option 3</a></li>
-                                <li><a href="#">Option 4</a></li>
-                            </ul>
+                            <a href="#">View Programme</a>
                         </li>
-                    </ul>
+
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li></li>
+                    <a href="#">Compare Programme</a>
+                </li>
+                <li>
+
+                            <li><a href="login" class="button primary">Staff Login</a></li>
 
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="primary" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </ul>
                 </li>
             </ul>
 
