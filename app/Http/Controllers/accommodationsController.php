@@ -10,13 +10,19 @@ class accommodationsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin']);
+//
         return view('accommodation_create');
     }
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Show the form for creating a new resource.
      *
