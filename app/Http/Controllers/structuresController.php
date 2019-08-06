@@ -134,10 +134,12 @@ class structuresController extends Controller
             $xmlstruc=$xmls->createElement('ProgrammeStructure');
             $xmlprogid=$xmls->createElement('programme_id',$struc->programme_id);
             $xmlsubid=$xmls->createElement('subject_id',$struc->subject_id);
+            $xmlsubcode=$xmls->createElement('subject_code',$subject->subject_code);
             $xmlsubname=$xmls->createElement('subject_name',$subject->subject_name);
 
             $xmlstruc->appendChild($xmlprogid);
             $xmlstruc->appendChild($xmlsubid);
+            $xmlstruc->appendChild($xmlsubcode);
             $xmlstruc->appendChild($xmlsubname);
 
 

@@ -26,6 +26,8 @@ and open the template in the editor.
                     <ul>
                         <li><a href="{{action('programmesController@create')}}">Create New Programme</a></li>
                         <li><a href="{{action('programmesController@index')}}">View Programmes</a></li>
+                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
+                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
                         <li><a href="{{action('allstructureController@index')}}">View All Programmes Details</a></li>
 
                     </ul>
@@ -38,16 +40,18 @@ and open the template in the editor.
                     </ul>
 
                 </li>
-                <li>
-                    <a href="#">Manage Programme Structure</a>
-                    <ul>
-                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
-                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
-                    </ul>
 
+                <li>
+                    <a href="#">Manage Campuses Offered</a>
+                    <ul>
+                        <li><a href="{{action('programme_listsController@create')}}">Add New Programmes Offered</a></li>
+                        <li><a href="{{action('programme_listsController@index')}}">View Programmes Offered</a></li>
+                        <li><a href="{{action('campusesController@index')}}">Add New Campus</a></li>
+
+                    </ul>
                 </li>
                 <li>
-                    <a href="#">Manage Curriculum</a>
+                    <a href="#">Manage Professional Curriculum</a>
                     <ul>
                         <li><a href="{{action('curriculumsController@create')}}">Create New Curriculum</a></li>
                         <li><a href="{{action('curriculumsController@index')}}">View Curriculum</a></li>

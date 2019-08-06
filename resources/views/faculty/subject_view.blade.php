@@ -28,6 +28,7 @@ and open the template in the editor.
                         <li><a href="{{action('programmesController@index')}}">View Programmes</a></li>
                         <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
                         <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
+                        <li><a href="{{action('allstructureController@index')}}">View All Programmes Details</a></li>
 
                     </ul>
                 </li>
@@ -45,7 +46,7 @@ and open the template in the editor.
                     <ul>
                         <li><a href="{{action('programme_listsController@create')}}">Add New Programmes Offered</a></li>
                         <li><a href="{{action('programme_listsController@index')}}">View Programmes Offered</a></li>
-                        <li><a href="{{action('campusesController@index')}}">View Programmes Offered</a></li>
+                        <li><a href="{{action('campusesController@index')}}">Add New Campus</a></li>
 
                     </ul>
                 </li>
@@ -68,7 +69,7 @@ and open the template in the editor.
         <div class="container">
             <header class="major">
 
-                <h2>Programme List</h2>
+                <h2>Subject List</h2>
 
             </header>
 

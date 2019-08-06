@@ -26,6 +26,8 @@ and open the template in the editor.
                     <ul>
                         <li><a href="{{action('programmesController@create')}}">Create New Programme</a></li>
                         <li><a href="{{action('programmesController@index')}}">View Programmes</a></li>
+                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
+                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
                         <li><a href="{{action('allstructureController@index')}}">View All Programmes Details</a></li>
 
                     </ul>
@@ -38,16 +40,18 @@ and open the template in the editor.
                     </ul>
 
                 </li>
-                <li>
-                    <a href="#">Manage Programme Structure</a>
-                    <ul>
-                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
-                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
-                    </ul>
 
+                <li>
+                    <a href="#">Manage Campuses Offered</a>
+                    <ul>
+                        <li><a href="{{action('programme_listsController@create')}}">Add New Programmes Offered</a></li>
+                        <li><a href="{{action('programme_listsController@index')}}">View Programmes Offered</a></li>
+                        <li><a href="{{action('campusesController@index')}}">Add New Campus</a></li>
+
+                    </ul>
                 </li>
                 <li>
-                    <a href="#">Manage Curriculum</a>
+                    <a href="#">Manage Professional Curriculum</a>
                     <ul>
                         <li><a href="{{action('curriculumsController@create')}}">Create New Curriculum</a></li>
                         <li><a href="{{action('curriculumsController@index')}}">View Curriculum</a></li>
@@ -63,7 +67,7 @@ and open the template in the editor.
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <h2>Create New Programme</h2>
+                <h2>Add Subject To Programme</h2>
 
             </header>
 
@@ -84,14 +88,15 @@ and open the template in the editor.
                     $progattr=$cur->attributes();
                     ?>
                         <option value="<?php echo $progattr['programme_id'];?>"><?php echo $cur->programme_name;?></option>
+                        <?php } ?>
                     </select><br/>
-                    <?php } ?>
+
 
                     <div class="col-6 col-12-medium">
                         <?php $xmlsub= simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/subject.xml")
                         ?>
                         @foreach($xmlsub as $sub)
-                            {{$subattr=$sub->attributes()}}
+                            <?php $subattr=$sub->attributes() ?>
                             <input type="checkbox" id="{{$subattr['subject_id']}}" name="subject[]" value="{{$subattr['subject_id']}}">
                             <label for="{{$subattr['subject_id']}}">{{$sub->subject_name}}</label><br/>
                         @endforeach

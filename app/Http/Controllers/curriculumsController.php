@@ -20,11 +20,13 @@ class curriculumsController extends Controller
         foreach($curriculum as $cur){
             $xmlcur=$xmlc->createElement('Curriculum');
             $xmlcurname=$xmlc->createElement('curriculum_name',$cur->curriculum_name);
-            $xmlcurtype=$xmlc->createElement('curriculum_type',$cur->curriculum_type);;
+            $xmlcuruni=$xmlc->createElement('curriculum_uni',$cur->curriculum_uni);
+            $xmlcurdesc=$xmlc->createElement('curriculum_desc',$cur->curriculum_desc);
 
             $xmlcur->setAttribute('curriculum_id',$cur->curriculum_id);
             $xmlcur->appendChild($xmlcurname);
-            $xmlcur->appendChild($xmlcurtype);
+            $xmlcur->appendChild($xmlcuruni);
+            $xmlcur->appendChild($xmlcurdesc);
 
 
             $xmlcurriculum->appendChild($xmlcur);
@@ -109,7 +111,7 @@ class curriculumsController extends Controller
         $curriculum->save();
 
 
-        return \Redirect::route('curriculum.show',array('id'=>$id))->with('success','Information has been modify');
+        return redirect('curriculum')->with('success','Information has been deleted');
     }
 
     /**
