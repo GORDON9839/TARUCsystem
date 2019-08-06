@@ -69,7 +69,7 @@ and open the template in the editor.
         <div class="container">
             <header class="major">
 
-                <h2>Programme List</h2>
+                <h2>Subject List</h2>
 
             </header>
 
@@ -83,37 +83,34 @@ and open the template in the editor.
                     <table class="alt">
                         <thead>
                         <tr>
-                            <th align="center">Programme Code</th>
-                            <th align="center">Programme Name</th>
-                            <th align="center">Programme Description</th>
-                            <th align="center">Faculty</th>
-                            <th align="center">Action</th>
+                            <th align="center">Subject Code</th>
+                            <th align="center">Subject Name</th>
+                            <th align="center">credit Hour</th>
+
 
 
                         </tr>
                         </thead>
                         <tbody>
 
-                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;
-                        foreach($xmlprog as $prog){
+                        <?php $xmlsub = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/subject.xml");
+                        foreach($xmlsub as $sub){
                             ?>
                             <tr>
                                 <td align="center">
-                                    <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>
+                                    <?php $subattr=$sub->attributes(); echo $subattr['subject_code'];?>
                                 </td>
                                 <td align="center">
-                                    <?php echo $prog->programme_name;?>
+                                    <?php echo $sub->subject_name;?>
                                 </td>
                                 <td align="center">
-                                    <?php echo $prog->programme_desc;?>
+                                    <?php echo $sub->credit_hour;?>
                                 </td>
-                                <td align="center">
-                                    <?php echo $prog->faculty;?>
-                                </td>
+
                                 <td align="center">
 
 
-                                        <a href="{{action('programmesController@show',$progattr['programme_id'])}}" class="button primary small">View Details</a>
+                                        <a href="{{action('subjectsController@show',$subattr['subject_id'])}}" class="button primary small">View Details</a>
 
 
                                 </td>

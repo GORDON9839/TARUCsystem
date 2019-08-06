@@ -65,86 +65,66 @@ and open the template in the editor.
 
     <!-- Main -->
     <div id="main" class="wrapper style1">
-
         <div class="container">
             <header class="major">
-
-                <h2>Programme List</h2>
+                <h2>Add New Programme Offered</h2>
 
             </header>
 
             <!-- Content -->
             <section id="content">
+                <form method="post" action="{{url('campusoffered')}}">
                     @csrf
-                @if(\Session::has('success'))
-                    <div class="alert alert-success">
-                        <p> {{\Session::get('success')}}</p></div><br/>
-                @endif
-                    <table class="alt">
-                        <thead>
-                        <tr>
-                            <th align="center">Programme Code</th>
-                            <th align="center">Programme Name</th>
-                            <th align="center">Programme Description</th>
-                            <th align="center">Faculty</th>
-                            <th align="center">Action</th>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
+                        @if(\Session::has('success'))
+                            <div class="alert alert-success">
+                    <p> {{\Session::get('success')}}</p></div><br/>
+                        @endif
+                    <select name="programme" required>
+                        <option value="">Select Option</option>
+                    <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml");
+                    foreach($xmlprog as $cur){
+                    $progattr=$cur->attributes();
+                    ?>
+                        <option value="<?php echo $progattr['programme_id'];?>"><?php echo $cur->programme_name;?></option>
+                    </select><br/>
+                    <?php } ?>
 
-                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;
-                        foreach($xmlprog as $prog){
-                            ?>
-                            <tr>
-                                <td align="center">
-                                    <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_name;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_desc;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->faculty;?>
-                                </td>
-                                <td align="center">
-
-
-                                        <a href="{{action('programmesController@show',$progattr['programme_id'])}}" class="button primary small">View Details</a>
-
-
-                                </td>
+                    <div class="col-6 col-12-medium">
+                        <?php $xmlcamp= simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/campus.xml")
+                        ?>
+                        @foreach($xmlcamp as $camp)
+                            <?php $campattr=$camp->attributes()?>
+                            <input type="checkbox" id="{{$campattr['campus_id']}}" name="campus[]" value="{{$campattr['campus_id']}}">
+                            <label for="{{$campattr['campus_id']}}>">{{$camp->campus_name}}</label><br/>
+                        @endforeach
+                    </div>
 
 
-                            </tr>
-                            <?php } ?>
 
-                        </tbody>
 
-                    </table>
+                    <input type="submit" value="Submit" class="primary"/>
+                </form>
+            </section>
 
-        <br/>
-        </section>
+        </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-    </ul>
-</footer>
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
 </div>
 
 

@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\curriculum;
+use App\level_of_study;
+use App\structure;
 use Illuminate\Http\Request;
 use App\programme;
 use App\faculty;
+use phpDocumentor\Reflection\Types\Compound;
 
 class programmesController extends Controller
 {
@@ -62,6 +66,8 @@ class programmesController extends Controller
     public function create()
     {
         $faculty = faculty::all();
+        $curriculum = curriculum::where('curriculum_id','!=','1')->get();
+        $level = level_of_study::all();
 
         $xml = new \DOMDocument("1.0","UTF-8");
         $xml->formatOutput=true;
@@ -80,7 +86,7 @@ class programmesController extends Controller
         }
         $xml->appendChild($xmlfaculties);
         $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/faculty.xml");
-        return view('faculty/programmes_create');
+        return view('faculty/programmes_create',compact('curriculum'),compact('level'));
     }
 
     /**
@@ -91,6 +97,7 @@ class programmesController extends Controller
      */
     public function store(Request $request)
     {
+
         $prog = new programme();
         $prog->programme_name = $request->get('programme_name');
         $prog->programme_code = $request->get('programme_code');
@@ -103,6 +110,15 @@ class programmesController extends Controller
         $prog->MER_STPM = $request->get('MER_STPM');
         $prog->MER_UEC = $request->get('MER_UEC');
         $prog->MER_desc = $request->get('MER_desc');
+        if($request->get('curriculum_id')==null){
+            $prog->curriculum_id = 1;
+        }else{
+            $prog->curriculum_id = $request->get('curriculum_id');
+        }
+
+        $prog->level_of_study_id = $request->get('level');
+
+
         $prog->timestamps=false;
         $prog->save();
         return redirect('programmes/create')->with('success','Information has been added');
@@ -119,8 +135,12 @@ class programmesController extends Controller
         //$progid = json_decode($id, true);
         $programmes= programme::where('programme_id',$id)->first();
         $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
+        $curriculum = curriculum::where('curriculum_id',$programmes->curriculum_id)->first();
+        $level = level_of_study::where('level_of_study_id',$programmes->level_of_study_id)->first();
+        //echo "<script type='text/javascript'>alert('$curriculum->curriculum_id');</script>";
 
-        return view('faculty/programme_details',compact('programmes','id'),compact('facultyname'));
+
+        return view('faculty/programme_details')->with('facultyname',$facultyname)->with('programmes',$programmes)->with('curriculum',$curriculum)->with('level',$level);
     }
 
     /**
@@ -133,8 +153,10 @@ class programmesController extends Controller
     {
         $programmes= programme::where('programme_id',$id)->first();
         $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
+        $curriculum = curriculum::where('curriculum_id','!=','1')->get();
+        $level = level_of_study::all();
 
-        return view('faculty/programme_edit',compact('programmes','id'),compact('facultyname'));
+        return view('faculty/programme_edit')->with('facultyname',$facultyname)->with('programmes',$programmes)->with('curriculum',$curriculum)->with('level',$level);
     }
 
     /**
@@ -159,6 +181,12 @@ class programmesController extends Controller
         $prog->MER_STPM = $request->get('MER_STPM');
         $prog->MER_UEC = $request->get('MER_UEC');
         $prog->MER_desc = $request->get('MER_desc');
+        if($request->get('curriculum')==null){
+            $prog->curriculum_id = 1;
+        }else{
+            $prog->curriculum_id = $request->get('curriculum');
+        }
+        $prog->level_of_study_id = $request->get('level');
         $prog->timestamps=false;
         $prog->save();
 
@@ -173,7 +201,14 @@ class programmesController extends Controller
      */
     public function destroy($id)
     {
-        $res=programme::where('programme_id',$id)->delete();
-        return redirect('programmes')->with('success','Information has been deleted');
+        $struc = structure::find($id);
+        if(count($struc)!=0){
+
+
+        }else{
+            $res=programme::where('programme_id',$id)->delete();
+            return redirect('programmes')->with('success','Information has been deleted');
+        }
+
     }
 }

@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
 <head>
-    <title>No Sidebar - Landed by HTML5 UP</title>
+    <title>TARUC Education System</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
@@ -22,29 +22,43 @@ and open the template in the editor.
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
+                    <a href="#">Manage Programme</a>
                     <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
+                        <li><a href="{{action('programmesController@create')}}">Create New Programme</a></li>
+                        <li><a href="{{action('programmesController@index')}}">View Programmes</a></li>
+                        <li><a href="{{action('structuresController@create')}}">Create Programme Structure</a></li>
+                        <li><a href="{{action('structuresController@index')}}">View Programmes Structure</a></li>
+                        <li><a href="{{action('allstructureController@index')}}">View All Programmes Details</a></li>
 
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
+                    <a href="#">Manage Subjects</a>
                     <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-
-
+                        <li><a href="{{action('subjectsController@create')}}">Create New Subject</a></li>
+                        <li><a href="{{action('subjectsController@index')}}">View Subjects</a></li>
                     </ul>
 
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+
+                <li>
+                    <a href="#">Manage Campuses Offered</a>
+                    <ul>
+                        <li><a href="{{action('programme_listsController@create')}}">Add New Programmes Offered</a></li>
+                        <li><a href="{{action('programme_listsController@index')}}">View Programmes Offered</a></li>
+                        <li><a href="{{action('campusesController@index')}}">Add New Campus</a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Manage Professional Curriculum</a>
+                    <ul>
+                        <li><a href="{{action('curriculumsController@create')}}">Create New Curriculum</a></li>
+                        <li><a href="{{action('curriculumsController@index')}}">View Curriculum</a></li>
+                    </ul>
+
+                </li>
+                <li><a href="#" class="button primary">Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -68,7 +82,7 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-6 col-12-xsmall">
 
-                        <form method="POST" action="{{action('programmesController@update',$id)}}">
+                        <form method="POST" action="{{action('programmesController@update',$programmes->programme_id)}}">
                             @csrf
                             <input name="_method" type="hidden" value="PATCH">
                         <ul class="alt">
@@ -129,6 +143,33 @@ and open the template in the editor.
                                 <tr>
                                     <td align="center"><label for="MER_desc">Minimum Entry Requirement Description</label>  </td>
                                     <td><input type="text" name="MER_desc" value="{{$programmes->MER_desc}}" required/> </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="curriculum">Incorporate Professional Curriculum</label></td>
+                                    <td><select name="curriculum">
+                                        <option value="">Select Option</option>
+                                        @foreach($curriculum as $cur)
+                                                @if($programmes->curriculum_id ==$cur->curriculum_id)
+                                                    <option value="{{$cur->curriculum_id}}" selected="selected">{{$cur->curriculum_name}}</option>
+                                                @else
+                                                    <option value="{{$cur->curriculum_id}}">{{$cur->curriculum_name}}</option>
+                                                @endif
+                                       @endforeach
+                                    </select><br/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="level">Level Of Study</label></td>
+                                    <td><select name="level">
+                                            <option value="">Select Option</option>
+                                            @foreach($level as $lv){
+                                            ?>
+                                            @if($lv->level_of_study_id == $programmes->level_of_study_id)
+                                                <option value="{{$lv->level_of_study_id}} "selected>{{$lv->level_of_study_name}}</option>
+                                            @else
+                                                <option value="{{$lv->level_of_study_id}}">{{$lv->level_of_study_name}}</option>
+                                            @endif
+                                            @endforeach
+                                        </select><br/></td>
                                 </tr>
                                 <tr><td align="center">
 

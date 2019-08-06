@@ -11,17 +11,24 @@
 |
 */
 use App\accommodation;
+use Illuminate\Http\Request;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 //go controller
 Route::resource('accommodations','accommodationsController');
 Route::resource('programmes','programmesController');
 Route::resource('registration','Auth\RegisterController');
 Route::resource('staff','userControllers');
 Route::resource('faculty_manage_staff','faculty_staffController');
-
+Route::resource('subject','subjectsController');
+Route::resource('structure','structuresController');
+Route::resource('curriculum','curriculumsController');
+Route::resource('allstructure','allstructureController');
+Route::resource('campusoffered','programme_listsController');
+Route::resource('campus','campusesController');
 Route::get('user_home',function(){
     return view('user\homepage');
 })->name('user_home');
@@ -32,6 +39,7 @@ Route::get('programme',function(){
 Route::post('/login/custom',
     ['uses' =>'Auth\LoginController@login',
         'as' =>'login.custom']);
+
 
 Route::resource('staffhome','staffhomeController');
 //only authenticated user can access this file
