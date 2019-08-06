@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StaffList>
+  <staff user_id="2">
+    <id/>
+    <name>Jack Soh Boon Keat</name>
+    <remember_token/>
+    <email>boonkeatjacksoh@gmail.com</email>
+    <department_id/>
+    <faculty_id>1</faculty_id>
+    <role>staff</role>
+  </staff>
+  <staff user_id="3">
+    <id/>
+    <name>Gordon Goh</name>
+    <remember_token/>
+    <email>gg@gmail.com</email>
+    <department_id>1</department_id>
+    <faculty_id/>
+    <role>admin</role>
+  </staff>
+  <staff user_id="4">
+    <id/>
+    <name>Tan Haw man</name>
+    <remember_token/>
+    <email>thm@gmail.com</email>
+    <department_id/>
+    <faculty_id>2</faculty_id>
+    <role>admin</role>
+  </staff>
+  <staff user_id="5">
+    <id/>
+    <name>Tan Yi Si</name>
+    <remember_token/>
+    <email>tys@gmail.com</email>
+    <department_id>1</department_id>
+    <faculty_id/>
+    <role>staff</role>
+  </staff>
+  <staff user_id="6">
+    <id/>
+    <name>Dailou</name>
+    <remember_token/>
+    <email>d@gmail.com</email>
+    <department_id/>
+    <faculty_id>1</faculty_id>
+    <role>staff</role>
+  </staff>
+  <staff user_id="7">
+    <id/>
+    <name>Lo Jit Peng</name>
+    <remember_token/>
+    <email>ljp@gmail.com</email>
+    <department_id>1</department_id>
+    <faculty_id/>
+    <role>staff</role>
+  </staff>
+  <staff user_id="8">
+    <id/>
+    <name>Venice Zyann</name>
+    <remember_token/>
+    <email>vz@gmail.com</email>
+    <department_id>1</department_id>
+    <faculty_id/>
+    <role>staff</role>
+  </staff>
+  <staff user_id="9">
+    <id/>
+    <name>Johnny</name>
+    <remember_token/>
+    <email>j@gmail.com</email>
+    <department_id/>
+    <faculty_id>2</faculty_id>
+    <role>admin</role>
+  </staff>
+</StaffList>

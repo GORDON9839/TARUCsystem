@@ -1,12 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Validator;
 use App\campus;
+
 use Illuminate\Http\Request;
 
 class campusesController extends Controller
 {
+
     public function index()
     {
         $campus = campus::all();
@@ -100,4 +103,5 @@ class campusesController extends Controller
         campus::where('campus_id',$id)->delete();
         return redirect('campus')->with('success','Information has been deleted');
     }
+
 }

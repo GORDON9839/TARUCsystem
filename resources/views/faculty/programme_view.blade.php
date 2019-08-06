@@ -1,54 +1,5 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-<head>
-    <title>No Sidebar - Landed by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
-    <noscript><link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}" /></noscript>
-</head>
-<body class="is-preload">
-<div id="page-wrapper">
-
-    <!-- Header -->
-    <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-
-
-                    </ul>
-
-                </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
-            </ul>
-        </nav>
-    </header>
-
+@extends('layouts.faculty_staff')
+@section('content')
     <!-- Main -->
     <div id="main" class="wrapper style1">
 
@@ -80,7 +31,7 @@ and open the template in the editor.
                         </thead>
                         <tbody>
 
-                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") or die("Failed to load");
+                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;
                         foreach($xmlprog as $prog){
                             ?>
                             <tr>
@@ -131,7 +82,7 @@ and open the template in the editor.
         <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
     </ul>
 </footer>
-</div>
+
 
 
 <!-- Scripts -->
@@ -143,6 +94,4 @@ and open the template in the editor.
 <script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
 <script src="{{asset('assets/js/util.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
-
-</body>
-</html>
+@endsection

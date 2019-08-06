@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class accommodationsController extends Controller
 {
 
+
     public function index()
     {
         $accommodation = accommodation::all();
@@ -44,6 +45,7 @@ class accommodationsController extends Controller
         $xmla->save("/xampp/htdocs/TARUCsystem/resources/views/XML/accommodation.xml");
         return view('department/accommodation_view');
     }
+
 
     public function create()
     {

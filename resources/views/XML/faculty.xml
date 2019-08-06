@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <FacultyList>
   <Faculty faculty_id="16">
     <faculty_name>Faculty Of Communication and Creative Industries 2</faculty_name>
@@ -9,5 +10,6 @@
     <faculty_name>Faculty Of Built Environment</faculty_name>
     <faculty_desc>123456789</faculty_desc>
     <faculty_short_name>FOBE</faculty_short_name>
+
   </Faculty>
 </FacultyList>
