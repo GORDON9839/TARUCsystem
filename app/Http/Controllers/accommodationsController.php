@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\accommodation;
 use Illuminate\Support\Facades\Validator;
 
+
 class accommodationsController extends Controller
 {
 

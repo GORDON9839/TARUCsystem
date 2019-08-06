@@ -4,6 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php use ;
+    $loan = new tarucFactory();
+    $loan->createLoan();
+?>
 <html>
 <head>
     <title>Create New Accommodation</title>
@@ -60,7 +64,8 @@ and open the template in the editor.
                 <li>
                     <a href="{{action('loansController@index')}}">Loan</a>
                     <ul>
-                        <li><a href="{{action('loansController@create')}}">Create Loan</a></li>
+
+                        <li><a href="{{action()}}">Create Loan</a></li>
                         <li><a href="{{action('loansController@index')}}">View All Loan</a></li>
                         <li><a href="{{action('loanlistController@create')}}">Assign Loan To Study Level</a></li>
                         <li><a href="{{action('loanlistController@index')}}">View Loan List</a></li>
