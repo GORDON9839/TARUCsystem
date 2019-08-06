@@ -18,6 +18,15 @@ Route::get('/', function () {
 
 Route::resource('accommodations','accommodationsController');
 Route::resource('programmes','programmesController');
+Route::resource('faculty','FacultiesController');
+Route::resource('facility','facilities_listsController');
+Route::resource('department','DepartmentController');
+Route::resource('levelstudy','level_of_studiesController');
+Route::resource('loan','loansController');
+Route::resource('fee','setfeeController');
+Route::resource('loanlist','loanlistController');
+Route::resource('campus','campusesController');
+Route::resource('accommodation','accommodationsController');
 Route::get('programme',function(){
     return view('accommodation_create');
 });

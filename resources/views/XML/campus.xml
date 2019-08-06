@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CampusList>
+  <Campus campus_id="2">
+    <campus_name>Penang Branch Campus</campus_name>
+    <campus_desc>offers an impressive range of cutting-edge facilities which includes a three-storey purpose-built library</campus_desc>
+    <campus_address>25,Jalan SJ 22,, Taman Selayang Jaya,, 68100, Batu Caves, Selangor</campus_address>
+  </Campus>
+  <Campus campus_id="3">
+    <campus_name>KL Branch Campus</campus_name>
+    <campus_desc>includes a three-storey purpose-built library</campus_desc>
+    <campus_address>30 ,Jalan SJ 22,, Taman Selayang Jaya,, 68100, Batu Caves, Selangor</campus_address>
+  </Campus>
+</CampusList>

@@ -765,7 +765,7 @@ input, select, textarea {
 		}
 
 		.row > .col-6 {
-			width: 50%;
+			width: 90%;
 		}
 
 		.row > .off-6 {
@@ -4154,3 +4154,247 @@ input, select, textarea {
 .alert-success hr{border-top-color:#b3e8ca}
 .alert-success .alert-link{color:#123c24}
 .alert-info{color:#385d7a;background-color:#e2f0fb;border-color:#d6e9f9}.alert-info hr{border-top-color:#c0ddf6}.alert-info .alert-link{color:#284257}.alert-warning{color:#857b26;background-color:#fffbdb;border-color:#fffacc}.alert-warning hr{border-top-color:#fff8b3}.alert-warning .alert-link{color:#5d561b}.alert-danger{color:#761b18;background-color:#f9d6d5;border-color:#f7c6c5}.alert-danger hr{border-top-color:#f4b0af}.alert-danger .alert-link{color:#4c110f}.alert-light{color:#818182;background-color:#fefefe;border-color:#fdfdfe}.alert-light hr{border-top-color:#ececf6}.alert-light .alert-link{color:#686868}.alert-dark{color:#1b1e21;background-color:#d6d8d9;border-color:#c6c8ca}.alert-dark hr{border-top-color:#b9bbbe}.alert-dark .alert-link{color:#040505}@-webkit-keyframes progress-bar-stripes{0%{background-position:1rem 0}to{background-position:0 0}}@keyframes progress-bar-stripes{0%{background-position:1rem 0}to{background-position:0 0}}
+
+
+/* row1 */
+
+.row1 {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.row1 > * {
+    box-sizing: border-box;
+}
+
+.row1.gtr-uniform > * > :last-child {
+    margin-bottom: 0;
+}
+
+.row1.aln-left {
+    justify-content: flex-start;
+}
+
+.row1.aln-center {
+    justify-content: center;
+}
+
+.row1.aln-right {
+    justify-content: flex-end;
+}
+
+.row1.aln-top {
+    align-items: flex-start;
+}
+
+.row1.aln-middle {
+    align-items: center;
+}
+
+.row1.aln-bottom {
+    align-items: flex-end;
+}
+
+.row1 > .imp {
+    order: -1;
+}
+
+.row1 > .col-1 {
+    width: 8.33333%;
+}
+
+.row1 > .off-1 {
+    margin-left: 8.33333%;
+}
+
+.row1 > .col-2 {
+    width: 16.66667%;
+}
+
+.row1 > .off-2 {
+    margin-left: 16.66667%;
+}
+
+.row1 > .col-3 {
+    width: 25%;
+}
+
+.row1 > .off-3 {
+    margin-left: 25%;
+}
+
+.row1 > .col-4 {
+    width: 33.33333%;
+}
+
+.row1 > .off-4 {
+    margin-left: 33.33333%;
+}
+
+.row1 > .col-5 {
+    width: 41.66667%;
+}
+
+.row1 > .off-5 {
+    margin-left: 41.66667%;
+}
+
+.row1 > .col-6 {
+    width: 90%;
+}
+
+.row1 > .off-6 {
+    margin-left: 50%;
+}
+
+.row1 > .col-7 {
+    width: 58.33333%;
+}
+
+.row1 > .off-7 {
+    margin-left: 58.33333%;
+}
+
+.row1 > .col-8 {
+    width: 66.66667%;
+}
+
+.row1 > .off-8 {
+    margin-left: 66.66667%;
+}
+
+.row1 > .col-9 {
+    width: 75%;
+}
+
+.row1 > .off-9 {
+    margin-left: 75%;
+}
+
+.row1 > .col-10 {
+    width: 83.33333%;
+}
+
+.row1 > .off-10 {
+    margin-left: 83.33333%;
+}
+
+.row1 > .col-11 {
+    width: 91.66667%;
+}
+
+.row1 > .off-11 {
+    margin-left: 91.66667%;
+}
+
+.row1 > .col-12 {
+    width: 100%;
+}
+
+.row1 > .off-12 {
+    margin-left: 100%;
+}
+
+.row1.gtr-0 {
+    margin-top: 0;
+    margin-left: 0em;
+}
+
+.row1.gtr-0 > * {
+    padding: 0 0 0 0em;
+}
+
+.row1.gtr-0.gtr-uniform {
+    margin-top: 0em;
+}
+
+.row1.gtr-0.gtr-uniform > * {
+    padding-top: 0em;
+}
+
+.row1.gtr-25 {
+    margin-top: 0;
+    margin-left: -0.625em;
+}
+
+.row1.gtr-25 > * {
+    padding: 0 0 0 0.625em;
+}
+
+.row1.gtr-25.gtr-uniform {
+    margin-top: -0.625em;
+}
+
+.row1.gtr-25.gtr-uniform > * {
+    padding-top: 0.625em;
+}
+
+.row1.gtr-50 {
+    margin-top: 0;
+    margin-left: -1.25em;
+}
+
+.row1.gtr-50 > * {
+    padding: 0 0 0 1.25em;
+}
+
+.row1.gtr-50.gtr-uniform {
+    margin-top: -1.25em;
+}
+
+.row1.gtr-50.gtr-uniform > * {
+    padding-top: 1.25em;
+}
+
+.row1 {
+    margin-top: 0;
+    margin-left: -2.5em;
+}
+
+.row1 > * {
+    padding: 0 0 0 2.5em;
+}
+
+.row1.gtr-uniform {
+    margin-top: -2.5em;
+}
+
+.row1.gtr-uniform > * {
+    padding-top: 2.5em;
+}
+
+.row1.gtr-150 {
+    margin-top: 0;
+    margin-left: -3.75em;
+}
+
+.row1.gtr-150 > * {
+    padding: 0 0 0 3.75em;
+}
+
+.row1.gtr-150.gtr-uniform {
+    margin-top: -3.75em;
+}
+
+.row1.gtr-150.gtr-uniform > * {
+    padding-top: 3.75em;
+}
+
+.row1.gtr-200 {
+    margin-top: 0;
+    margin-left: -5em;
+}
+
+.row1.gtr-200 > * {
+    padding: 0 0 0 5em;
+}
+
+.row1.gtr-200.gtr-uniform {
+    margin-top: -5em;
+}
+
+.row1.gtr-200.gtr-uniform > * {
+    padding-top: 5em;
+}
