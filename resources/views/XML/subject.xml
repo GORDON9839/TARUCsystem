@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SubjectList>
+  <Subject subject_id="4" subject_code="BASC 3185">
+    <subject_name>Integrative Programming</subject_name>
+    <credit_hour>3</credit_hour>
+  </Subject>
+  <Subject subject_id="5" subject_code="MPU1563">
+    <subject_name>Entreprenuership</subject_name>
+    <credit_hour>3</credit_hour>
+  </Subject>
+</SubjectList>

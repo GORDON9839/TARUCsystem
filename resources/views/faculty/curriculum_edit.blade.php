@@ -65,86 +65,73 @@ and open the template in the editor.
 
     <!-- Main -->
     <div id="main" class="wrapper style1">
-
         <div class="container">
+
             <header class="major">
 
-                <h2>Programme List</h2>
+                <h2>Modify Programme Details</h2>
 
             </header>
 
             <!-- Content -->
             <section id="content">
-                    @csrf
                 @if(\Session::has('success'))
                     <div class="alert alert-success">
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
-                    <table class="alt">
-                        <thead>
-                        <tr>
-                            <th align="center">Programme Code</th>
-                            <th align="center">Programme Name</th>
-                            <th align="center">Programme Description</th>
-                            <th align="center">Faculty</th>
-                            <th align="center">Action</th>
+                <div class="row">
+                    <div class="col-6 col-12-xsmall">
+
+                        <form method="POST" action="{{action('curriculumsController@update',$id)}}">
+                            @csrf
+                            <input name="_method" type="hidden" value="PATCH">
+                        <ul class="alt">
+                            <table></tr>
+                                <tr>
+                                    <td align="center"><label for="curriculum_name">Curriculum Name</label></td>
+                                    <td><input type="text" name="curriculum_name" value="{{$curriculum->curriculum_name}}" required/></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><label for="curriculum_uni">Professional Curriculum University</label></td>
+                                    <td><input type="text" name="curriculum_uni" value="{{$curriculum->curriculum_uni}}" required/></td>
+                                </tr>
+                                <tr>
+                                    <td align="center"><label for="curriculum_desc">Professional Curriculum Description</label></td>
+                                    <td><input type="text" name="curriculum_desc" value="{{$curriculum->curriculum_desc}}" required/></td>
+                                </tr>
 
 
-                        </tr>
-                        </thead>
-                        <tbody>
 
-                        <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/programme.xml") ;
-                        foreach($xmlprog as $prog){
-                            ?>
-                            <tr>
-                                <td align="center">
-                                    <?php $progattr=$prog->attributes(); echo $progattr['programme_code'];?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_name;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->programme_desc;?>
-                                </td>
-                                <td align="center">
-                                    <?php echo $prog->faculty;?>
-                                </td>
-                                <td align="center">
+                                <tr><td align="center">
 
+                                        <input type="submit" value="Submit" onclick="return confirm('Are you sure to modify?')" class="button primary"/>
 
-                                        <a href="{{action('programmesController@show',$progattr['programme_id'])}}" class="button primary small">View Details</a>
+                                    </td></tr>
+                            </table>
+                        </ul></form>
+                        <!--                </xsl:if>-->
 
+                    </div>
+                </div>
+            </section>
 
-                                </td>
-
-
-                            </tr>
-                            <?php } ?>
-
-                        </tbody>
-
-                    </table>
-
-        <br/>
-        </section>
+        </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer id="footer">
-    <ul class="icons">
-        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-        <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-        <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-    </ul>
-</footer>
+    <!-- Footer -->
+    <footer id="footer">
+        <ul class="icons">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
 </div>
 
 

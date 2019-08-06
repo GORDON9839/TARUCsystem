@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CampusOfferedList>
+  <CampusOffered campus_id="1">
+    <campus_name>Kuala Lumpur Main Campus</campus_name>
+    <campus_desc>Nice Place</campus_desc>
+    <campus_address>Setapak, Kuala Lumpur</campus_address>
+  </CampusOffered>
+  <CampusOffered campus_id="2">
+    <campus_name>Penang branch Campus</campus_name>
+    <campus_desc>Nice Place</campus_desc>
+    <campus_address>Tanjung Bungah, Penang</campus_address>
+  </CampusOffered>
+</CampusOfferedList>
