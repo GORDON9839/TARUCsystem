@@ -2,12 +2,27 @@
 <CampusOfferedList>
   <CampusOffered campus_id="1">
     <campus_name>Kuala Lumpur Main Campus</campus_name>
-    <campus_desc>Nice Place</campus_desc>
+    <campus_desc>Hi, This is a good capus</campus_desc>
     <campus_address>Setapak, Kuala Lumpur</campus_address>
   </CampusOffered>
   <CampusOffered campus_id="2">
-    <campus_name>Penang branch Campus</campus_name>
-    <campus_desc>Nice Place</campus_desc>
+    <campus_name>Penang Branch Campus</campus_name>
+    <campus_desc>This is a small cute campus</campus_desc>
     <campus_address>Tanjung Bungah, Penang</campus_address>
+  </CampusOffered>
+  <CampusOffered campus_id="3">
+    <campus_name>Perak Branch Campus</campus_name>
+    <campus_desc>Most relax campus</campus_desc>
+    <campus_address>Kampar, Perak</campus_address>
+  </CampusOffered>
+  <CampusOffered campus_id="4">
+    <campus_name>Johor Branch Campus</campus_name>
+    <campus_desc>at JB</campus_desc>
+    <campus_address>Segamat, Johor</campus_address>
+  </CampusOffered>
+  <CampusOffered campus_id="5">
+    <campus_name>Pahang Branch</campus_name>
+    <campus_desc>at Pahang</campus_desc>
+    <campus_address>Pahang</campus_address>
   </CampusOffered>
 </CampusOfferedList>

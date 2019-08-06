@@ -11,10 +11,13 @@ class subjectsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $subject = subject::all();
 //
         $xmls = new \DOMDocument("1.0","UTF-8");

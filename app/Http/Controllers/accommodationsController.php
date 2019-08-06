@@ -15,8 +15,9 @@ class accommodationsController extends Controller
      */
     public function index(Request $request)
     {
+
         $request->user()->authorizeRoles(['admin']);
-//
+        $request->user()->authorizeType(['faculty']);
         return view('accommodation_create');
     }
     public function __construct()

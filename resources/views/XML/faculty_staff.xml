@@ -16,7 +16,7 @@
     <email>thm@gmail.com</email>
     <department_id/>
     <faculty_id>2</faculty_id>
-    <role>admin</role>
+    <role>staff</role>
   </FacultyStaff>
   <FacultyStaff user_id="6">
     <id>6</id>

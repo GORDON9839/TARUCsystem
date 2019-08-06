@@ -1,4 +1,4 @@
-@extends('layouts.faculty_admin')
+@extends('layouts.faculty_staff')
 @section('content')
     <!-- Main -->
     <div id="main" class="wrapper style1">
@@ -45,7 +45,7 @@
                                     <td align="center">{{$staff->email}}</td>
                                     <td align="center"><form action="{{action('faculty_staffController@update',$staff->id)}}" method="post">
                                             @csrf
-                                            {{ method_field('PUT') }}
+
 
                                             <select class="form-control" name="role" id="role" onchange="this.form.submit()">
                                             @if($staff->role == "admin")
@@ -55,7 +55,8 @@
                                                 <option value="admin"  >ADMIN</option>
                                                 <option value="staff" selected="selected" >STAFF</option>
                                                 @endif
-                                                {{$staff->role}}</select></td>
+                                                {{$staff->role}}</select>
+                                        </form></td>
                                     </form>
                                     <td align="center">{{$belongs_to}}</td>
 

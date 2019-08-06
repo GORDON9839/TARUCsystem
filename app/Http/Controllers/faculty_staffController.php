@@ -12,9 +12,11 @@ use Illuminate\Http\Request;
 class faculty_staffController
 {
 
-        function index()
+        function index(Request $request)
         {
 
+            $request->user()->authorizeRoles(['admin','staff']);
+            $request->user()->authorizeType(['faculty']);
             //create xml file
             $users = user::whereNotNull("faculty_id")->get();
 
@@ -41,7 +43,6 @@ class faculty_staffController
                     $xmlstaff->appendChild($xmlstaffdepartment_id);
                     $xmlstaff->appendChild($xmlstafffaculty_id);
                     $xmlstaff->appendChild($xmlstaffrole);
-
                     $xmluser->appendChild($xmlstaff);
 
                 $xml->appendChild($xmluser);
@@ -57,7 +58,10 @@ class faculty_staffController
 //        $user->updated_at=Carbon::now()->toDateTime();
             $user->save();
             echo "<script type='text/javascript'>alert('Update Successfully!!');</script>";
-            return redirect('faculty_manage_staff');
+            return redirect('managestaff');
+        }
+        public function store(){
+
         }
 
 }

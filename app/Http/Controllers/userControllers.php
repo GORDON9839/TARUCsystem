@@ -27,7 +27,7 @@ class userControllers
         foreach ($users as $u){
             $xmlstaff=$xml->createElement('staff');
             $xmlstaffid=$xml->createElement('id',$u->staff_id);
-            $xmlstaffname=$xml->createElement('name',$u->staff_name);
+            $xmlstaffname=$xml->createElement('name',$u->name);
             $xmlstaffemail=$xml->createElement('email',$u->email);
             $xmlstaffremember_token=$xml->createElement('remember_token',$u->remember_token);
             $xmlstaffdepartment_id=$xml->createElement('department_id',$u->department_id);
@@ -50,7 +50,7 @@ class userControllers
 
 
 
-        return view('manage_staff',compact('faculty'),compact('department'));
+        return view('/faculty/faculty_manage_staff',compact('faculty'),compact('department'));
 
     }
     protected function create(array $data)
@@ -91,6 +91,6 @@ class userControllers
 //        $user->updated_at=Carbon::now()->toDateTime();
         $user->save();
         echo "<script type='text/javascript'>alert('Update Successfully!!');</script>";
-        return redirect('user');
+        return redirect('managestaff');
     }
 }
