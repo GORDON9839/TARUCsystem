@@ -18,6 +18,9 @@ class CreateAccommodationsTable extends Migration
             $table->string('accommodation_name');
             $table->string('accommodation_address');
             $table->double('fees');
+            $table->integer('total_room');
+            $table->integer('rent_number');
+            $table->string('accommodation_type');
             $table->unsignedBigInteger('campus_id');
             $table->foreign('campus_id')->references('campus_id')->on('campuses');
         });

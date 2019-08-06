@@ -2,81 +2,89 @@
 
 namespace App\Http\Controllers;
 
+use App\level_of_study;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class level_of_studiesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $levelstudy = level_of_study::all();
+//
+        $xmlls = new \DOMDocument("1.0","UTF-8");
+        $xmlls->formatOutput=true;
+        $xmllevelstudy =$xmlls->createElement('LevelStudyList');
+        foreach($levelstudy as $cam){
+            $xmllss=$xmlls->createElement('LevelStudy');
+            $xmlcamname=$xmlls->createElement('level_of_study_name',$cam->level_of_study_name);
+
+            $xmllss->setAttribute('level_of_study_id',$cam->level_of_study_id);
+            $xmllss->appendChild($xmlcamname);
+            $xmllevelstudy->appendChild($xmllss);
+        }
+        $xmlls->appendChild($xmllevelstudy);
+        $xmlls->save("/xampp/htdocs/TARUCsystem/resources/views/XML/levelstudy.xml");
+        return view('department/levelstudy_view');
+        // return view('accommodation_create');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('department/levelstudy_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'level_of_study_name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', $validator->messages()->first());
+            return redirect()->back()->withInput();
+        }else {
+            $cam = new level_of_study();
+            $cam->level_of_study_name = $request->get('level_of_study_name');
+            $cam->timestamps = false;
+            $cam->save();
+            return redirect('levelstudy/create')->with('success', 'Information has been added');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $levelstudy= level_of_study::where('level_of_study_id',$id)->first();
+        return view('department/levelstudy_view_detail',compact('levelstudy','id'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $levelstudy= level_of_study::where('level_of_study_id',$id)->first();
+        return view('department/levelstudy_edit',compact('levelstudy','id'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'level_of_study_name' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', $validator->messages()->first());
+            return redirect()->back()->withInput();
+        }else {
+            $cam = level_of_study::find($id);
+
+            $cam->level_of_study_name = $request->get('level_of_study_name');
+            $cam->timestamps = false;
+            $cam->save();
+
+            return \Redirect::route('levelstudy.show', array('id' => $id))->with('success', 'Information has been modify');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

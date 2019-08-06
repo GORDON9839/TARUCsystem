@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Faculties>
-  <Faculty FacultyID="1" FacultyShortName="FOCS">
-    <FacultyName>Faculty Of Computer Science</FacultyName>
-    <Description>haha</Description>
+
+<FacultyList>
+  <Faculty faculty_id="16">
+    <faculty_name>Faculty Of Communication and Creative Industries 2</faculty_name>
+    <faculty_desc>Criticality, Creativity and Communication</faculty_desc>
+    <faculty_short_name>FOCI</faculty_short_name>
   </Faculty>
-  <Faculty FacultyID="2" FacultyShortName="FAFB">
-    <FacultyName>Faculty of Food and Beverage</FacultyName>
-    <Description>It is a good faculty with bunch of programmer.</Description>
+  <Faculty faculty_id="18">
+    <faculty_name>Faculty Of Built Environment</faculty_name>
+    <faculty_desc>123456789</faculty_desc>
+    <faculty_short_name>FOBE</faculty_short_name>
+
   </Faculty>
-</Faculties>
+</FacultyList>
