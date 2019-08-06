@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FacultiesList>
+<userFacultiesList>
   <Faculty faculty_id="1">
     <faculty_name>Faculty of computing and science</faculty_name>
     <faculty_short_name>focs</faculty_short_name>
@@ -10,4 +10,9 @@
     <faculty_short_name>FAFB</faculty_short_name>
     <faculty_desc>finance and business woihh</faculty_desc>
   </Faculty>
-</FacultiesList>
+  <Faculty faculty_id="3">
+    <faculty_name>faculty of applied science and humanity</faculty_name>
+    <faculty_short_name>FSAH</faculty_short_name>
+    <faculty_desc>nice laaaaa</faculty_desc>
+  </Faculty>
+</userFacultiesList>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ProgrammesList>
+<userProgrammesList>
   <Programme programme_id="1" programme_code="RSF">
     <programme_name>Software Engineering</programme_name>
     <programme_desc>become a software engineer</programme_desc>
@@ -10,7 +10,8 @@
     <MER_STPM>5</MER_STPM>
     <MER_UEC>5</MER_UEC>
     <MER_desc>normal requirement yo</MER_desc>
+    <level_of_study_name>degree</level_of_study_name>
     <faculty_name>Faculty of computing and science</faculty_name>
     <fees>5000</fees>
   </Programme>
-</ProgrammesList>
+</userProgrammesList>

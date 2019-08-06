@@ -47,67 +47,75 @@ and open the template in the editor.
 
     <!-- Main -->
     <div id="main" class="wrapper style1">
+
         <div class="container">
-            <h2 style="text-align: center">Programme Details</h2>
+            <h2 style="text-align: center">Shortlist Filter</h2>
 
             <!-- Content -->
             <section id="content">
+                @csrf
                 @if(\Session::has('success'))
                     <div class="alert alert-success">
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
-                <div class="row">
-                    <div class="col-12 col-12-xsmall">
 
-                        <ul class="alt">
-                            <table>
-                                <tr><td align="center">Programme Name</td>
-                                    <td>{{$programmes->programme_name}}</td>
+                <form action="{{action('userProgrammesController@index')}}" method="post">
+                    @csrf
+                    {{--shortlist filter part--}}
 
-                                <tr><td align="center">Programme Description</td>
-                                    <td> {{$programmes->programme_desc}}</td>
-
-                                <tr><td align="center">Duration(Full Time)</td>
-                                    <td> {{$programmes->fulltime_duration}}</td>
-
-                                <tr><td align="center">Duration(Part Time)</td>
-                                    <td> {{$programmes->parttime_duration}}</td>
-
-                                <tr><td align="center">Level of Study</td>
-                                    <td> {{$level_of_study->level_of_study_name}}</td>
-
-                                <tr><td align="center">Faculty</td>
-                                    <td> {{$faculty->faculty_name}}</td>
-
-                                <tr><td align="center">Professional Certification</td>
-                                    <td> {{$programmes->professional_certification}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (SPM)</td>
-                                    <td> {{$programmes->MER_SPM}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (STPM)</td>
-                                    <td> {{$programmes->MER_STPM}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (UEC)</td>
-                                    <td> {{$programmes->MER_UEC}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement Description</td>
-                                    <td> {{$programmes->MER_desc}}</td>
-
-                                <tr><td align="center">Fees</td>
-                                    <td>RM {{$programmes->fees}}</td>
-
-                                <tr><td align="center">Campuses Offered</td>
-                                    <td>{{$campusnameliststring}}</td>
-
-                            </table>
-                        </ul>
-                        <!--                </xsl:if>-->
-
+                    {{--faculty dropdown--}}
+                    <div style="width: 20%; display: inline-block">
+                        <label for="faculty" style="display: initial">Faculty</label>
+                        <select id="dropdownfaculty" name="faculty" style="width: 250px;">
+                            <option value="Any">Any</option>
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmlfac = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userFaculty.xml") or die("No reults found.");
+                            foreach($xmlfac as $fac){
+                            $facattr = $fac->attributes();
+                            ?>
+                            <option value="<?php echo $facattr['faculty_id'];?>"><?php echo $fac->faculty_name;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
-                </div>
-            </section>
 
+                    {{--level of study dropdown--}}
+                    <div style="width: 20%; display: inline-block">
+                        <label for="level_of_study" style="display: initial">Level of Study</label>
+                        <select id="dropdownlevel_of_study" name="level_of_study" style="width: 250px">
+                            <option value="Any">Any</option>
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmllevos = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userLevelOfStudy.xml") or die("No reults found.");
+                            foreach($xmllevos as $levos){
+                            $levosattr = $levos->attributes();
+                            ?>
+                            <option value="<?php echo $levosattr['level_of_study_id'];?>"><?php echo $levos->level_of_study_name;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    {{--campus dropdown--}}
+                    <div style="width: 20%; display: inline-block">
+                        <label for="campus" style="display: initial">Campus</label>
+                        <select id="dropdowncampus" name="campus" style="width: 250px">
+                            <option value="Any">Any</option>
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userCampus.xml") or die("No reults found.");
+                            foreach($xmlcam as $cam){
+                            $camattr = $cam->attributes();
+                            ?>
+                            <option value="<?php echo $camattr['campus_id'];?>"><?php echo $cam->campus_name;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    {{--shortlist button--}}
+                    <div style="width: 20%; display: inline-block">
+                        <input type="submit" value="Shortlist">
+                    </div>
+                </form>
+
+                <br/>
+            </section>
         </div>
     </div>
 
@@ -126,6 +134,8 @@ and open the template in the editor.
         </ul>
     </footer>
 </div>
+
+
 <!-- Scripts -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>

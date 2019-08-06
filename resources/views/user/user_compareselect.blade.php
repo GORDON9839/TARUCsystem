@@ -47,67 +47,73 @@ and open the template in the editor.
 
     <!-- Main -->
     <div id="main" class="wrapper style1">
+
         <div class="container">
-            <h2 style="text-align: center">Programme Details</h2>
+            <h2 style="text-align: center">Compare Programmes</h2>
 
             <!-- Content -->
             <section id="content">
+                @csrf
                 @if(\Session::has('success'))
                     <div class="alert alert-success">
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
-                <div class="row">
-                    <div class="col-12 col-12-xsmall">
 
-                        <ul class="alt">
-                            <table>
-                                <tr><td align="center">Programme Name</td>
-                                    <td>{{$programmes->programme_name}}</td>
+                <form action="{{action('userCompareresultController@index')}}" method="post">
+                    @csrf
+                    {{--shortlist filter part--}}
 
-                                <tr><td align="center">Programme Description</td>
-                                    <td> {{$programmes->programme_desc}}</td>
-
-                                <tr><td align="center">Duration(Full Time)</td>
-                                    <td> {{$programmes->fulltime_duration}}</td>
-
-                                <tr><td align="center">Duration(Part Time)</td>
-                                    <td> {{$programmes->parttime_duration}}</td>
-
-                                <tr><td align="center">Level of Study</td>
-                                    <td> {{$level_of_study->level_of_study_name}}</td>
-
-                                <tr><td align="center">Faculty</td>
-                                    <td> {{$faculty->faculty_name}}</td>
-
-                                <tr><td align="center">Professional Certification</td>
-                                    <td> {{$programmes->professional_certification}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (SPM)</td>
-                                    <td> {{$programmes->MER_SPM}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (STPM)</td>
-                                    <td> {{$programmes->MER_STPM}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement (UEC)</td>
-                                    <td> {{$programmes->MER_UEC}}</td>
-
-                                <tr><td align="center">Minimum Entry Requirement Description</td>
-                                    <td> {{$programmes->MER_desc}}</td>
-
-                                <tr><td align="center">Fees</td>
-                                    <td>RM {{$programmes->fees}}</td>
-
-                                <tr><td align="center">Campuses Offered</td>
-                                    <td>{{$campusnameliststring}}</td>
-
-                            </table>
-                        </ul>
-                        <!--                </xsl:if>-->
-
+                    {{--first dropdown--}}
+                    <div style="width: 25%; display: inline-block">
+                        <label for="comparefirst" style="display: initial">Select a programme: (required)</label>
+                        <select id="dropdownfirst" name="comparefirst" style="width: 300px;">
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml") or die("No results found.");
+                            foreach($xmlprog as $prog){
+                            $progattr = $prog->attributes();
+                            ?>
+                            <option value="<?php echo $progattr['programme_id'];?>"><?php echo $prog->programme_name;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
-                </div>
-            </section>
 
+                    {{--second dropdown--}}
+                    <div style="width: 25%; display: inline-block">
+                        <label for="comparesecond" style="display: initial">Select a programme: (required)</label>
+                        <select id="dropdownsecond" name="comparesecond" style="width: 300px">
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml") or die("No results found.");
+                            foreach($xmlprog as $prog){
+                            $progattr = $prog->attributes();
+                            ?>
+                            <option value="<?php echo $progattr['programme_id'];?>"><?php echo $prog->programme_name;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    {{--third dropdown--}}
+                    <div style="width: 25%; display: inline-block">
+                        <label for="comparethird" style="display: initial">Select a programme: (optional)</label>
+                        <select id="dropdowncampus" name="comparethird" style="width: 300px">
+                            <option value="None">None</option>
+                            {{--get xml data required for options in dropdown lists--}}
+                            <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml") or die("No results found.");
+                            foreach($xmlprog as $prog){
+                            $progattr = $prog->attributes();
+                            ?>
+                            <option value="<?php echo $progattr['programme_id'];?>"><?php echo $prog->programme_name;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+
+                    {{--shortlist button--}}
+                    <div style="width: 20%; display: inline-block">
+                        <input type="submit" value="Compare">
+                    </div>
+                </form>
+
+                <br/>
+            </section>
         </div>
     </div>
 
@@ -126,6 +132,8 @@ and open the template in the editor.
         </ul>
     </footer>
 </div>
+
+
 <!-- Scripts -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>

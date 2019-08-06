@@ -28,7 +28,11 @@ Route::resource('staffhome','staffhomeController');
 
 //Route::resource('userviewprogrammes', 'user_viewprogrammes');
 Route::resource('userProgrammesController', 'userProgrammesController');
-//Route::resource('userFacultiesController', 'userFacultiesController');
+//Route::view('/user_shortlistfilter', 'user_shortlistfilter');
+
+Route::resource('userShortlistfilterController', 'userShortlistfilterController');
+Route::resource('userCompareselectController', 'userCompareselectController');
+Route::resource('userCompareresultController', 'userCompareresultController');
 
 //Route::get('userviewprogrammes', function(){
 //    return view('user/user_viewprogrammes');

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CampusesList>
+<userCampusesList>
   <Campus campus_id="1">
     <campus_name>KL</campus_name>
     <campus_desc/>
@@ -15,4 +15,4 @@
     <campus_desc/>
     <campus_address>johor state</campus_address>
   </Campus>
-</CampusesList>
+</userCampusesList>

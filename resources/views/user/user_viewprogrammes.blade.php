@@ -59,70 +59,32 @@ and open the template in the editor.
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
 
-                {{--shortlist filter part--}}
-                <h3>Shortlist by:</h3>
 
-                {{--faculty dropdown--}}
-                <div style="width: 270px; display: inline-block">
-                <label for="faculty" style="display: initial">Faculty</label>
-                <select id="dropdownfaculty" name="faculty" style="width: 250px;">
-                    <option value="any">Any</option>
-                    {{--get xml data required for options in dropdown lists--}}
-                    <?php $xmlfac = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userFaculty.xml") or die("Failed to load");
-                    foreach($xmlfac as $fac){
-                    $facattr = $fac->attributes();
-                    ?>
-                    <option value="<?php echo $facattr['faculty_id'];?>"><?php echo $fac->faculty_name;?></option>
-                        <?php } ?>
-                </select>
+                {{--shortlist and compare button--}}
+                <div style="width: 65%; display: inline-block">
+                    Faculty: <b>{{$_SESSION["userFaculty_short_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    Level of Study: <b>{{$_SESSION["userLevel_of_study_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    Campus: <b>{{$_SESSION["userCampus_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    Results: <b><?php use App\XSLTTransformation;
+                        $xslttrans = new XSLTTransformation('/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml', '/xampp/htdocs/TARUCsystem/resources/views/xslt/userProgrammes.xsl'); ?></b>
                 </div>
-
-                {{--level of study dropdown--}}
-                <div style="width: 270px; display: inline-block">
-                <label for="level_of_study" style="display: initial">Level of Study</label>
-                <select id="dropdownlevel_of_study" name="level_of_study" style="width: 250px">
-                    <option value="any">Any</option>
-                    {{--get xml data required for options in dropdown lists--}}
-                    <?php $xmllevos = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userLevelOfStudy.xml") or die("Failed to load");
-                    foreach($xmllevos as $levos){
-                    $levosattr = $levos->attributes();
-                    ?>
-                    <option value="<?php echo $levosattr['level_of_study_id'];?>"><?php echo $levos->level_of_study_name;?></option>
-                    <?php } ?>
-                </select>
+                <?php if($_SESSION["userFaculty_short_name"] != "Any" || $_SESSION["userLevel_of_study_name"] != "Any" || $_SESSION["userCampus_name"] != "Any") { ?>
+                    <div style="width: 10%; display: inline-block">
+                        <a href="" class="button small" style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
+                    </div>
+                <?php } else { ?>
+                    <div style="width: 10%; display: inline-block"></div>
+                <?php } ?>
+                <div style="width: 10%; display: inline-block">
+                    <a href="{{action('userShortlistfilterController@index')}}" class="button primary small">Shortlist</a>
                 </div>
-
-                {{--campus dropdown--}}
-                <div style="width: 270px; display: inline-block">
-                    <label for="campus" style="display: initial">Campus</label>
-                    <select id="dropdowncampus" name="campus" style="width: 250px">
-                        <option value="any">Any</option>
-                        {{--get xml data required for options in dropdown lists--}}
-                        <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userCampus.xml") or die("Failed to load");
-                        foreach($xmlcam as $cam){
-                        $camattr = $cam->attributes();
-                        ?>
-                        <option value="<?php echo $camattr['campus_id'];?>"><?php echo $cam->campus_name;?></option>
-                        <?php } ?>
-                    </select>
+                <div style="width: 10%; display: inline-block">
+                    <a href="{{action('userCompareselectController@index')}}" class="button primary small">Compare</a>
                 </div>
-
-                {{--shortlist button--}}
-                <div style="width: 270px; display: inline-block">
-                    <button onclick="shortlistFuntion()" class="button primary small">Shortlist</button>
-                </div>
-
-                <script>
-                    function shortlistFunction() {
-                        var facultyId = document.getElementById("dropdownfaculty").value;
-                        var level_of_studyId = document.getElementById("dropdownlevel_of_study").value;
-                        var campusId = document.getElementById("dropdowncampus").value;
-                        var arrayProg;
-
-                    }
-                </script>
-
                 <br/><br/>
+
+                {{--get programme list from XML--}}
+                <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml") or die("No results found.");?>
 
                 {{--table for programme list--}}
                 <table class="alt">
@@ -135,9 +97,8 @@ and open the template in the editor.
                     </thead>
                     <tbody>
 
-                    <?php $xmlprog = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml") or die("Failed to load");
-                    foreach($xmlprog as $prog){
-                    $progattr = $prog->attributes();
+                    <?php foreach($xmlprog as $prog){
+                        $progattr = $prog->attributes();
                     ?>
                     <tr>
                         <td align="center">
