@@ -146,11 +146,20 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center" style="width: 20%; text-align: right"><b>Fees</b></td>
-                                    <td>RM {{$prog1->fees}}</td>
-                                    <td>RM {{$prog2->fees}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Fees (Local)</b></td>
+                                    <td>RM {{$prog1->fee_local}}</td>
+                                    <td>RM {{$prog2->fee_local}}</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->fees}}</td>
+                                    <td width="20%">{{$prog3->fee_local}}</td>
+                                    <?php } else { ?>
+                                    <td width="20%">-</td>
+                                <?php } ?>
+
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Fees (International)</b></td>
+                                    <td>RM {{$prog1->fee_international}}</td>
+                                    <td>RM {{$prog2->fee_international}}</td>
+                                    <?php if ($prog3 != null) { ?>
+                                    <td width="20%">{{$prog3->fee_international}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
