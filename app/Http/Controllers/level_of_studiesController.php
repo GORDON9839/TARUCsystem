@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Validator;
 class level_of_studiesController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $levelstudy = level_of_study::all();
 //
         $xmlls = new \DOMDocument("1.0","UTF-8");

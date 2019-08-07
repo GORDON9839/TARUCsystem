@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 
-class userControllers
+class userControllers extends Controller
 {
     function index(Request $request){
 
+        $request->user()->authorizeRoles('admin');
         $faculty = faculty::all();
         $department = department::all();
         //create xml file
@@ -48,9 +49,7 @@ class userControllers
         $xml->appendChild($xmluser);
         $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml");
 
-
-
-        return view('/faculty/faculty_manage_staff',compact('faculty'),compact('department'));
+                return view('manage_staff', compact('faculty'), compact('department'));
 
     }
     protected function create(array $data)
@@ -82,7 +81,8 @@ class userControllers
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
-    public function update(Request $request,$id){
+    public function update(Request $request,$id)
+    {
 
 
         $user = user::find($id);
@@ -90,7 +90,10 @@ class userControllers
         $user->role = $request->get('role');
 //        $user->updated_at=Carbon::now()->toDateTime();
         $user->save();
-        echo "<script type='text/javascript'>alert('Update Successfully!!');</script>";
+
         return redirect('managestaff');
     }
+ public function store(){
+
+ }
 }

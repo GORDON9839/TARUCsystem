@@ -20,15 +20,7 @@ Route::get('/', function () {
 
 
 
-Route::resource('faculty','FacultiesController');
-Route::resource('facility','facilities_listsController');
-Route::resource('department','DepartmentController');
-Route::resource('levelstudy','level_of_studiesController');
-Route::resource('loan','loansController');
-Route::resource('fee','setfeeController');
-Route::resource('loanlist','loanlistController');
-Route::resource('campus','campusesController');
-Route::resource('accommodation','accommodationsController');
+
 //go controller
 Route::get('user_home',function(){
     return view('user\homepage');
@@ -48,7 +40,7 @@ Route::get('staff.register',function(){
 });
 
 
-//only authenticated user can access this file
+//only authenticated user can access these file
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/faculty/faculty_adminhomepage',function(){
@@ -58,13 +50,22 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('subject','subjectsController');
     Route::resource('accommodations','accommodationsController');
     Route::resource('registration','Auth\RegisterController');
-    Route::resource('staff','userControllers');
     Route::resource('faculty_manage_staff','faculty_staffController');
     Route::resource('structure','structuresController');
     Route::resource('curriculum','curriculumsController');
     Route::resource('allstructure','allstructureController');
     Route::resource('campusoffered','programme_listsController');
     Route::resource('managestaff','userControllers');
+    Route::resource('manage_facultystaff','userControllers');
+    Route::resource('faculty','FacultiesController');
+    Route::resource('facility','facilities_listsController');
+    Route::resource('department','DepartmentController');
+    Route::resource('levelstudy','level_of_studiesController');
+    Route::resource('loan','loansController');
+    Route::resource('fee','setfeeController');
+    Route::resource('loanlist','loanlistController');
+    Route::resource('campus','campusesController');
+    Route::resource('accommodation','accommodationsController');
 });
 //Authentication route
 Auth::routes();

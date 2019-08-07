@@ -43,7 +43,7 @@
 
                                     <td align="center">{{$staff->name}}</td>
                                     <td align="center">{{$staff->email}}</td>
-                                    <td align="center"><form action="{{action('faculty_staffController@update',$staff->id)}}" method="post">
+                                    <td align="center"><form action="{{action('userControllers@update',$staff->id)}}" method="post">
                                             @csrf
 
 

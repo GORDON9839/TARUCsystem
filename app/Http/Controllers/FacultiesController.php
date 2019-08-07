@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Validator;
 class FacultiesController extends Controller
 {
 
-    public function index()
+    public function index(Reqeust $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $faculty = faculty::all();
 //
         $xmlf = new \DOMDocument("1.0","UTF-8");

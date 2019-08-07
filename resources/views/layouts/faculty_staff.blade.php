@@ -12,10 +12,14 @@
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
+        <h1 id="logo"><a href="#"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="{{action('userControllers@index')}}">Manage Staff</a></li>
+                <li><a href="#">Manage Staff</a>
+                <ul>
+                    <li> <a href="registration">Register staff</a></li>
+                    <li><a href="{{action('faculty_staffController@index')}}">Update role</a></li>
+                </ul></li>
                 <li>
                     <a href="#">Manage Programme</a>
                     <ul>

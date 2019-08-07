@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Validator;
 
 class setfeeController extends Controller
 {
-    public function index()
-    {
+    public function index(Request $request)
+    {$request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $fee = programme::all();
         $xmlb = new  \DOMDocument("1.0","UTF-8");
         $xmlb->formatOutput="true";

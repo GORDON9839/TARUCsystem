@@ -11,8 +11,10 @@ use Log;
 
 class facilities_listsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $facility = facility::all();
 
         $xmlfc = new \DOMDocument("1.0","UTF-8");

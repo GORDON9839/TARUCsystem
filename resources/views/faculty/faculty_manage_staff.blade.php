@@ -69,23 +69,8 @@
                             </table>
                         </ul>
                         <?php
+                            use App\XSLTTransformation;
 
-                        class XSLTTransformation
-                        {
-                            public function __construct($xmlfilename, $xslfilename)
-                            {
-                                $xml = new DOMDocument();
-                                $xml->load($xmlfilename);
-
-                                $xsl = new DOMDocument();
-                                $xsl->load($xslfilename);
-
-                                $proc = new XSLTProcessor();
-                                $proc->importStyleSheet($xsl);
-
-                                echo $proc->transformToXml($xml);
-                            }
-                        }
                         $count = new XSLTTransformation("/xampp/htdocs/TARUCsystem/resources/views/XML/faculty_staff.xml","/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl");
 
                         $count_staff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl") or die("Failed to load");

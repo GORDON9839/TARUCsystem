@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 class loanlistController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $loanlist = loan_list::all();
 
         $level = level_of_study::all();

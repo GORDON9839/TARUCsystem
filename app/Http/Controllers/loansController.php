@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Validator;
 
 class loansController extends Controller
 {
-    public function index()
+    public function index(Reqeust $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['department']);
         $loan = loan::all();
 //
         $xmlls = new \DOMDocument("1.0","UTF-8");
