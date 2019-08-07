@@ -14,7 +14,14 @@
     <header id="header">
         <h1 id="logo"><a href="#"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
-            <ul>
+            <ul><?php session_start(); ?>
+                @if(isset($_SESSION["staff"]) )
+                <li><p>{{$_SESSION["staff"]->getName() }} </p>
+                <ul>
+                    <li><p>Your are log in with {{$_SESSION["staff"]->getEmail() }}</p></li>
+                </ul>
+                    </li>
+                @endif
                 <li><a href="#">Manage Staff</a>
                 <ul>
                     <li> <a href="registration">Register staff</a></li>

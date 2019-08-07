@@ -60,13 +60,12 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('subject','subjectsController');
     Route::resource('accommodations','accommodationsController');
     Route::resource('registration','Auth\RegisterController');
-    Route::resource('faculty_manage_staff','faculty_staffController');
     Route::resource('structure','structuresController');
     Route::resource('curriculum','curriculumsController');
     Route::resource('allstructure','allstructureController');
     Route::resource('campusoffered','programme_listsController');
     Route::resource('managestaff','userControllers');
-    Route::resource('manage_facultystaff','userControllers');
+    Route::resource('manage_facultystaff','faculty_staffController');
     Route::resource('faculty','FacultiesController');
     Route::resource('facility','facilities_listsController');
     Route::resource('department','DepartmentController');

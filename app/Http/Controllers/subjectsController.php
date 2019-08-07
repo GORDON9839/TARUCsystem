@@ -115,7 +115,7 @@ class subjectsController extends Controller
 //        $res=subject::find($id)->delete();
 //        return redirect('subject')->with('success','Information has been deleted');
 //    }
-    public function index(){
+    public function index(Request $request){
   $request->user()->authorizeRoles(['admin','staff']);
         $request->user()->authorizeType(['faculty']);
         $subject = subject::all();
@@ -166,13 +166,13 @@ class subjectsController extends Controller
         $subject->update($request->all());
         $message="Information has been modify";
         $res=response()->json(array('msg',$message),200);
-        return view('faculty/subject_view',compact('res'));
+        return redirect('subject')->with('res',$res);
     }
     public function delete(Request $request,subject $subject){
         $subject->delete();
         $message="Information has been deleted";
         $res=response()->json(array('msg',$message),204);
-        return view('faculty/subject_view',compact('res'));
+        return redirect('subject')->with('res',$res);
     }
 
 }

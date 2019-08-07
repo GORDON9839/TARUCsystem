@@ -17,7 +17,7 @@ and open the template in the editor.
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
+        <h1 id="logo"><a href="user_home"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
                 <li>
@@ -26,7 +26,7 @@ and open the template in the editor.
                 <li>
                     <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+                <li><a href="login" class="button primary">Staff Login</a></li>
             </ul>
         </nav>
     </header>
@@ -55,7 +55,7 @@ and open the template in the editor.
                     Results: <b><?php use App\XSLTTransformation;
                         $xslttrans = new XSLTTransformation('/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml', '/xampp/htdocs/TARUCsystem/resources/views/xslt/userProgrammes.xsl'); ?></b>
                 </div>
-                <?php if($_SESSION["userFaculty_short_name"] != "Any" || $_SESSION["userLevel_of_study_name"] != "Any" || $_SESSION["userCampus_name"] != "Any") { ?>
+                <?php if($_SESSION["userFaculty_short_name"] != "Any" || $_SESSION["userLevel_of_study_name"] != "Any" || $_SESSION["userCampus_name"] != "Any" || $_SESSION["userSearch_keywords"] != "") { ?>
                     <div style="width: 10%; display: inline-block">
                         <a href="{{action('userProgrammesController@index')}}" class="button small" style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
                     </div>

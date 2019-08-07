@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <userProgrammesList>
-  <Programme programme_id="1" programme_code="RSF">
-    <programme_name>Software Engineering</programme_name>
-    <programme_desc>become a software engineer</programme_desc>
-    <fulltime_duration>3</fulltime_duration>
-    <parttime_duration>4</parttime_duration>
-    <profcer>Campbell</profcer>
-    <MER_SPM>5</MER_SPM>
-    <MER_STPM>5</MER_STPM>
-    <MER_UEC>5</MER_UEC>
-    <MER_desc>normal requirement yo</MER_desc>
-    <level_of_study_name>degree</level_of_study_name>
-    <faculty_name>Faculty of computing and science</faculty_name>
-    <fees>5000</fees>
-  </Programme>
-  <Programme programme_id="2" programme_code="bad">
-    <programme_name>business admin</programme_name>
-    <programme_desc>hahahaha</programme_desc>
-    <fulltime_duration>3</fulltime_duration>
-    <parttime_duration>4</parttime_duration>
-    <profcer>no</profcer>
-    <MER_SPM>2</MER_SPM>
-    <MER_STPM>3</MER_STPM>
-    <MER_UEC>4</MER_UEC>
-    <MER_desc>hmmmm</MER_desc>
-    <level_of_study_name>diploma</level_of_study_name>
-    <faculty_name>Faculty of finance and business</faculty_name>
-    <fees>300</fees>
-  </Programme>
-  <Programme programme_id="3" programme_code="gde">
-    <programme_name>graphics design</programme_name>
-    <programme_desc>design!!!!</programme_desc>
-    <fulltime_duration>3</fulltime_duration>
-    <parttime_duration>4</parttime_duration>
-    <profcer>yes</profcer>
-    <MER_SPM>1</MER_SPM>
-    <MER_STPM>1</MER_STPM>
-    <MER_UEC>2</MER_UEC>
-    <MER_desc>yeahhh</MER_desc>
-    <level_of_study_name>diploma</level_of_study_name>
-    <faculty_name>faculty of applied science and humanity</faculty_name>
-    <fees>4000</fees>
-  </Programme>
-  <Programme programme_id="4" programme_code="mtm">
-    <programme_name>multimedia</programme_name>
-    <programme_desc>videoooo</programme_desc>
+  <Programme programme_id="5" programme_code="RSD1">
+    <programme_name>Software System Development</programme_name>
+    <programme_desc>programmer field</programme_desc>
     <fulltime_duration>2</fulltime_duration>
     <parttime_duration>3</parttime_duration>
-    <profcer>no</profcer>
-    <MER_SPM>1</MER_SPM>
+    <profcer>2</profcer>
+    <MER_SPM>4</MER_SPM>
+    <MER_STPM>3</MER_STPM>
+    <MER_UEC>4</MER_UEC>
+    <MER_desc>English pass</MER_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="6" programme_code="RSF">
+    <programme_name>Algorithm Study</programme_name>
+    <programme_desc>programmer field</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>4</MER_SPM>
+    <MER_STPM>3</MER_STPM>
+    <MER_UEC>5</MER_UEC>
+    <MER_desc>English pass</MER_desc>
+    <level_of_study_name>Degree</level_of_study_name>
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="7" programme_code="RHT">
+    <programme_name>Hotel Management</programme_name>
+    <programme_desc>hotel field</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>NOTHING TO STUDY</profcer>
+    <MER_SPM>3</MER_SPM>
     <MER_STPM>2</MER_STPM>
     <MER_UEC>3</MER_UEC>
-    <MER_desc>come baliao</MER_desc>
-    <level_of_study_name>master</level_of_study_name>
-    <faculty_name>faculty of applied science and humanity</faculty_name>
-    <fees>2000</fees>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <level_of_study_name>Degree</level_of_study_name>
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
   </Programme>
 </userProgrammesList>

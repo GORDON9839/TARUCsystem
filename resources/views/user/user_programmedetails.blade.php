@@ -17,7 +17,7 @@ and open the template in the editor.
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
+        <h1 id="logo"><a href="user_home"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
                 <li>
@@ -26,7 +26,7 @@ and open the template in the editor.
                 <li>
                     <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+                <li><a href="login" class="button primary">Staff Login</a></li>
             </ul>
         </nav>
     </header>

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\staffClass\CreateStaff;
 use App\Http\Controllers\staffClass\DepartmentStaff;
 use App\Http\Controllers\staffClass\FacultyStaff;
 use App\User;
+use DemeterChain\C;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Controllers\staffClass\People;
+use Illuminate\Support\Facades\App;
 
 class LoginController extends Controller
 {
@@ -31,25 +34,29 @@ class LoginController extends Controller
 
         ]))
         {
+
             $user = User::where('email',$request->email)->first();
             //from user calss get check which is not null and return back to here
             $role = $user->get_role();
-            $_SESSION['role']=$role;
-            $_SESSION['type']=$user->get_type();
+
 
             //$request->session()->put('role',$role);
-
+            $staff = new CreateStaff();
             if($user->get_type() =="faculty"){
-                $_SESSION['staff']= new FacultyStaff($user->name,$user->email,$user->role);
+
+
+                $staff = new CreateStaff();
+                session_start();
                 // redirecting
                 if($role=="admin"){
+                    $_SESSION["staff"]= $staff->getStaff("faculty",$user->name,$user->email,$user->role);
                     return redirect("manage_facultystaff");
                 }elseif($role =="staff"){
                     return redirect('programmes');
 
                 }
             }elseif($user->get_type() =="department"){
-                $_SESSION['staff'] = new DepartmentStaff($user->name,$user->email,$user->role);
+                $_SESSION["staff"]= $staff->getStaff("admin",$user->name,$user->email,$user->role);
                 //redirecting
                 if($role=="admin"){
                     return redirect('managestaff');

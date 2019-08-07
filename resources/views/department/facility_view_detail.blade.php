@@ -1,29 +1,5 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-<head>
-    <title>View All Facility</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
-    <noscript><link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}" /></noscript>
-</head>
-<body class="is-preload">
-<div id="page-wrapper">
-@extends('layouts.department_staff)
+@extends('layouts.department_staff')
 @section('content')
-    <!-- Main -->
-    <div id="main" class="wrapper style1">
-        <div class="container">
-            <header class="major">
-                <h2>Facilities List</h2>
-
-            </header>
-
             <!-- Content -->
             <section id="content">
                 @if(\Session::has('success'))

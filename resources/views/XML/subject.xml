@@ -2,7 +2,7 @@
 <SubjectList>
   <Subject subject_id="1" subject_code="MPU-1234">
     <subject_name>Hubungan Etnik</subject_name>
-    <credit_hour>3</credit_hour>
+    <credit_hour>4</credit_hour>
   </Subject>
   <Subject subject_id="2" subject_code="BACS2066">
     <subject_name>Integrative Programming</subject_name>

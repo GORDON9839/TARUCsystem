@@ -11,16 +11,16 @@
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="images/logo2.png" alt="" /></a></h1>
+        <h1 id="logo"><a href="user_home"><img src="images/logo2.png" alt="" /></a></h1>
         <nav id="nav">
             <ul>
                         <li>
-                            <a href="#">View Programme</a>
+                            <a href="{{action('userProgrammesController@index')}}">View Programmes</a>
                         </li>
 
                 </li>
                 <li>
-                    <a href="#">Compare Programme</a>
+                    <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
                 <li>
 

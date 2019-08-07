@@ -83,8 +83,6 @@ class userControllers extends Controller
     }
     public function update(Request $request,$id)
     {
-
-
         $user = user::find($id);
 
         $user->role = $request->get('role');

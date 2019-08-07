@@ -6,7 +6,7 @@ namespace App\Http\Controllers\staffClass;
 
 class DepartmentStaff extends People
 {
-    private $type = "";
+
     private $name = "";
     private $email= "";
     private $role="";

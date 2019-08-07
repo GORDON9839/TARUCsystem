@@ -1,18 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <userCampusesList>
   <Campus campus_id="1">
-    <campus_name>KL</campus_name>
+    <campus_name>Kuala Lumpur Main Campus</campus_name>
     <campus_desc/>
-    <campus_address>kuala lumpur</campus_address>
+    <campus_address>Setapak, Kuala Lumpur</campus_address>
   </Campus>
   <Campus campus_id="2">
-    <campus_name>Perak</campus_name>
+    <campus_name>Penang Branch Campus</campus_name>
     <campus_desc/>
-    <campus_address>perak state</campus_address>
+    <campus_address>Tanjung Bungah, Penang</campus_address>
   </Campus>
   <Campus campus_id="3">
-    <campus_name>Johor</campus_name>
+    <campus_name>Perak Branch Campus</campus_name>
     <campus_desc/>
-    <campus_address>johor state</campus_address>
+    <campus_address>Kampar, Perak</campus_address>
+  </Campus>
+  <Campus campus_id="4">
+    <campus_name>Johor Branch Campus</campus_name>
+    <campus_desc/>
+    <campus_address>Segamat, Johor</campus_address>
+  </Campus>
+  <Campus campus_id="5">
+    <campus_name>Pahang Branch</campus_name>
+    <campus_desc/>
+    <campus_address>Pahang</campus_address>
   </Campus>
 </userCampusesList>

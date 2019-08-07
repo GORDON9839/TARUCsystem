@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class FacultiesController extends Controller
 {
 
-    public function index(Reqeust $request)
+    public function index(Request $request)
     {
         $request->user()->authorizeRoles(['admin','staff']);
         $request->user()->authorizeType(['department']);

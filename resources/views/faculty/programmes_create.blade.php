@@ -24,9 +24,9 @@
 
                             <div class="alert alert-danger">
                                 <ul>
-                                    @foreach($errors->all() as $err)
+                                    @error('programme_code')
                                         <li>{{$err}}</li>
-                                    @endforeach
+                                    @enderror
                                 </ul>
                             </div>
 

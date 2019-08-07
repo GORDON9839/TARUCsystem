@@ -1,1 +1,11 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
+<Faculties>
+  <Faculty FacultyID="1" FacultyShortName="FOCS">
+    <FacultyName>Faculty Of Computer Science</FacultyName>
+    <Description>haha</Description>
+  </Faculty>
+  <Faculty FacultyID="2" FacultyShortName="FAFB">
+    <FacultyName>Faculty of Food and Beverage</FacultyName>
+    <Description>It is a good faculty with bunch of programmer.</Description>
+  </Faculty>
+</Faculties>

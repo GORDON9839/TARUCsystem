@@ -48,7 +48,7 @@ class faculty_staffController
                 $xml->appendChild($xmluser);
                 $xml->save("/xampp/htdocs/TARUCsystem/resources/views/XML/faculty_staff.xml");
             }
-            return redirect('manage_facultystaff',compact($users));
+            return view('faculty/faculty_manage_staff',compact($users));
         }
 
         public function update(Request $request,$id){
@@ -57,7 +57,7 @@ class faculty_staffController
             $user->role = $request->get('role');
 //        $user->updated_at=Carbon::now()->toDateTime();
             $user->save();
-            echo "<script type='text/javascript'>alert('Update Successfully!!');</script>";
+
             return redirect('manage_facultystaff');
         }
         public function store(){

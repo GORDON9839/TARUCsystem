@@ -1,4 +1,4 @@
-@extends('layouts.department_staff)
+@extends('layouts.department_staff')
 @section('content')
 
     <!-- Main -->

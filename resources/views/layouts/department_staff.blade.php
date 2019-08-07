@@ -20,7 +20,11 @@ and open the template in the editor.
         <h1 id="logo"><a href="#"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="#">Manage Staff</a></li>
+                <li><a href="#">Manage Staff</a>
+                    <ul>
+                        <li> <a href="registration">Register staff</a></li>
+                        <li><a href="{{action('faculty_staffController@index')}}">Update role</a></li>
+                    </ul></li>
                 <ul>
                     <li> <a href="registration">Register staff</a></li>
                     <li><a href="{{action('userControllers@index')}}">Update role</a></li>
@@ -84,7 +88,16 @@ and open the template in the editor.
                         <li><a href="{{action('setfeeController@index')}}">View Programme Fee</a></li>
                     </ul>
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+                <li>
+                    <a  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
@@ -107,6 +120,6 @@ and open the template in the editor.
     </footer>
 </div>
 
-</div>
+
 </body>
 </html>

@@ -17,7 +17,7 @@ and open the template in the editor.
 
     <!-- Header -->
     <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
+        <h1 id="logo"><a href="user_home"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
                 <li>
@@ -26,7 +26,7 @@ and open the template in the editor.
                 <li>
                     <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
-                <li><a href="#" class="button primary">Staff Login</a></li>
+                <li><a href="login" class="button primary">Staff Login</a></li>
             </ul>
         </nav>
     </header>
@@ -69,7 +69,7 @@ and open the template in the editor.
                                     <td> {{$prog1->fulltime_duration}} years</td>
                                     <td> {{$prog2->fulltime_duration}} years</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->fulltime_duration}}</td>
+                                    <td width="20%">{{$prog3->fulltime_duration}} years</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
@@ -78,7 +78,7 @@ and open the template in the editor.
                                     <td> {{$prog1->parttime_duration}} years</td>
                                     <td> {{$prog2->parttime_duration}} years</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->parttime_duration}}</td>
+                                    <td width="20%">{{$prog3->parttime_duration}} years</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
@@ -150,7 +150,7 @@ and open the template in the editor.
                                     <td>RM {{$prog1->fee_local}}</td>
                                     <td>RM {{$prog2->fee_local}}</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->fee_local}}</td>
+                                    <td width="20%">RM {{$prog3->fee_local}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
@@ -159,7 +159,7 @@ and open the template in the editor.
                                     <td>RM {{$prog1->fee_international}}</td>
                                     <td>RM {{$prog2->fee_international}}</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->fee_international}}</td>
+                                    <td width="20%">RM {{$prog3->fee_international}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>

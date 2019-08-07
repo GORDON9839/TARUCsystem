@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <userLevel_of_Studies_List>
   <Level_of_study level_of_study_id="1">
-    <level_of_study_name>diploma</level_of_study_name>
+    <level_of_study_name>Diploma</level_of_study_name>
   </Level_of_study>
   <Level_of_study level_of_study_id="2">
-    <level_of_study_name>degree</level_of_study_name>
-  </Level_of_study>
-  <Level_of_study level_of_study_id="3">
-    <level_of_study_name>master</level_of_study_name>
+    <level_of_study_name>Degree</level_of_study_name>
   </Level_of_study>
 </userLevel_of_Studies_List>

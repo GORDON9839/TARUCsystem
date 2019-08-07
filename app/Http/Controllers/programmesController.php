@@ -27,10 +27,11 @@ class programmesController extends Controller
      */
     public function index(Request $request)
     {
+
+
         $request->user()->authorizeRoles(['admin','staff']);
         $request->user()->authorizeType(['faculty']);
         $programmes = programme::all();
-
 
         $xmlp = new \DOMDocument("1.0","UTF-8");
         $xmlp->formatOutput=true;
@@ -108,6 +109,7 @@ class programmesController extends Controller
      */
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(),[
            'programme_code'=>'required|unique:programmes',
             'programme_name'=>'required|string',
@@ -116,7 +118,7 @@ class programmesController extends Controller
         ]);
 
         if($validator->fails()){
-            \Session::flash('error',$validator->messages()->first());
+            Session('error',$validator->errors());
             return redirect()->back()->withInput();
         }else{
             $prog = new programme();

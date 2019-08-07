@@ -6,6 +6,7 @@ use App\campus;
 use App\programme;
 use App\programme_list;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class programme_listsController extends Controller
 {
@@ -61,17 +62,25 @@ class programme_listsController extends Controller
     public function store(Request $request)
     {
 
-        $campus = $request->input('campus');
-        //echo "<script type='text/javascript'>alert('$cur->curriculum_id');</script>";
-        foreach($campus as $cam){
-            $camp = new programme_list;
-            $camp->campus_id= $cam;
-            $camp->programme_id = $request->get('programme');
 
-            $camp->timestamps=false;
-            $camp->save();
-        }
-        return redirect('campusoffered/create')->with('success','Information has been added');
+            $campus = $request->input('campus');
+            //echo "<script type='text/javascript'>alert('$cur->curriculum_id');</script>";
+            foreach ($campus as $cam) {
+
+                $res=programme_list::where('programme_id',$request->get('programme'))->where('campus_id',$cam);
+                if(empty($res)){
+                    $camp = new programme_list;
+                    $camp->campus_id = $cam;
+                    $camp->programme_id = $request->get('programme');
+
+                    $camp->timestamps = false;
+                    $camp->save();
+                }else{}
+
+
+            }
+            return redirect('campusoffered/create')->with('success', 'Information has been added');
+
     }
 
     /**

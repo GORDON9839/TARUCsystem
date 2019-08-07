@@ -1,4 +1,4 @@
-@extends('layouts.department_staff)
+@extends('layouts.department_staff')
 @section('content')
     <!-- Two -->
     <section id="two" class="spotlight style2 right">

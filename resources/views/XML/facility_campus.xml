@@ -1,19 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FacilityCampusList>
-  <FacilityCampus>
-    <facility_id>1</facility_id>
-    <campus_id>2</campus_id>
-  </FacilityCampus>
-  <FacilityCampus>
-    <facility_id>1</facility_id>
-    <campus_id>3</campus_id>
-  </FacilityCampus>
-  <FacilityCampus>
-    <facility_id>2</facility_id>
-    <campus_id>2</campus_id>
-  </FacilityCampus>
-  <FacilityCampus>
-    <facility_id>3</facility_id>
-    <campus_id>2</campus_id>
-  </FacilityCampus>
-</FacilityCampusList>
+<FacilityCampusList/>

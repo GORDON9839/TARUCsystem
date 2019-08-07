@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProgrammesList>
-
   <Programme programme_id="5" programme_code="RSD1">
     <programme_name>Software System Development</programme_name>
     <programme_desc>programmer field</programme_desc>
@@ -36,18 +35,17 @@
     <MER_UEC>3</MER_UEC>
     <MER_desc>ENGLISH MESTI PASS</MER_desc>
     <faculty>Faculty Of Computer Science</faculty>
-
   </Programme>
-  <Programme programme_id="17" programme_code="RAF">
-    <programme_name>Audit</programme_name>
-    <programme_desc>Business</programme_desc>
+  <Programme programme_id="11" programme_code="vcvcx">
+    <programme_name>czcx</programme_name>
+    <programme_desc>hotel field</programme_desc>
     <fulltime_duration>2</fulltime_duration>
     <parttime_duration>2</parttime_duration>
-    <profcer>Business</profcer>
-    <MER_SPM>2</MER_SPM>
-    <MER_STPM>2</MER_STPM>
-    <MER_UEC>2</MER_UEC>
-    <MER_desc>Pass in English</MER_desc>
-    <faculty>Faculty Of Accounting and Finance</faculty>
+    <profcer>122</profcer>
+    <MER_SPM>1</MER_SPM>
+    <MER_STPM>0.1</MER_STPM>
+    <MER_UEC>1</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <faculty>Faculty Of Computer Science</faculty>
   </Programme>
 </ProgrammesList>

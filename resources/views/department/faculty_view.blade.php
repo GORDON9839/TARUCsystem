@@ -1,4 +1,5 @@
-
+@extends('layouts.department_staff')
+@section('content')
     <!-- Main -->
     <div id="main" class="wrapper style1">
 

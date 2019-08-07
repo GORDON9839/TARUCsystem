@@ -8,7 +8,9 @@
             <header class="major">
 
                 <h2>Subject List</h2>
-
+<?php
+                $w=$_SESSION['staff'];
+                echo "<script type='text/javascript'>alert('$w');</script>";?>
             </header>
 
             <!-- Content -->
