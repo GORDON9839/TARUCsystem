@@ -111,7 +111,7 @@ class userProgrammesController extends Controller
                 $_SESSION["userCampus_name"] = $campus->campus_name;
             }
         } elseif (!is_null($sb_search)) {
-            trim($sb_search);
+            $sb_search = trim($sb_search);
             $_SESSION["userSearch_keywords"] = $sb_search;
         }
             //echo "<script type='text/javascript'>alert('$sl_facultyId');</script>";
