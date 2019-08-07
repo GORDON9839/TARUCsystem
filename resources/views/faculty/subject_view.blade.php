@@ -78,8 +78,24 @@ and open the template in the editor.
                     @csrf
                 @if(\Session::has('success'))
                     <div class="alert alert-success">
-                        <p> {{\Session::get('success')}}</p></div><br/>
-                @endif
+                        <p> {{\Session::get('success')}}</p></div>
+                            @endif
+                            <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+                            </script>
+
+                            <script>
+                                function getMessage() {
+                                    $.ajax({
+                                        type:'POST',
+                                        url:'/getmsg',
+                                        data:'_token = <?php echo csrf_token() ?>',
+                                        success:function(data) {
+                                            $("#msg").html(data.msg);
+                                        }
+                                    });
+                                }
+                            </script>
+
                     <table class="alt">
                         <thead>
                         <tr>

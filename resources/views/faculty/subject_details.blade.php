@@ -92,7 +92,7 @@ and open the template in the editor.
 
                                         <a href="{{action('subjectsController@edit',$subject->subject_id)}}" class="button primary">Modify</a>
                                         </td><td align="center">
-                                            <form action="{{action('subjectsController@destroy',$subject->subject_id)}}" method="post">
+                                            <form action="{{action('subjectsController@delete',$subject->subject_id)}}" method="post">
                                                 @csrf
                                                 {{method_field('delete')}}
                                             <input type="submit" value="Delete" onclick="return confirm('Are you sure to delete?')" class="button"></a>

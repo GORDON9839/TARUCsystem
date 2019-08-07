@@ -19,6 +19,7 @@ and open the template in the editor.
     <header id="header">
         <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
+
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li>
@@ -79,6 +80,9 @@ and open the template in the editor.
                     <div class="alert alert-success">
                         <p> {{\Session::get('success')}}</p></div><br/>
                 @endif
+
+
+
                 <div class="row">
                     <div class="col-6 col-12-xsmall">
 

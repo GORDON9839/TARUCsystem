@@ -98,7 +98,7 @@ and open the template in the editor.
 
                     <tr>
                         <td align="center">
-                            {{$progattr=$prog->attributes()}} {{$progattr['programme_code']}}
+                            <?php $progattr=$prog->attributes() ?> {{$progattr['programme_code']}}
                         </td>
                         <td align="center">
                             {{$prog->programme_name}}

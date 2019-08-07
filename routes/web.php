@@ -25,7 +25,15 @@ Route::resource('curriculum','curriculumsController');
 Route::resource('allstructure','allstructureController');
 Route::resource('campusoffered','programme_listsController');
 Route::resource('campus','campusesController');
+Route::resource('testCont','testingController');
+Route::get('test',function(){
+    return view('faculty/testing');
+});
 //Route::post('redirecttostructure',function(Request $request){
 //    return redirect()->route('structuresController@show',[$request->get('subject')]);
 //});
 Route::resource('staffhome','staffhomeController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
