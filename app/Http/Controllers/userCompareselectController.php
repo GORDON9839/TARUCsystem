@@ -36,7 +36,8 @@ class userCompareselectController extends Controller
             $xmllevel_of_studyname = $xmlp->createElement('level_of_study_name', $level_of_study->level_of_study_name);
             $faculty = faculty::where('faculty_id', $prog->faculty_id)->first();
             $xmlfacultyname = $xmlp->createElement('faculty_name', $faculty->faculty_name);
-            $xmlprogfees = $xmlp->createElement('fees', $prog->fees);
+            $xmlprogfee_local = $xmlp->createElement('fee_local', $prog->fee_local);
+            $xmlprogfee_international = $xmlp->createElement('fee_international', $prog->fee_international);
 
             $xmlprog->setAttribute('programme_id', $prog->programme_id);
             $xmlprog->setAttribute('programme_code', $prog->programme_code);
@@ -51,7 +52,8 @@ class userCompareselectController extends Controller
             $xmlprog->appendChild($xmlMER_desc);
             $xmlprog->appendChild($xmllevel_of_studyname);
             $xmlprog->appendChild($xmlfacultyname);
-            $xmlprog->appendChild($xmlprogfees);
+            $xmlprog->appendChild($xmlprogfee_local);
+            $xmlprog->appendChild($xmlprogfee_international);
 
             $xmlprogrammes->appendChild($xmlprog);
         }

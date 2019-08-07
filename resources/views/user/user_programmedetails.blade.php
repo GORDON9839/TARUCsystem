@@ -80,8 +80,11 @@ and open the template in the editor.
                                 <tr><td align="center" style="text-align: right"><b>Minimum Entry Requirement Description</b></td>
                                     <td style="padding-left: 5%"> {{$programmes->MER_desc}}</td>
 
-                                <tr><td align="center" style="text-align: right"><b>Fees</b></td>
-                                    <td style="padding-left: 5%">RM {{$programmes->fees}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Fees (Local)</b></td>
+                                    <td style="padding-left: 5%">RM {{$programmes->fee_local}}</td>
+
+                                <tr><td align="center" style="text-align: right"><b>Fees (International)</b></td>
+                                    <td style="padding-left: 5%">RM {{$programmes->fee_international}}</td>
 
                                 <tr><td align="center" style="text-align: right"><b>Campuses Offered</b></td>
                                     <td style="padding-left: 5%">{{$campusnameliststring}}</td>
