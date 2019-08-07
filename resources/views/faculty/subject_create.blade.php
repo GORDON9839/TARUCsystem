@@ -13,7 +13,7 @@
             <section id="content">
                 <form method="post" action="{{url('subject')}}">
                     @csrf
-
+                    {{ method_field('PUT') }}
 
                         @if(\Session::has('success'))
                             <div class="alert alert-success">

@@ -21,17 +21,14 @@ class allstructureController extends Controller
             $xmlstruc=$xmls->createElement('structure');
             $xmlprogid=$xmls->createElement('programme_id',$struc->programme_id);
             $xmlsubid=$xmls->createElement('subject_id',$struc->subject_id);
-
-
             $xmlstruc->appendChild($xmlprogid);
             $xmlstruc->appendChild($xmlsubid);
-
-
             $xmlsubject->appendChild($xmlstruc);
         }
         $xmls->appendChild($xmlsubject);
         $xmls->save("/xampp/htdocs/TARUCsystem/resources/views/XML/programme_structure.xml");
         return view('faculty/programme_structure');
+
 
     }
 }

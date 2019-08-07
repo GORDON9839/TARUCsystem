@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProgrammeOfferedList>
   <ProgrammeOffered>
-    <programme_id>5</programme_id>
-    <campus_id>1</campus_id>
-    <programme_name>Software System Development</programme_name>
-    <programme_code>RSD1</programme_code>
-  </ProgrammeOffered>
-  <ProgrammeOffered>
-    <programme_id>6</programme_id>
-    <campus_id>1</campus_id>
-    <programme_name>Algorithm Study</programme_name>
-    <programme_code>RSF</programme_code>
+
   </ProgrammeOffered>
 </ProgrammeOfferedList>

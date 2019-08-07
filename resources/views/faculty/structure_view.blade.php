@@ -36,7 +36,9 @@
 
                     <tr>
                         <td align="center">
+
                             <?php $progattr=$prog->attributes()?> {{$progattr['programme_code']}}
+
                         </td>
                         <td align="center">
                             {{$prog->programme_name}}

@@ -20,7 +20,6 @@ Route::get('/', function () {
 
 
 
-
 //go controller
 Route::get('user_home',function(){
     return view('user\homepage');
@@ -70,5 +69,6 @@ Route::group(['middleware'=>'auth'],function(){
 //Authentication route
 Auth::routes();
 Auth::routes(['register' => false]);
+
 
 Route::get('/home', 'HomeController@index')->name('home');
