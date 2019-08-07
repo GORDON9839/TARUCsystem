@@ -13,6 +13,7 @@
 use App\accommodation;
 use Illuminate\Http\Request;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -29,6 +30,16 @@ Route::get('user_home',function(){
 Route::get('programme',function(){
     return view('accommodation_create');
 });
+
+Route::resource('staffhome','staffhomeController');
+
+//Hawman's part below
+Route::resource('userProgrammesController', 'userProgrammesController');
+Route::resource('userShortlistfilterController', 'userShortlistfilterController');
+Route::resource('userCompareselectController', 'userCompareselectController');
+Route::resource('userCompareresultController', 'userCompareresultController');
+
+
 //for login
 Route::post('/login/custom',
     ['uses' =>'Auth\LoginController@login',
@@ -72,3 +83,4 @@ Auth::routes(['register' => false]);
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
