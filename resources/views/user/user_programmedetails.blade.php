@@ -20,25 +20,11 @@ and open the template in the editor.
         <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
-                    </ul>
+                    <a href="{{action('userProgrammesController@index')}}">View Programmes</a>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-                    </ul>
+                    <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
                 <li><a href="#" class="button primary">Staff Login</a></li>
             </ul>
@@ -61,44 +47,47 @@ and open the template in the editor.
 
                         <ul class="alt">
                             <table>
-                                <tr><td align="center">Programme Name</td>
-                                    <td>{{$programmes->programme_name}}</td>
+                                <tr><td align="center" style="text-align: right; width: 30%"><b>Programme Name</b></td>
+                                    <td style="padding-left: 5%">{{$programmes->programme_name}}</td>
 
-                                <tr><td align="center">Programme Description</td>
-                                    <td> {{$programmes->programme_desc}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Programme Description</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->programme_desc}}</td>
 
-                                <tr><td align="center">Duration(Full Time)</td>
-                                    <td> {{$programmes->fulltime_duration}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Duration (Full Time)</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->fulltime_duration}} years</td>
 
-                                <tr><td align="center">Duration(Part Time)</td>
-                                    <td> {{$programmes->parttime_duration}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Duration (Part Time)</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->parttime_duration}} years</td>
 
-                                <tr><td align="center">Level of Study</td>
-                                    <td> {{$level_of_study->level_of_study_name}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Level of Study</b></td>
+                                    <td style="padding-left: 5%"> {{$level_of_study->level_of_study_name}}</td>
 
-                                <tr><td align="center">Faculty</td>
-                                    <td> {{$faculty->faculty_name}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Faculty</b></td>
+                                    <td style="padding-left: 5%"> {{$faculty->faculty_name}}</td>
 
-                                <tr><td align="center">Professional Certification</td>
-                                    <td> {{$programmes->professional_certification}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Professional Certification</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->professional_certification}}</td>
 
-                                <tr><td align="center">Minimum Entry Requirement (SPM)</td>
-                                    <td> {{$programmes->MER_SPM}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Minimum Entry Requirement (SPM)</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->MER_SPM}} credits</td>
 
-                                <tr><td align="center">Minimum Entry Requirement (STPM)</td>
-                                    <td> {{$programmes->MER_STPM}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Minimum Entry Requirement (STPM)</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->MER_STPM}} credits</td>
 
-                                <tr><td align="center">Minimum Entry Requirement (UEC)</td>
-                                    <td> {{$programmes->MER_UEC}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Minimum Entry Requirement (UEC)</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->MER_UEC}} credits</td>
 
-                                <tr><td align="center">Minimum Entry Requirement Description</td>
-                                    <td> {{$programmes->MER_desc}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Minimum Entry Requirement Description</b></td>
+                                    <td style="padding-left: 5%"> {{$programmes->MER_desc}}</td>
 
-                                <tr><td align="center">Fees</td>
-                                    <td>RM {{$programmes->fees}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Fees</b></td>
+                                    <td style="padding-left: 5%">RM {{$programmes->fees}}</td>
 
-                                <tr><td align="center">Campuses Offered</td>
-                                    <td>{{$campusnameliststring}}</td>
+                                <tr><td align="center" style="text-align: right"><b>Campuses Offered</b></td>
+                                    <td style="padding-left: 5%">{{$campusnameliststring}}</td>
+
+                                <tr><td align="center" style="text-align: right"><b>Subjects (credit hours)</b></td>
+                                    <td style="padding-left: 5%">{{$subjectnameliststring}}</td>
 
                             </table>
                         </ul>

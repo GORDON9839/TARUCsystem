@@ -14,4 +14,46 @@
     <faculty_name>Faculty of computing and science</faculty_name>
     <fees>5000</fees>
   </Programme>
+  <Programme programme_id="2" programme_code="bad">
+    <programme_name>business admin</programme_name>
+    <programme_desc>hahahaha</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>4</parttime_duration>
+    <profcer>no</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>3</MER_STPM>
+    <MER_UEC>4</MER_UEC>
+    <MER_desc>hmmmm</MER_desc>
+    <level_of_study_name>diploma</level_of_study_name>
+    <faculty_name>Faculty of finance and business</faculty_name>
+    <fees>300</fees>
+  </Programme>
+  <Programme programme_id="3" programme_code="gde">
+    <programme_name>graphics design</programme_name>
+    <programme_desc>design!!!!</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>4</parttime_duration>
+    <profcer>yes</profcer>
+    <MER_SPM>1</MER_SPM>
+    <MER_STPM>1</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>yeahhh</MER_desc>
+    <level_of_study_name>diploma</level_of_study_name>
+    <faculty_name>faculty of applied science and humanity</faculty_name>
+    <fees>4000</fees>
+  </Programme>
+  <Programme programme_id="4" programme_code="mtm">
+    <programme_name>multimedia</programme_name>
+    <programme_desc>videoooo</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>3</parttime_duration>
+    <profcer>no</profcer>
+    <MER_SPM>1</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>3</MER_UEC>
+    <MER_desc>come baliao</MER_desc>
+    <level_of_study_name>master</level_of_study_name>
+    <faculty_name>faculty of applied science and humanity</faculty_name>
+    <fees>2000</fees>
+  </Programme>
 </userProgrammesList>

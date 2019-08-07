@@ -2,12 +2,15 @@
 //referred to programmesController.php
 namespace App\Http\Controllers;
 
+use App\userClasses\ItemGetter;
 use Illuminate\Http\Request;
 use App\programme;
 use App\faculty;
 use App\level_of_study;
 use App\campus;
 use App\programme_list;
+use App\structure;
+use App\subject;
 use mysql_xdevapi\Exception;
 
 class userProgrammesController extends Controller
@@ -168,21 +171,17 @@ class userProgrammesController extends Controller
 
     public function show($id)
     {
-        $programmes = programme::where('programme_id', $id)->first();
-        $faculty = faculty::where('faculty_id', $programmes->faculty_id)->first();
-        $level_of_study = level_of_study::where('level_of_study_id', $programmes->level_of_study_id)->first();
+        //facade design pattern below
+        $itemGetter = new ItemGetter();
 
-        $proglists = programme_list::all();
-        $matchcampusnamelist = array();
-        foreach($proglists as $proglist) {
-            if ($proglist->programme_id == $programmes->programme_id) {
-                $campus = campus::where('campus_id', $proglist->campus_id)->first();
-                array_push($matchcampusnamelist, $campus->campus_name);
-            }
-        }
-        $campusnameliststring = implode(", ", $matchcampusnamelist);
+        //variable is programmes (plural), but actually is single programme only
+        $programmes = $itemGetter->getProg($id);
+        $faculty = $itemGetter->getFac($programmes->faculty_id);
+        $level_of_study = $itemGetter->getLevos($programmes->level_of_study_id);
+        $campusnameliststring = $itemGetter->getCampusnameliststring($programmes->programme_id);
+        $subjectnameliststring = $itemGetter->getSubjectnameliststring($programmes->programme_id);
 
-        return view('user/user_programmedetails', compact('programmes', 'id'), compact('faculty', 'level_of_study', 'campusnameliststring'));
+        return view('user/user_programmedetails', compact('programmes', 'id'), compact('faculty', 'level_of_study', 'campusnameliststring', 'subjectnameliststring'));
     }
 
 }

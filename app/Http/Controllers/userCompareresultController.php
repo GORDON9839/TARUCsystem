@@ -2,12 +2,15 @@
 //modified from userProgrammesController.php
 namespace App\Http\Controllers;
 
+use App\userClasses\ItemGetter;
 use Illuminate\Http\Request;
 use App\programme;
 use App\faculty;
 use App\level_of_study;
 use App\campus;
 use App\programme_list;
+use App\subject;
+use App\structure;
 use mysql_xdevapi\Exception;
 
 class userCompareresultController extends Controller
@@ -68,59 +71,50 @@ class userCompareresultController extends Controller
         $cp_comparesecond = $_POST["comparesecond"];
         $cp_comparethird = $_POST["comparethird"];
 
-        $prog1 = programme::where('programme_id', $cp_comparefirst)->first();
-        $prog2 = programme::where('programme_id', $cp_comparesecond)->first();
+        $itemGetter = new ItemGetter();
+
+        $prog1 = $itemGetter->getProg($cp_comparefirst);
+        $prog2 = $itemGetter->getProg($cp_comparesecond);
         if ($cp_comparethird != "None") {
-            $prog3 = programme::where('programme_id', $cp_comparethird)->first();
+            $prog3 = $itemGetter->getProg($cp_comparethird);
         } else {
             $prog3 = null;
         }
 
-        $fac1 = faculty::where('faculty_id', $prog1->faculty_id)->first();
-        $fac2 = faculty::where('faculty_id', $prog2->faculty_id)->first();
+        $fac1 = $itemGetter->getFac($prog1->faculty_id);
+        $fac2 = $itemGetter->getFac($prog2->faculty_id);
         if ($cp_comparethird != "None") {
-            $fac3 = faculty::where('faculty_id', $prog3->faculty_id)->first();
+            $fac3 = $itemGetter->getFac($prog3->faculty_id);
         } else {
             $fac3 = null;
         }
 
-        $levos1 = level_of_study::where('level_of_study_id', $prog1->level_of_study_id)->first();
-        $levos2 = level_of_study::where('level_of_study_id', $prog2->level_of_study_id)->first();
+        $levos1 = $itemGetter->getLevos($prog1->level_of_study_id);
+        $levos2 = $itemGetter->getLevos($prog2->level_of_study_id);
         if ($cp_comparethird != "None") {
-            $levos3 = level_of_study::where('level_of_study_id', $prog3->level_of_study_id)->first();
+            $levos3 = $itemGetter->getLevos($prog3->level_of_study_id);
         } else {
             $levos3 = null;
         }
 
-        $proglists = programme_list::all();
-        $matchcampusnamelist1 = array();
-        $matchcampusnamelist2 = array();
-        $matchcampusnamelist3 = array();
-        foreach($proglists as $proglist) {
-            $campus = campus::where('campus_id', $proglist->campus_id)->first();
-            if ($proglist->programme_id == $prog1->programme_id) {
-                array_push($matchcampusnamelist1, $campus->campus_name);
-            }
-            if ($proglist->programme_id == $prog2->programme_id) {
-                array_push($matchcampusnamelist2, $campus->campus_name);
-            }
-            if ($cp_comparethird != "None") {
-                if ($proglist->programme_id == $prog3->programme_id) {
-                    array_push($matchcampusnamelist3, $campus->campus_name);
-                }
-            }
-        }
-
-        $cam1 = implode(", ", $matchcampusnamelist1);
-        $cam2 = implode(", ", $matchcampusnamelist2);
+        $cam1 = $itemGetter->getCampusnameliststring($prog1->programme_id);
+        $cam2 = $itemGetter->getCampusnameliststring($prog2->programme_id);
         if ($cp_comparethird != "None") {
-            $cam3 = implode(", ", $matchcampusnamelist3);
+            $cam3 = $itemGetter->getCampusnameliststring($prog3->programme_id);
         } else {
             $cam3 = null;
         }
 
+        $sub1 = $itemGetter->getSubjectnameliststring($prog1->programme_id);
+        $sub2 = $itemGetter->getSubjectnameliststring($prog2->programme_id);
+        if ($cp_comparethird != "None") {
+            $sub3 = $itemGetter->getSubjectnameliststring($prog3->programme_id);
+        } else {
+            $sub3 = null;
+        }
+
         //go to user_compareresult
-        return view('user/user_compareresult', compact('prog1', 'prog2', 'prog3', 'fac1', 'fac2', 'fac3', 'levos1', 'levos2', 'levos3', 'cam1', 'cam2', 'cam3'));
+        return view('user/user_compareresult', compact('prog1', 'prog2', 'prog3', 'fac1', 'fac2', 'fac3', 'levos1', 'levos2', 'levos3', 'cam1', 'cam2', 'cam3', 'sub1', 'sub2', 'sub3'));
     }
 
     public function show($id)

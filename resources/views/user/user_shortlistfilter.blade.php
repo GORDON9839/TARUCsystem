@@ -20,25 +20,11 @@ and open the template in the editor.
         <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
-                    </ul>
+                    <a href="{{action('userProgrammesController@index')}}">View Programmes</a>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-                    </ul>
+                    <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
                 <li><a href="#" class="button primary">Staff Login</a></li>
             </ul>

@@ -25,16 +25,8 @@ Route::get('programme',function(){
 Route::resource('staffhome','staffhomeController');
 
 //Hawman's part below
-
-//Route::resource('userviewprogrammes', 'user_viewprogrammes');
 Route::resource('userProgrammesController', 'userProgrammesController');
-//Route::view('/user_shortlistfilter', 'user_shortlistfilter');
-
 Route::resource('userShortlistfilterController', 'userShortlistfilterController');
 Route::resource('userCompareselectController', 'userCompareselectController');
 Route::resource('userCompareresultController', 'userCompareresultController');
-
-//Route::get('userviewprogrammes', function(){
-//    return view('user/user_viewprogrammes');
-//});
 

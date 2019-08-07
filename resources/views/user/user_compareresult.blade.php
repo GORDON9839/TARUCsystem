@@ -20,25 +20,11 @@ and open the template in the editor.
         <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
-                    </ul>
+                    <a href="{{action('userProgrammesController@index')}}">View Programmes</a>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-                    </ul>
+                    <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
                 <li><a href="#" class="button primary">Staff Login</a></li>
             </ul>
@@ -61,7 +47,7 @@ and open the template in the editor.
 
                         <ul class="alt">
                             <table>
-                                <tr><td align="center" width="20%">Programme Name</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Programme Name</b></td>
                                     <td width="20%">{{$prog1->programme_name}}</td>
                                     <td width="20%">{{$prog2->programme_name}}</td>
                                     <?php if ($prog3 != null) { ?>
@@ -70,7 +56,7 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                     <?php } ?>
 
-                                <tr><td align="center">Programme Description</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Programme Description</b></td>
                                     <td> {{$prog1->programme_desc}}</td>
                                     <td> {{$prog2->programme_desc}}</td>
                                     <?php if ($prog3 != null) { ?>
@@ -79,43 +65,43 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Duration(Full Time)</td>
-                                    <td> {{$prog1->fulltime_duration}}</td>
-                                    <td> {{$prog2->fulltime_duration}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Duration (Full Time)</b></td>
+                                    <td> {{$prog1->fulltime_duration}} years</td>
+                                    <td> {{$prog2->fulltime_duration}} years</td>
                                     <?php if ($prog3 != null) { ?>
                                     <td width="20%">{{$prog3->fulltime_duration}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Duration(Part Time)</td>
-                                    <td> {{$prog1->parttime_duration}}</td>
-                                    <td> {{$prog2->parttime_duration}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Duration (Part Time)</b></td>
+                                    <td> {{$prog1->parttime_duration}} years</td>
+                                    <td> {{$prog2->parttime_duration}} years</td>
                                     <?php if ($prog3 != null) { ?>
                                     <td width="20%">{{$prog3->parttime_duration}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Level of Study</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Level of Study</b></td>
                                     <td> {{$levos1->level_of_study_name}}</td>
                                     <td> {{$levos2->level_of_study_name}}</td>
                                     <?php if ($levos3 != null) { ?>
-                                    <td width="20%">{{$prog3->level_of_study_name}}</td>
+                                    <td width="20%">{{$levos3->level_of_study_name}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Faculty</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Faculty</b></td>
                                     <td> {{$fac1->faculty_name}}</td>
                                     <td> {{$fac2->faculty_name}}</td>
                                     <?php if ($fac3 != null) { ?>
-                                    <td width="20%">{{$prog3->faculty_name}}</td>
+                                    <td width="20%">{{$fac3->faculty_name}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Professional Certification</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Professional Certification</b></td>
                                     <td> {{$prog1->professional_certification}}</td>
                                     <td> {{$prog2->professional_certification}}</td>
                                     <?php if ($prog3 != null) { ?>
@@ -124,34 +110,34 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Minimum Entry Requirement (SPM)</td>
-                                    <td> {{$prog1->MER_SPM}}</td>
-                                    <td> {{$prog2->MER_SPM}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Minimum Entry Requirement (SPM)</b></td>
+                                    <td> {{$prog1->MER_SPM}} credits</td>
+                                    <td> {{$prog2->MER_SPM}} credits</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->MER_SPM}}</td>
+                                    <td width="20%">{{$prog3->MER_SPM}} credits</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Minimum Entry Requirement (STPM)</td>
-                                    <td> {{$prog1->MER_STPM}}</td>
-                                    <td> {{$prog2->MER_STPM}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Minimum Entry Requirement (STPM)</b></td>
+                                    <td> {{$prog1->MER_STPM}} credits</td>
+                                    <td> {{$prog2->MER_STPM}} credits</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->MER_STPM}}</td>
+                                    <td width="20%">{{$prog3->MER_STPM}} credits</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Minimum Entry Requirement (UEC)</td>
-                                    <td> {{$prog1->MER_UEC}}</td>
-                                    <td> {{$prog2->MER_UEC}}</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Minimum Entry Requirement (UEC)</b></td>
+                                    <td> {{$prog1->MER_UEC}} credits</td>
+                                    <td> {{$prog2->MER_UEC}} credits</td>
                                     <?php if ($prog3 != null) { ?>
-                                    <td width="20%">{{$prog3->MER_UEC}}</td>
+                                    <td width="20%">{{$prog3->MER_UEC}} credits</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Minimum Entry Requirement Description</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Minimum Entry Requirement Description</b></td>
                                     <td> {{$prog1->MER_desc}}</td>
                                     <td> {{$prog2->MER_desc}}</td>
                                     <?php if ($prog3 != null) { ?>
@@ -160,7 +146,7 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Fees</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Fees</b></td>
                                     <td>RM {{$prog1->fees}}</td>
                                     <td>RM {{$prog2->fees}}</td>
                                     <?php if ($prog3 != null) { ?>
@@ -169,11 +155,20 @@ and open the template in the editor.
                                     <td width="20%">-</td>
                                 <?php } ?>
 
-                                <tr><td align="center">Campuses Offered</td>
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Campuses Offered</b></td>
                                     <td>{{$cam1}}</td>
                                     <td>{{$cam2}}</td>
                                     <?php if ($cam3 != null) { ?>
                                     <td width="20%">{{$cam3}}</td>
+                                    <?php } else { ?>
+                                    <td width="20%">-</td>
+                                <?php } ?>
+
+                                <tr><td align="center" style="width: 20%; text-align: right"><b>Subjects (credit hours)</b></td>
+                                    <td>{{$sub1}}</td>
+                                    <td>{{$sub2}}</td>
+                                    <?php if ($sub3 != null) { ?>
+                                    <td width="20%">{{$sub3}}</td>
                                     <?php } else { ?>
                                     <td width="20%">-</td>
                                 <?php } ?>

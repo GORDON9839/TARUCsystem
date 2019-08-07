@@ -20,25 +20,11 @@ and open the template in the editor.
         <h1 id="logo"><a href="index.php"><img src="{{asset('images/logo2.png')}}"/></a></h1>
         <nav id="nav">
             <ul>
-                <li><a href="index.php">Home</a></li>
                 <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li>
-                    </ul>
+                    <a href="{{action('userProgrammesController@index')}}">View Programmes</a>
                 </li>
                 <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Kuala Lumpur Main Campus</a></li>
-                        <li><a href="">Penang Branch Campus</a></li>
-                        <li><a href="">Perak Branch Campus</a></li>
-                        <li><a href="">Johor Branch Campus</a></li>
-                        <li><a href="">Pahang Branch</a></li>
-                        <li><a href="">Sabah Branch</a></li>
-                    </ul>
+                    <a href="{{action('userCompareselectController@index')}}">Compare Programmes</a>
                 </li>
                 <li><a href="#" class="button primary">Staff Login</a></li>
             </ul>
@@ -61,7 +47,7 @@ and open the template in the editor.
 
 
                 {{--shortlist and compare button--}}
-                <div style="width: 65%; display: inline-block">
+                <div style="width: 77%; display: inline-block">
                     Faculty: <b>{{$_SESSION["userFaculty_short_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     Level of Study: <b>{{$_SESSION["userLevel_of_study_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     Campus: <b>{{$_SESSION["userCampus_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,16 +56,13 @@ and open the template in the editor.
                 </div>
                 <?php if($_SESSION["userFaculty_short_name"] != "Any" || $_SESSION["userLevel_of_study_name"] != "Any" || $_SESSION["userCampus_name"] != "Any") { ?>
                     <div style="width: 10%; display: inline-block">
-                        <a href="" class="button small" style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
+                        <a href="{{action('userProgrammesController@index')}}" class="button small" style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
                     </div>
                 <?php } else { ?>
                     <div style="width: 10%; display: inline-block"></div>
                 <?php } ?>
                 <div style="width: 10%; display: inline-block">
                     <a href="{{action('userShortlistfilterController@index')}}" class="button primary small">Shortlist</a>
-                </div>
-                <div style="width: 10%; display: inline-block">
-                    <a href="{{action('userCompareselectController@index')}}" class="button primary small">Compare</a>
                 </div>
                 <br/><br/>
 
@@ -90,9 +73,9 @@ and open the template in the editor.
                 <table class="alt">
                     <thead>
                     <tr>
-                        <th align="center">Programme Name</th>
+                        <th align="center" style="width: 35%">Programme Name</th>
                         <th align="center">Description</th>
-                        <th align="center">Action</th>
+                        <th align="center" style="width: 15%">Action</th>
                     </tr>
                     </thead>
                     <tbody>
