@@ -14,10 +14,13 @@ class structuresController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $programme=programme::all();
         //$structure = structure::find('');
 

@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\curriculum;
 use App\level_of_study;
+use App\progObserver;
 use App\structure;
+use App\structureObserver;
 use Illuminate\Http\Request;
 use App\programme;
 use App\faculty;
+use App\prog;
+use App\proglistObserver;
+use Illuminate\Support\Facades\Validator;
+
+
 use phpDocumentor\Reflection\Types\Compound;
 
 class programmesController extends Controller
@@ -15,12 +22,16 @@ class programmesController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $programmes = programme::all();
-//
+
+
         $xmlp = new \DOMDocument("1.0","UTF-8");
         $xmlp->formatOutput=true;
         $xmlprogrammes=$xmlp->createElement('ProgrammesList');
@@ -97,31 +108,46 @@ class programmesController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+           'programme_code'=>'required|unique:programmes',
+            'programme_name'=>'required|string',
+            'professional_certification'=>'required|string|max:100'
 
-        $prog = new programme();
-        $prog->programme_name = $request->get('programme_name');
-        $prog->programme_code = $request->get('programme_code');
-        $prog->programme_desc = $request->get('programme_desc');
-        $prog->fulltime_duration = $request->get('fduration');
-        $prog->faculty_id = $request->get('faculty');
-        $prog->parttime_duration = $request->get('pduration');
-        $prog->professional_certification = $request->get('professional_certification');
-        $prog->MER_SPM = $request->get('MER_SPM');
-        $prog->MER_STPM = $request->get('MER_STPM');
-        $prog->MER_UEC = $request->get('MER_UEC');
-        $prog->MER_desc = $request->get('MER_desc');
-        if($request->get('curriculum_id')==null){
-            $prog->curriculum_id = 1;
+        ]);
+
+        if($validator->fails()){
+            \Session::flash('error',$validator->messages()->first());
+            return redirect()->back()->withInput();
         }else{
-            $prog->curriculum_id = $request->get('curriculum_id');
+            $prog = new programme();
+            $prog->programme_name = $request->get('programme_name');
+            $prog->programme_code = $request->get('programme_code');
+            $prog->programme_desc = $request->get('programme_desc');
+            $prog->fulltime_duration = $request->get('fduration');
+            $prog->faculty_id = $request->get('faculty');
+            $prog->parttime_duration = $request->get('pduration');
+            $prog->professional_certification = $request->get('professional_certification');
+            $prog->MER_SPM = $request->get('MER_SPM');
+            $prog->MER_STPM = $request->get('MER_STPM');
+            $prog->MER_UEC = $request->get('MER_UEC');
+            $prog->MER_desc = $request->get('MER_desc');
+            if($request->get('curriculum_id')==null){
+                $prog->curriculum_id = 1;
+            }else{
+                $prog->curriculum_id = $request->get('curriculum_id');
+            }
+
+            $prog->level_of_study_id = $request->get('level');
+
+            $prog->timestamps=false;
+            $prog->save();
+            return redirect('programmes/create')->with('success','Information has been added');
         }
 
-        $prog->level_of_study_id = $request->get('level');
 
 
-        $prog->timestamps=false;
-        $prog->save();
-        return redirect('programmes/create')->with('success','Information has been added');
+
+
     }
 
     /**
@@ -133,6 +159,8 @@ class programmesController extends Controller
     public function show($id)
     {
         //$progid = json_decode($id, true);
+
+
         $programmes= programme::where('programme_id',$id)->first();
         $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
         $curriculum = curriculum::where('curriculum_id',$programmes->curriculum_id)->first();
@@ -151,6 +179,7 @@ class programmesController extends Controller
      */
     public function edit($id)
     {
+
         $programmes= programme::where('programme_id',$id)->first();
         $facultyname = faculty::where('faculty_id',$programmes->faculty_id)->first();
         $curriculum = curriculum::where('curriculum_id','!=','1')->get();
@@ -168,29 +197,43 @@ class programmesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $prog = programme::find($id);
 
-        $prog->programme_name = $request->get('programme_name');
-        $prog->programme_code = $request->get('programme_code');
-        $prog->programme_desc = $request->get('programme_desc');
-        $prog->fulltime_duration = $request->get('fduration');
-        $prog->faculty_id = $request->get('faculty');
-        $prog->parttime_duration = $request->get('pduration');
-        $prog->professional_certification = $request->get('professional_certification');
-        $prog->MER_SPM = $request->get('MER_SPM');
-        $prog->MER_STPM = $request->get('MER_STPM');
-        $prog->MER_UEC = $request->get('MER_UEC');
-        $prog->MER_desc = $request->get('MER_desc');
-        if($request->get('curriculum')==null){
-            $prog->curriculum_id = 1;
-        }else{
-            $prog->curriculum_id = $request->get('curriculum');
+        $validator = Validator::make($request->all(),[
+            'programme_code'=>'required|unique:programmes',
+            'programme_name'=>'required|string',
+            'professional_certification'=>'required|string|max:100'
+
+        ]);
+
+        if($validator->fails()){
+            \Session::flash('error',$validator->messages());
+            return redirect()->back()->withInput();
+        }else {
+
+            $prog = programme::find($id);
+
+            $prog->programme_name = $request->get('programme_name');
+            $prog->programme_code = $request->get('programme_code');
+            $prog->programme_desc = $request->get('programme_desc');
+            $prog->fulltime_duration = $request->get('fduration');
+            $prog->faculty_id = $request->get('faculty');
+            $prog->parttime_duration = $request->get('pduration');
+            $prog->professional_certification = $request->get('professional_certification');
+            $prog->MER_SPM = $request->get('MER_SPM');
+            $prog->MER_STPM = $request->get('MER_STPM');
+            $prog->MER_UEC = $request->get('MER_UEC');
+            $prog->MER_desc = $request->get('MER_desc');
+            if ($request->get('curriculum') == null) {
+                $prog->curriculum_id = 1;
+            } else {
+                $prog->curriculum_id = $request->get('curriculum');
+            }
+            $prog->level_of_study_id = $request->get('level');
+            $prog->timestamps = false;
+            $prog->save();
+
+            return redirect('programmes')->with('success', 'Information has been deleted');
         }
-        $prog->level_of_study_id = $request->get('level');
-        $prog->timestamps=false;
-        $prog->save();
-
-        return \Redirect::route('programmes.show',array('id'=>$id))->with('success','Information has been modify');
     }
 
     /**
@@ -202,13 +245,16 @@ class programmesController extends Controller
     public function destroy($id)
     {
         $struc = structure::find($id);
-        if(count($struc)!=0){
+
+        $prog = new prog($id);
+        $proglist = new proglistObserver($prog);
+        $s=new structureObserver($prog);
+        $p=new progObserver($prog);
+        $prog->setProg_id($id);
 
 
-        }else{
-            $res=programme::where('programme_id',$id)->delete();
             return redirect('programmes')->with('success','Information has been deleted');
-        }
+
 
     }
 }

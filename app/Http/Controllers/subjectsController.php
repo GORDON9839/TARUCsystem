@@ -11,8 +11,10 @@ class subjectsController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
+
 //    public function index()
 //    {
 //        $subject = subject::all();
@@ -66,6 +68,7 @@ class subjectsController extends Controller
 //
 //        return view('faculty/subject_details',compact('subject','id'));
 //    }
+
 //
 //    /**
 //     * Show the form for editing the specified resource.
@@ -113,6 +116,8 @@ class subjectsController extends Controller
 //        return redirect('subject')->with('success','Information has been deleted');
 //    }
     public function index(){
+  $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $subject = subject::all();
 
         $xmls = new \DOMDocument("1.0","UTF-8");

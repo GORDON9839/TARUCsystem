@@ -2,10 +2,10 @@
 <Faculties>
   <Faculty FacultyID="1" FacultyShortName="FOCS">
     <FacultyName>Faculty Of Computer Science</FacultyName>
-    <Description>To become a programmer</Description>
+    <Description>haha</Description>
   </Faculty>
   <Faculty FacultyID="2" FacultyShortName="FAFB">
-    <FacultyName>Faculty Of Accounting and Finance</FacultyName>
-    <Description>Accountant</Description>
+    <FacultyName>Faculty of Food and Beverage</FacultyName>
+    <Description>It is a good faculty with bunch of programmer.</Description>
   </Faculty>
 </Faculties>

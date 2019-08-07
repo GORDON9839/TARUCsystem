@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DepartmentList>
+  <Department department_id="1">
+    <department_name>Department of Student Affair</department_name>
+    <department_desc>provide a myriad of student activities and services</department_desc>
+    <department_short_name>DSA</department_short_name>
+  </Department>
+</DepartmentList>

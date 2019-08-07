@@ -1,52 +1,6 @@
--->
-<html>
-<head>
-    <title>TAR UC Academic</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
-    <noscript><link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}" /></noscript>
-</head>
-<body class="is-preload landing">
-<div id="page-wrapper">
+@extends('layouts.faculty_staff')
 
-    <!-- Header -->
-    <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="images/logo2.png" alt="" /></a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="programmes">Manage Programme</a>
-                    <ul>
-
-                            <li><a href="">Postgraduate Programme</a></li>
-                            <li><a href="">Undergraduate Programme</a></li>
-                            <li><a href="">Pre-University Programme</a></li>
-                            <li>
-                                <a href="#">Submenu</a>
-                                <ul>
-                                    <li><a href="#">Option 1</a></li>
-                                    <li><a href="#">Option 2</a></li>
-                                    <li><a href="#">Option 3</a></li>
-                                    <li><a href="#">Option 4</a></li>
-                                </ul>
-                            </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="">Postgraduate Programme</a></li>
-                        <li><a href="">Undergraduate Programme</a></li>
-                        <li><a href="">Pre-University Programme</a></li></li>
-
-
-                        <li><a href="#" class="button primary">Staff Login</a></li>
-                    </ul>
-        </nav>
-    </header>
-
+@section('content')
     <!-- Banner -->
     <section id="banner">
         <div class="content">
@@ -179,7 +133,7 @@
         </ul>
     </footer>
 
-</div>
+
 
 <!-- Scripts -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -191,5 +145,4 @@
 <script src="{{asset('assets/js/util.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 
-</body>
-</html>
+@endsection()

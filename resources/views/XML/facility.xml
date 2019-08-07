@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FacilityList>
+  <Facility facility_id="1">
+    <facility_name>Swimming Pool</facility_name>
+    <facility_desc>It is nice</facility_desc>
+  </Facility>
+  <Facility facility_id="2">
+    <facility_name>Gym</facility_name>
+    <facility_desc>nice</facility_desc>
+  </Facility>
+  <Facility facility_id="3">
+    <facility_name>Gym 1</facility_name>
+    <facility_desc>nice</facility_desc>
+  </Facility>
+  <Facility facility_id="4">
+    <facility_name>Swimming Pool1</facility_name>
+    <facility_desc>It is nice</facility_desc>
+  </Facility>
+  <Facility facility_id="5">
+    <facility_name>Swimming Pool 123</facility_name>
+    <facility_desc>It is nice</facility_desc>
+  </Facility>
+</FacilityList>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccommodationList>
+  <Accommodation accommodation_id="2">
+    <accommodation_name>Teratai Residency 1</accommodation_name>
+    <accommodation_address>25,Jalan SJ 22,, Taman Selayang Jaya,, 68100, Batu Caves, Selangor</accommodation_address>
+    <fees>200</fees>
+    <total_room>300</total_room>
+    <rent_number>10</rent_number>
+    <accommodation_type>On-Campus Hotel</accommodation_type>
+    <campus>KL Branch Campus</campus>
+  </Accommodation>
+  <Accommodation accommodation_id="3">
+    <accommodation_name>Teratai Residency 34</accommodation_name>
+    <accommodation_address>25,Jalan SJ 22,, Taman Selayang Jaya,, 68100, Batu Caves, Selangor</accommodation_address>
+    <fees>200</fees>
+    <total_room>300</total_room>
+    <rent_number>0</rent_number>
+    <accommodation_type>On-Campus Hotel</accommodation_type>
+    <campus>Penang Branch Campus</campus>
+  </Accommodation>
+</AccommodationList>

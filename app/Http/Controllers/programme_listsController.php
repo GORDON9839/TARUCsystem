@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 
 class programme_listsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['admin','staff']);
+        $request->user()->authorizeType(['faculty']);
         $campus = campus::all();
         return view('faculty/campus_view');
 
