@@ -116,18 +116,18 @@ class accommodationsController extends Controller
 
     public function update(Request $request, $id)
     {
-//        $validator = Validator::make($request->all(), [
-//            'accommodation_name' => 'required|unique:users',
-//            'accommodation_address' => 'required',
-//            'fees' => 'required',
-//            'total_room' => 'required',
-//            'rent_number' => 'required'
-//        ]);
-//
-//        if ($validator->fails()) {
-//            Session::flash('error', $validator->messages()->first());
-//            return redirect()->back()->withInput();
-//        }else {
+        $validator = Validator::make($request->all(), [
+            'accommodation_name' => 'required',
+            'accommodation_address' => 'required',
+            'fees' => 'required',
+            'total_room' => 'required',
+            'rent_number' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            Session::flash('error', $validator->messages()->first());
+            return redirect()->back()->withInput();
+        }else {
 
             $acc = accommodation::find($id);
             $acc->accommodation_name = $request->get('accommodation_name');
@@ -140,7 +140,7 @@ class accommodationsController extends Controller
             $acc->timestamps = false;
             $acc->save();
             return \Redirect::route('accommodation.show', array('id' => $id))->with('success', 'Information has been modify');
-//        }
+        }
     }
 
     public function destroy($id)
