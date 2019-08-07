@@ -1,5 +1,9 @@
 @extends('layouts.department_staff')
 @section('content')
+    {{--
+Author: Tan Yi Si
+Author Student ID: 18WMR08426
+--}}
     <!-- Two -->
     <section id="two" class="spotlight style2 right">
         <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>

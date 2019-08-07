@@ -1,5 +1,8 @@
 <?php
-//modified from userProgrammesController.php
+//////////////////////////////
+//Author: Tan Haw Man
+//Author Student ID: 18WMR08412
+//////////////////////////////
 namespace App\Http\Controllers;
 
 use App\userClasses\ItemGetter;

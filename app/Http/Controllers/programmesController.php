@@ -1,5 +1,8 @@
 <?php
-
+//////////////////////////////
+//Author: Goh Chun Lin
+//Author Student ID: 18WMR08314
+//////////////////////////////
 namespace App\Http\Controllers;
 
 use App\curriculum;
@@ -118,8 +121,7 @@ class programmesController extends Controller
         ]);
 
         if($validator->fails()){
-            Session('error',$validator->errors());
-            return redirect()->back()->withInput();
+            return redirect()->back()->withInput()->with("error",$validator->errors()->first());
         }else{
             $prog = new programme();
             $prog->programme_name = $request->get('programme_name');

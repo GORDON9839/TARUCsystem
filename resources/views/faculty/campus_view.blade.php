@@ -7,7 +7,10 @@
 
         <div class="container">
             <header class="major">
-
+                {{--
+               Author: Goh Chun Lin
+               Author Student ID: 18WMR08314
+               --}}
                 <h2>Campus List</h2>
 
             </header>

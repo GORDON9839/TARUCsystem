@@ -1,3 +1,7 @@
+{{--
+Author: Jack Soh Boon Keat
+Author Student ID: 18WMU08324
+--}}
 @extends('layouts.faculty_staff')
 @section('content')
     <div id="main" class="wrapper style1">

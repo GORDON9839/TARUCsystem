@@ -1,5 +1,10 @@
+{{--
+Author: Jack Soh Boon Keat
+Author Student ID: 18WMU08324
+--}}
 @extends('layouts.department_staff')
 @section('content')
+
     <!-- Main -->
     <div id="main" class="wrapper style1">
 
@@ -66,8 +71,19 @@
                                 <?php } ?>
 
 
-
                             </table>
+                            <?php
+                            use App\XSLTTransformation;
+
+                            $count = new XSLTTransformation("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml","/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl");
+
+                            $count_staff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl") or die("Failed to load");
+                            ?>
+                            <div class="col-6 col-12-xsmall">
+                                <p>{{$count_staff}}</p>
+
+                            </div>
+
                         </ul>
                         <!--                </xsl:if>-->
 

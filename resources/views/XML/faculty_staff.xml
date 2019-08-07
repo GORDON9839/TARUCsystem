@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FacultyStaffList>
-  <FacultyStaff user_id="2">
+<StaffList>
+  <staff user_id="2">
     <id>2</id>
     <name>Jack Soh Boon Keat</name>
     <remember_token/>
@@ -8,8 +8,8 @@
     <department_id/>
     <faculty_id>1</faculty_id>
     <role>admin</role>
-  </FacultyStaff>
-  <FacultyStaff user_id="4">
+  </staff>
+  <staff user_id="4">
     <id>4</id>
     <name>Tan Haw man</name>
     <remember_token/>
@@ -17,8 +17,8 @@
     <department_id/>
     <faculty_id>2</faculty_id>
     <role>staff</role>
-  </FacultyStaff>
-  <FacultyStaff user_id="6">
+  </staff>
+  <staff user_id="6">
     <id>6</id>
     <name>Dailou</name>
     <remember_token/>
@@ -26,8 +26,8 @@
     <department_id/>
     <faculty_id>1</faculty_id>
     <role>staff</role>
-  </FacultyStaff>
-  <FacultyStaff user_id="9">
+  </staff>
+  <staff user_id="9">
     <id>9</id>
     <name>Johnny</name>
     <remember_token/>
@@ -35,5 +35,5 @@
     <department_id/>
     <faculty_id>2</faculty_id>
     <role>admin</role>
-  </FacultyStaff>
-</FacultyStaffList>
+  </staff>
+</StaffList>

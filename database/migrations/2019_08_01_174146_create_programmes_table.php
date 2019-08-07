@@ -17,7 +17,7 @@ class CreateProgrammesTable extends Migration
             $table->bigIncrements('programme_id');
             $table->string('programme_name');
             $table->string('programme_code')->unique();
-            $table->string('programme_desc')->unique();
+            $table->string('programme_desc');
             $table->Integer('fulltime_duration');
             $table->Integer('parttime_duration');
             $table->unsignedBigInteger('level_of_study_id');
@@ -29,6 +29,8 @@ class CreateProgrammesTable extends Migration
             $table->string('MER_desc');
             $table->string ('fee_local');
             $table->string('fee_international');
+            $table->string('curriculum_id')->nullable();
+            $table->foreign('curriculum_id')->references('curriculum_id')->on('curriculum');
             $table->foreign('level_of_study_id')->references('level_of_study_id')->on('level_of_studies');
             $table->foreign('faculty_id')->references('faculty_id')->on('faculties');
         });

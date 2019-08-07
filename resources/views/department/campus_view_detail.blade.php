@@ -1,5 +1,9 @@
 @extends('layouts.department_staff')
 @section('content')
+    {{--
+Author: Tan Yi Si
+Author Student ID: 18WMR08426
+--}}
     <!-- Main -->
     <div id="main" class="wrapper style1">
 

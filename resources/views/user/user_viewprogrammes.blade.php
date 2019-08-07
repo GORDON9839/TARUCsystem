@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+{{--
+Author: Tan Haw Man
+Author Student ID: 18WMR08412
+--}}
 <html>
 <head>
+
     <title>No Sidebar - Landed by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
-    <noscript><link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}" /></noscript>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    <noscript>
+        <link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}"/>
+    </noscript>
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -35,7 +37,7 @@ and open the template in the editor.
     <div id="main" class="wrapper style1">
 
         <div class="container">
-                <h2 style="text-align: center">Programme List</h2>
+            <h2 style="text-align: center">Programme List</h2>
 
             <!-- Content -->
             <section id="content">
@@ -56,11 +58,12 @@ and open the template in the editor.
                         $xslttrans = new XSLTTransformation('/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml', '/xampp/htdocs/TARUCsystem/resources/views/xslt/userProgrammes.xsl'); ?></b>
                 </div>
                 <?php if($_SESSION["userFaculty_short_name"] != "Any" || $_SESSION["userLevel_of_study_name"] != "Any" || $_SESSION["userCampus_name"] != "Any" || $_SESSION["userSearch_keywords"] != "") { ?>
-                    <div style="width: 10%; display: inline-block">
-                        <a href="{{action('userProgrammesController@index')}}" class="button small" style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
-                    </div>
+                <div style="width: 10%; display: inline-block">
+                    <a href="{{action('userProgrammesController@index')}}" class="button small"
+                       style="background-color: transparent; border-color: white; border-width: 2px">Show All</a>
+                </div>
                 <?php } else { ?>
-                    <div style="width: 10%; display: inline-block"></div>
+                <div style="width: 10%; display: inline-block"></div>
                 <?php } ?>
                 <div style="width: 10%; display: inline-block">
                     <a href="{{action('userShortlistfilterController@index')}}" class="button primary small">Shortlist/Search</a>
@@ -82,7 +85,7 @@ and open the template in the editor.
                     <tbody>
 
                     <?php foreach($xmlprog as $prog){
-                        $progattr = $prog->attributes();
+                    $progattr = $prog->attributes();
                     ?>
                     <tr>
                         <td align="center">
@@ -92,7 +95,8 @@ and open the template in the editor.
                             <?php echo $prog->programme_desc;?>
                         </td>
                         <td align="center">
-                            <a href="{{action('userProgrammesController@show', $progattr['programme_id'])}}" class="button primary small">View Details</a>
+                            <a href="{{action('userProgrammesController@show', $progattr['programme_id'])}}"
+                               class="button primary small">View Details</a>
                         </td>
                     </tr>
                     <?php } ?>
@@ -117,7 +121,8 @@ and open the template in the editor.
             <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            <li>&copy; Untitled. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
         </ul>
     </footer>
 </div>

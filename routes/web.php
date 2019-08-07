@@ -15,21 +15,13 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user\homepage');
 });
-
-
-
 
 //go controller
 Route::get('user_home',function(){
     return view('user\homepage');
 })->name('user_home');
-
-
-Route::get('programme',function(){
-    return view('accommodation_create');
-});
 
 Route::resource('staffhome','staffhomeController');
 
@@ -44,11 +36,6 @@ Route::resource('userCompareresultController', 'userCompareresultController');
 Route::post('/login/custom',
     ['uses' =>'Auth\LoginController@login',
         'as' =>'login.custom']);
-Route::resource('staffhome','staffhomeController'); // can delete
-Route::get('staff.register',function(){
-    return view('register_staff');
-});
-
 
 //only authenticated user can access these file
 
@@ -81,5 +68,4 @@ Auth::routes();
 Auth::routes(['register' => false]);
 
 
-Route::get('/home', 'HomeController@index')->name('home');
 

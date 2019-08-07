@@ -46,7 +46,10 @@
                     </ul>
         </nav>
     </header>
-
+{{--
+Author: Tan Yi Si
+Author Student ID: 18WMR08426
+--}}
     <!-- Banner -->
     <section id="banner">
         <div class="content">

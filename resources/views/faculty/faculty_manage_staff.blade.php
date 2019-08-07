@@ -1,11 +1,15 @@
 @extends('layouts.faculty_staff')
 @section('content')
+
     <!-- Main -->
     <div id="main" class="wrapper style1">
 
         <div class="container">
             <header class="major">
-
+                {{--
+                Author: Jack Soh Boon Keat
+                Author Student ID: 18WMU08324
+                --}}
                 <h2>Staff Details</h2>
 
             </header>

@@ -1,6 +1,8 @@
 <?php
-
-
+//////////////////////////////
+//Author: Jack Soh Boon Keat
+//Author Student ID: 18WMR08426
+//////////////////////////////
 namespace App\Http\Controllers;
 
 use App\department;
@@ -22,11 +24,11 @@ class faculty_staffController
 
             $xml = new \DOMDocument("1.0", "UTF-8");
             $xml->formatOutput = true;
-            $xmluser = $xml->createElement("FacultyStaffList");
+            $xmluser = $xml->createElement("StaffList");
             foreach ($users as $u) {
 
 
-                    $xmlstaff = $xml->createElement('FacultyStaff');
+                    $xmlstaff = $xml->createElement('staff');
                     $xmlstaffid = $xml->createElement('id', $u->id);
                     $xmlstaffname = $xml->createElement('name', $u->name);
                     $xmlstaffemail = $xml->createElement('email', $u->email);

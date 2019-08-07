@@ -1,5 +1,9 @@
 @extends('layouts.department_staff')
 @section('content')
+    {{--
+Author: Tan Yi Si
+Author Student ID: 18WMR08426
+--}}
             <!-- Content -->
             <section id="content">
                 @if(\Session::has('success'))

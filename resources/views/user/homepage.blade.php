@@ -7,17 +7,17 @@
         <div class="content">
             <header>
                 <h2>Welcome</h2>
-                <p>Tunku Abdul Rahman University College<br />
+                <p>Tunku Abdul Rahman University College<br/>
                     Academic websites</p>
             </header>
-            <span class="image"><img src="images/logo.png" alt="" /></span>
+            <span class="image"><img src="images/logo.png" alt=""/></span>
         </div>
         <a href="#one" class="goto-next scrolly">Next</a>
     </section>
 
     <!-- One -->
     <section id="one" class="spotlight style1 bottom">
-        <span class="image fit main"><img src="images/tarc.jpg" alt="" /></span>
+        <span class="image fit main"><img src="images/tarc.jpg" alt=""/></span>
         <div class="content">
             <div class="container">
                 <div class="row">
@@ -48,7 +48,7 @@
 
     <!-- Two -->
     <section id="two" class="spotlight style2 right">
-        <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
+        <span class="image fit main"><img src="images/pic03.jpg" alt=""/></span>
         <div class="content">
             <header>
                 <h2>Philosophy of TAR UC</h2>
@@ -73,7 +73,7 @@
 
     <!-- Three -->
     <section id="three" class="spotlight style3 left">
-        <span class="image fit main bottom"><img src="images/pic04.jpg" alt="" /></span>
+        <span class="image fit main bottom"><img src="images/pic04.jpg" alt=""/></span>
         <div class="content">
             <header>
                 <h2>Vision of TAR UC</h2>
@@ -93,7 +93,7 @@
     </section>
     <!-- Four -->
     <section id="four" class="spotlight style2 right">
-        <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
+        <span class="image fit main"><img src="images/pic03.jpg" alt=""/></span>
         <div class="content">
             <header>
                 <h2>Mission of TAR UC</h2>
@@ -118,14 +118,14 @@
     </section>
 
 
-<!-- Scripts -->
-<script src="{{asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.scrollex.min.js')}}"></script>
-<script src="{{asset('assets/js/browser.min.js')}}"></script>
-<script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
-<script src="{{asset('assets/js/util.js')}}"></script>
-<script src="{{asset('assets/js/main.js')}}"></script>
+    <!-- Scripts -->
+    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.scrolly.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.dropotron.min.js')}}"></script>
+    <script src="{{asset('assets/js/jquery.scrollex.min.js')}}"></script>
+    <script src="{{asset('assets/js/browser.min.js')}}"></script>
+    <script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
+    <script src="{{asset('assets/js/util.js')}}"></script>
+    <script src="{{asset('assets/js/main.js')}}"></script>
 
 @endsection

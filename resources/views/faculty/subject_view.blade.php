@@ -6,11 +6,12 @@
 
         <div class="container">
             <header class="major">
-
+                {{--
+               Author: Goh Chun Lin
+               Author Student ID: 18WMR08314
+               --}}
                 <h2>Subject List</h2>
-<?php
-                $w=$_SESSION['staff'];
-                echo "<script type='text/javascript'>alert('$w');</script>";?>
+
             </header>
 
             <!-- Content -->

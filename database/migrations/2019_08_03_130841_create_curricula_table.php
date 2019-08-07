@@ -16,7 +16,8 @@ class CreateCurriculaTable extends Migration
         Schema::create('curriculum', function (Blueprint $table) {
             $table->bigIncrements('curriculum_id');
             $table->string('curriculum_name');
-            $table->string('curriculum_type');
+            $table->string('curriculum_uni');
+            $table->string('curriculum_desc');
 
         });
     }

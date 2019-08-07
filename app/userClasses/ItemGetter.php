@@ -1,5 +1,8 @@
 <?php
-
+//////////////////////////////
+//Author: Jack Soh Boon Keat
+//Author Student ID: 18WMR08426
+//////////////////////////////
 namespace App\userClasses;
 
 class ItemGetter

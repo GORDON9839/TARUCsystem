@@ -1,5 +1,8 @@
 <?php
-
+//////////////////////////////
+//Author: Jack Soh Boon Keat
+//Author Student ID: 18WMR08426
+//////////////////////////////
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -13,6 +16,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Http\Controllers\staffClass\People;
 use Illuminate\Support\Facades\App;
+
 
 class LoginController extends Controller
 {
@@ -43,8 +47,6 @@ class LoginController extends Controller
             //$request->session()->put('role',$role);
             $staff = new CreateStaff();
             if($user->get_type() =="faculty"){
-
-
                 $staff = new CreateStaff();
                 session_start();
                 // redirecting

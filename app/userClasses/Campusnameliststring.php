@@ -1,5 +1,8 @@
 <?php
-
+//////////////////////////////
+//Author: Tan Haw Man
+//Author Student ID: 18WMR08412
+//////////////////////////////
 namespace App\userClasses;
 
 use App\campus;

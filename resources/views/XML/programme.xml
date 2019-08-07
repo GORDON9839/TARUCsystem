@@ -48,4 +48,28 @@
     <MER_desc>ENGLISH MESTI PASS</MER_desc>
     <faculty>Faculty Of Computer Science</faculty>
   </Programme>
+  <Programme programme_id="12" programme_code="DAU">
+    <programme_name>Accouting</programme_name>
+    <programme_desc>hotel field</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <faculty>Faculty of Food and Beverage</faculty>
+  </Programme>
+  <Programme programme_id="13" programme_code="REC">
+    <programme_name>E commerce</programme_name>
+    <programme_desc>Combination of business and Internet technology</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <faculty>Faculty Of Computer Science</faculty>
+  </Programme>
 </ProgrammesList>

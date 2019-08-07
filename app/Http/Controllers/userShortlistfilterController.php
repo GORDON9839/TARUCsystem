@@ -1,4 +1,8 @@
 <?php
+//////////////////////////////
+//Author: Tan Haw Man
+//Author Student ID: 18WMR08412
+//////////////////////////////
 //modified from userProgrammesController.php
 namespace App\Http\Controllers;
 
