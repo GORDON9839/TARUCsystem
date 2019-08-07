@@ -1,96 +1,5 @@
--->
-<html>
-<head>
-    <title>TAR UC Academic</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}" >
-    <noscript><link rel="stylesheet" href="{{asset('assets/css/noscript.css')}}" /></noscript>
-</head>
-<body class="is-preload landing">
-<div id="page-wrapper">
-
-    <!-- Header -->
-    <header id="header">
-        <h1 id="logo"><a href="index.php"><img src="images/logo2.png" alt="" /></a></h1>
-        <nav id="nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>
-                    <a href="#">Programme Offered</a>
-                    <ul>
-                        @foreach()
-                            <li><a href="{{actions('programmesController@show','1')}}">Postgraduate Programme</a></li>
-                            <li><a href="{{actions('programmesController@show','2')}}">Undergraduate Programme</a></li>
-                            <li><a href="{{actions('programmesController@show','3')}}">Pre-University Programme</a></li>
-                            <li>
-                                <a href="#">Submenu</a>
-                                <ul>
-                                    <li><a href="#">Option 1</a></li>
-                                    <li><a href="#">Option 2</a></li>
-                                    <li><a href="#">Option 3</a></li>
-                                    <li><a href="#">Option 4</a></li>
-                                </ul>
-                            </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Campuses</a>
-                    <ul>
-                        <li><a href="{{actions('programmesController@show','1')}}">Postgraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','2')}}">Undergraduate Programme</a></li>
-                        <li><a href="{{actions('programmesController@show','3')}}">Pre-University Programme</a></li></li>
-
-
-                        <li><a href="#" class="button primary">Staff Login</a></li>
-                    </ul>
-        </nav>
-    </header>
-
-    <!-- Banner -->
-    <section id="banner">
-        <div class="content">
-            <header>
-                <h2>Welcome</h2>
-                <p>Tunku Abdul Rahman University College<br />
-                    Academic websites</p>
-            </header>
-            <span class="image"><img src="images/logo.png" alt="" /></span>
-        </div>
-        <a href="#one" class="goto-next scrolly">Next</a>
-    </section>
-
-    <!-- One -->
-    <section id="one" class="spotlight style1 bottom">
-        <span class="image fit main"><img src="images/tarc.jpg" alt="" /></span>
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-4 col-12-medium">
-                        <header>
-                            <h2>TAR UC in a nutshell</h2>
-                            <p>The background of TAR UC</p>
-                        </header>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <p>Tunku Abdul Rahman University College (‘TAR UC’) was established
-                            in 1969 as TAR College with the focus of providing tertiary
-                            education opportunities for young Malaysians regardless of race,
-                            class and creed who were seeking quality education as well as
-                            meeting the rising demand for human capital from businesses
-                            and industries. </p>
-                    </div>
-                    <div class="col-4 col-12-medium">
-                        <p>The College started with a single campus in Setapak, Kuala Lumpur
-                            which is now the Main Campus. Subsequently, five branch campuses
-                            were established in Penang, Perak, Johor, Pahang and Sabah.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a href="#two" class="goto-next scrolly">Next</a>
-    </section>
-
+@extends('layouts.department_staff)
+@section('content')
     <!-- Two -->
     <section id="two" class="spotlight style2 right">
         <span class="image fit main"><img src="images/pic03.jpg" alt="" /></span>
@@ -164,22 +73,8 @@
 
 
 
-    <!-- Footer -->
-    <footer id="footer">
-        <ul class="icons">
-            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-            <li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-        </ul>
-        <ul class="copyright">
-            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        </ul>
-    </footer>
 
-</div>
+
 
 <!-- Scripts -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
@@ -191,5 +86,4 @@
 <script src="{{asset('assets/js/util.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 
-</body>
-</html>
+@endsection

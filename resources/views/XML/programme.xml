@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ProgrammesList>
-  <Programme programme_id="1" programme_code="FOCS">
+
+  <Programme programme_id="5" programme_code="RSD1">
     <programme_name>Software System Development</programme_name>
-    <programme_desc>Programmer</programme_desc>
-    <fulltime_duration>3</fulltime_duration>
-    <parttime_duration>4</parttime_duration>
-    <profcer>Software Engineering</profcer>
-    <MER_SPM>5</MER_SPM>
-    <MER_STPM>5</MER_STPM>
-    <MER_UEC>3</MER_UEC>
-    <MER_desc>Pass in English</MER_desc>
-    <faculty>Faculty Of Accounting and Finance</faculty>
-  </Programme>
-  <Programme programme_id="3" programme_code="RAF">
-    <programme_name>Finance</programme_name>
-    <programme_desc>Finance</programme_desc>
+    <programme_desc>programmer field</programme_desc>
     <fulltime_duration>2</fulltime_duration>
-    <parttime_duration>2</parttime_duration>
-    <profcer>Finance</profcer>
-    <MER_SPM>2</MER_SPM>
-    <MER_STPM>2</MER_STPM>
+    <parttime_duration>3</parttime_duration>
+    <profcer>2</profcer>
+    <MER_SPM>4</MER_SPM>
+    <MER_STPM>3</MER_STPM>
     <MER_UEC>4</MER_UEC>
-    <MER_desc>Pass in English</MER_desc>
-    <faculty>Faculty Of Accounting and Finance</faculty>
+    <MER_desc>English pass</MER_desc>
+    <faculty>Faculty Of Computer Science</faculty>
   </Programme>
-  <Programme programme_id="6" programme_code="RAB">
-    <programme_name>Business</programme_name>
+  <Programme programme_id="6" programme_code="RSF">
+    <programme_name>Algorithm Study</programme_name>
+    <programme_desc>programmer field</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>4</MER_SPM>
+    <MER_STPM>3</MER_STPM>
+    <MER_UEC>5</MER_UEC>
+    <MER_desc>English pass</MER_desc>
+    <faculty>Faculty Of Computer Science</faculty>
+  </Programme>
+  <Programme programme_id="7" programme_code="RHT">
+    <programme_name>Hotel Management</programme_name>
+    <programme_desc>hotel field</programme_desc>
+    <fulltime_duration>3</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>NOTHING TO STUDY</profcer>
+    <MER_SPM>3</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>3</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <faculty>Faculty Of Computer Science</faculty>
+
+  </Programme>
+  <Programme programme_id="17" programme_code="RAF">
+    <programme_name>Audit</programme_name>
     <programme_desc>Business</programme_desc>
     <fulltime_duration>2</fulltime_duration>
     <parttime_duration>2</parttime_duration>
     <profcer>Business</profcer>
-    <MER_SPM>2</MER_SPM>
-    <MER_STPM>2</MER_STPM>
-    <MER_UEC>2</MER_UEC>
-    <MER_desc>Pass in English</MER_desc>
-    <faculty>Faculty Of Accounting and Finance</faculty>
-  </Programme>
-  <Programme programme_id="8" programme_code="RAA">
-    <programme_name>Audit</programme_name>
-    <programme_desc>Audit</programme_desc>
-    <fulltime_duration>2</fulltime_duration>
-    <parttime_duration>2</parttime_duration>
-    <profcer>Audit</profcer>
     <MER_SPM>2</MER_SPM>
     <MER_STPM>2</MER_STPM>
     <MER_UEC>2</MER_UEC>

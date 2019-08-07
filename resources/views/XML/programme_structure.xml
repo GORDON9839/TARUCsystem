@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<programme_structure>
+  <structure>
+    <programme_id>5</programme_id>
+    <subject_id>1</subject_id>
+  </structure>
+  <structure>
+    <programme_id>5</programme_id>
+    <subject_id>2</subject_id>
+  </structure>
+  <structure>
+    <programme_id>5</programme_id>
+    <subject_id>3</subject_id>
+  </structure>
+</programme_structure>

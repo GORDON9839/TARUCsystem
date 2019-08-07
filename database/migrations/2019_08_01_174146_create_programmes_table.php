@@ -27,6 +27,8 @@ class CreateProgrammesTable extends Migration
             $table->string('MER_STPM');
             $table->string('MER_UEC');
             $table->string('MER_desc');
+            $table->string ('fee_local');
+            $table->string('fee_international');
             $table->foreign('level_of_study_id')->references('level_of_study_id')->on('level_of_studies');
             $table->foreign('faculty_id')->references('faculty_id')->on('faculties');
         });
