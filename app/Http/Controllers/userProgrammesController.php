@@ -21,6 +21,7 @@ class userProgrammesController extends Controller
         $_SESSION["userFaculty_short_name"] = "Any";
         $_SESSION["userLevel_of_study_name"] = "Any";
         $_SESSION["userCampus_name"] = "Any";
+        $_SESSION["userSearch_keywords"] = "";
         //generate programme XML
         $programmes = programme::all();
 
@@ -71,24 +72,47 @@ class userProgrammesController extends Controller
 
     public function store() {
         //assign values into session for displaying in view
-        $sl_facultyId = $_POST["faculty"];
-        $sl_level_of_studyId = $_POST["level_of_study"];
-        $sl_campusId = $_POST["campus"];
+        $sl_facultyId = null;
+        $sl_level_of_studyId = null;
+        $sl_campusId = null;
+        $sb_search = null;
+        if (isset($_POST["faculty"])) {
+            $sl_facultyId = $_POST["faculty"];
+        }
+        if (isset($_POST["level_of_study"])) {
+            $sl_level_of_studyId = $_POST["level_of_study"];
+        }
+        if (isset($_POST["campus"])) {
+            $sl_campusId = $_POST["campus"];
+        }
+        if (isset($_POST["search"])) {
+            $sb_search = $_POST["search"];
+        }
+        $_POST["faculty"] = null;
+        $_POST["level_of_study"] = null;
+        $_POST["campus"] = null;
+        $_POST["search"] = null;
         $_SESSION["userFaculty_short_name"] = "Any";
         $_SESSION["userLevel_of_study_name"] = "Any";
         $_SESSION["userCampus_name"] = "Any";
+        $_SESSION["userSearch_keywords"] = "";
 
-        if ($sl_facultyId != "Any") {
-            $faculty = faculty::where('faculty_id', $sl_facultyId)->first();
-            $_SESSION["userFaculty_short_name"] = $faculty->faculty_short_name;
-        }
-        if ($sl_level_of_studyId != "Any") {
-            $level_of_study = level_of_study::where('level_of_study_id', $sl_level_of_studyId)->first();
-            $_SESSION["userLevel_of_study_name"] = $level_of_study->level_of_study_name;
-        }
-        if ($sl_campusId != "Any") {
-            $campus = campus::where('campus_id', $sl_campusId)->first();
-            $_SESSION["userCampus_name"] = $campus->campus_name;
+        if (!is_null($sl_facultyId)) {
+            if ($sl_facultyId != "Any") {
+                $faculty = faculty::where('faculty_id', $sl_facultyId)->first();
+                $_SESSION["userFaculty_short_name"] = $faculty->faculty_short_name;
+            }
+            if ($sl_level_of_studyId != "Any") {
+                $level_of_study = level_of_study::where('level_of_study_id', $sl_level_of_studyId)->first();
+                $_SESSION["userLevel_of_study_name"] = $level_of_study->level_of_study_name;
+            }
+            if ($sl_campusId != "Any") {
+                $campus = campus::where('campus_id', $sl_campusId)->first();
+                $_SESSION["userCampus_name"] = $campus->campus_name;
+            }
+        } elseif (!is_null($sb_search)) {
+            trim($sb_search);
+            $_SESSION["userSearch_keywords"] = $sb_search;
         }
             //echo "<script type='text/javascript'>alert('$sl_facultyId');</script>";
 
@@ -142,22 +166,30 @@ class userProgrammesController extends Controller
             }
 
             //check if this programme should be filtered out
-            $i = 0;
-            if ($sl_facultyId == "Any" || $faculty->faculty_id == $sl_facultyId) {
-                $i = $i + 1;
-            }
-            if ($sl_level_of_studyId == "Any" || $level_of_study->level_of_study_id == $sl_level_of_studyId) {
-                $i = $i + 1;
-            }
-            if ($sl_campusId == "Any") {
-                $i = $i + 1;
-            }
-            foreach($matchcampuslist as $matchcampus) {
-                if ($sl_campusId == $matchcampus->campus_id) {
+            if (!is_null($sl_facultyId)) {
+                $i = 0;
+                if ($sl_facultyId == "Any" || $faculty->faculty_id == $sl_facultyId) {
                     $i = $i + 1;
                 }
-            }
-            if ($i > 2) {
+                if ($sl_level_of_studyId == "Any" || $level_of_study->level_of_study_id == $sl_level_of_studyId) {
+                    $i = $i + 1;
+                }
+                if ($sl_campusId == "Any") {
+                    $i = $i + 1;
+                }
+                foreach ($matchcampuslist as $matchcampus) {
+                    if ($sl_campusId == $matchcampus->campus_id) {
+                        $i = $i + 1;
+                    }
+                }
+                if ($i > 2) {
+                    $xmlprogrammes->appendChild($xmlprog);
+                }
+            } elseif (!is_null($sb_search) && $sb_search != "") {
+                if (stristr($prog->programme_name, $sb_search)) {
+                    $xmlprogrammes->appendChild($xmlprog);
+                }
+            } elseif ($sb_search == "") {
                 $xmlprogrammes->appendChild($xmlprog);
             }
 

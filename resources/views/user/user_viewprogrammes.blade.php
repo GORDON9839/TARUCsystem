@@ -47,10 +47,11 @@ and open the template in the editor.
 
 
                 {{--shortlist and compare button--}}
-                <div style="width: 77%; display: inline-block">
+                <div style="width: 75%; display: inline-block">
                     Faculty: <b>{{$_SESSION["userFaculty_short_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     Level of Study: <b>{{$_SESSION["userLevel_of_study_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     Campus: <b>{{$_SESSION["userCampus_name"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                    Keywords: <b>{{$_SESSION["userSearch_keywords"]}}</b>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
                     Results: <b><?php use App\XSLTTransformation;
                         $xslttrans = new XSLTTransformation('/xampp/htdocs/TARUCsystem/resources/views/XML/userProgramme.xml', '/xampp/htdocs/TARUCsystem/resources/views/xslt/userProgrammes.xsl'); ?></b>
                 </div>
@@ -62,7 +63,7 @@ and open the template in the editor.
                     <div style="width: 10%; display: inline-block"></div>
                 <?php } ?>
                 <div style="width: 10%; display: inline-block">
-                    <a href="{{action('userShortlistfilterController@index')}}" class="button primary small">Shortlist</a>
+                    <a href="{{action('userShortlistfilterController@index')}}" class="button primary small">Shortlist/Search</a>
                 </div>
                 <br/><br/>
 

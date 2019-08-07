@@ -35,7 +35,7 @@ and open the template in the editor.
     <div id="main" class="wrapper style1">
 
         <div class="container">
-            <h2 style="text-align: center">Shortlist / Search</h2>
+            <h2 style="text-align: center">Shortlist Filter</h2>
 
             <!-- Content -->
             <section id="content">
@@ -49,11 +49,10 @@ and open the template in the editor.
                     @csrf
                     {{--shortlist filter part--}}
 
-                    <div style="text-align: center">
                     {{--faculty dropdown--}}
                     <div style="width: 20%; display: inline-block">
-                        <label for="faculty" style="display: initial; text-align: left">Faculty</label>
-                        <select id="dropdownfaculty" name="faculty" style="width: 90%;">
+                        <label for="faculty" style="display: initial">Faculty</label>
+                        <select id="dropdownfaculty" name="faculty" style="width: 250px;">
                             <option value="Any">Any</option>
                             {{--get xml data required for options in dropdown lists--}}
                             <?php $xmlfac = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userFaculty.xml") or die("No reults found.");
@@ -68,7 +67,7 @@ and open the template in the editor.
                     {{--level of study dropdown--}}
                     <div style="width: 20%; display: inline-block">
                         <label for="level_of_study" style="display: initial">Level of Study</label>
-                        <select id="dropdownlevel_of_study" name="level_of_study" style="width: 90%">
+                        <select id="dropdownlevel_of_study" name="level_of_study" style="width: 250px">
                             <option value="Any">Any</option>
                             {{--get xml data required for options in dropdown lists--}}
                             <?php $xmllevos = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userLevelOfStudy.xml") or die("No reults found.");
@@ -83,7 +82,7 @@ and open the template in the editor.
                     {{--campus dropdown--}}
                     <div style="width: 20%; display: inline-block">
                         <label for="campus" style="display: initial">Campus</label>
-                        <select id="dropdowncampus" name="campus" style="width: 90%">
+                        <select id="dropdowncampus" name="campus" style="width: 250px">
                             <option value="Any">Any</option>
                             {{--get xml data required for options in dropdown lists--}}
                             <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/userCampus.xml") or die("No reults found.");
@@ -98,28 +97,6 @@ and open the template in the editor.
                     {{--shortlist button--}}
                     <div style="width: 20%; display: inline-block">
                         <input type="submit" value="Shortlist">
-                    </div>
-                    </div>
-                </form>
-
-                <p style="text-align: center">OR</p>
-
-
-                <form action="{{action('userProgrammesController@index')}}" method="post">
-                    @csrf
-                    {{--search part--}}
-
-                    <div style="text-align: center">
-                    {{--search bar--}}
-                    <div style="width: 60%; display: inline-block">
-                        <label for="faculty" style="display: initial">Search within Programme names</label>
-                        <input type="text" name="search" width="10%"/>
-                    </div>
-
-                    {{--search button--}}
-                    <div style="width: 20%; display: inline-block">
-                        <input type="submit" value="Search">
-                    </div>
                     </div>
                 </form>
 
