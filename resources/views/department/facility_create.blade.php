@@ -26,14 +26,14 @@ Author Student ID: 18WMR08426
                     <input type="text"  name="facility_name" required autofocus/><br/>
                     <label for="facility_desc">Facility Description</label>
                     <input type="text"  name="facility_desc" required/><br/>
-                    <label for="campus_id">Assigned To Campus</label>
-                    <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/campus.xml");
-                    foreach($xmlcam as $cam){
-                        $camattr = $cam->attributes();
-                    ?>
-                    <input type="checkbox" id="{{$camattr['campus_id']}}" name="campus[]" value="{{$camattr['campus_id']}} checked">
-                    <label for="{{$camattr['campus_id']}}">{{$cam->campus_name}}</label> &nbsp;&nbsp;&nbsp;
-                    <?php } ?>
+{{--                    <label for="campus_id">Assigned To Campus</label>--}}
+{{--                    <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/campus.xml");--}}
+{{--                    foreach($xmlcam as $cam){--}}
+{{--                        $camattr = $cam->attributes();--}}
+{{--                    ?>--}}
+{{--                    <input type="checkbox" id="{{$camattr['campus_id']}}" name="campus[]" value="{{$camattr['campus_id']}} checked">--}}
+{{--                    <label for="{{$camattr['campus_id']}}">{{$cam->campus_name}}</label> &nbsp;&nbsp;&nbsp;--}}
+{{--                    <?php } ?>--}}
                     <br/><br/><input  type="submit" value="Create" class="primary"/>
                     @if(count($errors))
                         <div class="form-group">

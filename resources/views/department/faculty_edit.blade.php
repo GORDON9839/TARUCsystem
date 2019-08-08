@@ -10,7 +10,7 @@ Author Student ID: 18WMR08426
 
             <header class="major">
 
-                <h2>Modify Programme Details</h2>
+                <h2>Modify Faculty Details</h2>
 
             </header>
 
