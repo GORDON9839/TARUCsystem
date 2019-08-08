@@ -8,7 +8,7 @@ Author Student ID: 18WMR08426
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <h2>Create New Accommodation</h2>
+                <h2>Update Accommodation Details</h2>
 
             </header>
 

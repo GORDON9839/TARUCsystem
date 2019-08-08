@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 use App\campus;
+use App\CampusCreator;
 
 use Illuminate\Http\Request;
 
@@ -47,24 +48,50 @@ class campusesController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'campus_name' => 'required',
-            'campus_desc' => 'required',
-            'campus_address' => 'required'
-        ]);
+        $c1 = new CampusCreator();
+        $c1->checkCampus($request->get('campus_name'));
+        $msg = $c1->showCampusMsg();
 
-        if ($validator->fails()) {
-            Session::flash('error', $validator->messages()->first());
-            return redirect()->back()->withInput();
-        }else {
-            $cam = new campus();
-            $cam->campus_name = $request->get('campus_name');
-            $cam->campus_address = $request->get('campus_address');
-            $cam->campus_desc = $request->get('campus_desc');
-            $cam->timestamps = false;
-            $cam->save();
-            return redirect('campus/create')->with('success', 'Information has been added');
+        if($c1->checkCampus($request->get('campus_name')) == false ) {
+            return redirect()->back()->with('success', "$msg");
+        }else{
+            $validator = Validator::make($request->all(), [
+                'campus_name' => 'required',
+                'campus_desc' => 'required',
+                'campus_address' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                Session::flash('error', $validator->messages()->first());
+                return redirect()->back()->withInput();
+            } else {
+                $cam = new campus();
+                $cam->campus_name = $request->get('campus_name');
+                $cam->campus_address = $request->get('campus_address');
+                $cam->campus_desc = $request->get('campus_desc');
+                $cam->timestamps = false;
+                $cam->save();
+                return redirect('campus/create')->with('success', "Information has been added");
+            }
         }
+//        $validator = Validator::make($request->all(), [
+//            'campus_name' => 'required',
+//            'campus_desc' => 'required',
+//            'campus_address' => 'required'
+//        ]);
+//
+//        if ($validator->fails()) {
+//            Session::flash('error', $validator->messages()->first());
+//            return redirect()->back()->withInput();
+//        }else {
+//            $cam = new campus();
+//            $cam->campus_name = $request->get('campus_name');
+//            $cam->campus_address = $request->get('campus_address');
+//            $cam->campus_desc = $request->get('campus_desc');
+//            $cam->timestamps = false;
+//            $cam->save();
+//            return redirect('campus/create')->with('success', 'Information has been added');
+//        }
     }
 
     public function show($id)

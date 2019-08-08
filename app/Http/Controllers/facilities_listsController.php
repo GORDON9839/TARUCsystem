@@ -50,7 +50,7 @@ class facilities_listsController extends Controller
             $xmlfacilitylist->appendChild($xmlfll);
         }
         $xmlfl->appendChild($xmlfacilitylist);
-        $xmlfl->save("/xampp/htdocs/TARUCsystem/resources/views/XML/facility_campus.xml");
+       $xmlfl->save("/xampp/htdocs/TARUCsystem/resources/views/XML/facility_campus.xml");
 
         return view('department/facility_view');
     }
@@ -58,13 +58,13 @@ class facilities_listsController extends Controller
     public function create()
     {
         $campus = campus::all();
-//
-        $xmlc = new \DOMDocument("1.0","UTF-8");
+
+       $xmlc = new \DOMDocument("1.0","UTF-8");
         $xmlc->formatOutput=true;
         $xmlcampus =$xmlc->createElement('CampusList');
         foreach($campus as $cam){
-            $xmlcam=$xmlc->createElement('Campus');
-            $xmlcamname=$xmlc->createElement('campus_name',$cam->campus_name);
+           $xmlcam=$xmlc->createElement('Campus');
+           $xmlcamname=$xmlc->createElement('campus_name',$cam->campus_name);
             $xmlcamdesc=$xmlc->createElement('campus_desc',$cam->campus_desc);
             $xmlcamadd=$xmlc->createElement('campus_address',$cam->campus_address);
 
@@ -98,7 +98,7 @@ class facilities_listsController extends Controller
 
 
             $facility = facility::where('facility_name', $request->get('facility_name'))->first();
-            $cam = $request->input('campus');
+            $cam = campus::all()->get();
             foreach ($cam as $c) {
                 echo "<script type='text/javascript'>alert('$c');</script>";
                 $fl = new facilities_list();
@@ -124,7 +124,6 @@ class facilities_listsController extends Controller
 
     public function edit($id)
     {
-
         $facility= facility::where('facility_id',$id)->first();
         $facilityList = facilities_list::where('facility_id',$id)->get();
         return view('department/facility_edit',compact('facility','id'),compact('facilityList'));
@@ -141,7 +140,7 @@ class facilities_listsController extends Controller
             Session::flash('error', $validator->messages()->first());
             return redirect()->back()->withInput();
         }else {
-            $this->destroy($id);
+          //  $this->destroy($id);
             $fc = facility::find($id);
             $fc->facility_name = $request->get('facility_name');
             $fc->facility_desc = $request->get('facility_desc');
@@ -149,17 +148,16 @@ class facilities_listsController extends Controller
             $fc->save();
 
 
-            $facility = facility::where('facility_name', $request->get('facility_name'))->first();
-            $cam = $request->input('campus');
-            foreach ($cam as $c) {
-                $fl = new facilities_list();
-                $fl->facility_id = $facility->facility_id;
-                $fl->campus_id = $c;
-                $fl->timestamps = false;
-                $fl->save();
+//            $facility = facility::where('facility_name', $request->get('facility_name'))->first();
+//            $cam = $request->input('campus');
+//            foreach ($cam as $c) {
+//                $fl = new facilities_list();
+//                $fl->facility_id = $facility->facility_id;
+//                $fl->campus_id = $c;
+//                $fl->timestamps = false;
+//                $fl->save();
             }
             return \Redirect::route('facility.show', array('id' => $id))->with('success', 'Information has been modify');
-        }
     }
 
     public function destroy($id)
