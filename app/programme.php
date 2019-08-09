@@ -12,8 +12,4 @@ class programme extends Model
     protected $primaryKey='programme_id';
 
 
-
-
-
-
 }

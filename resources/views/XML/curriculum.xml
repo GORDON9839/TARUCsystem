@@ -10,4 +10,14 @@
     <curriculum_uni>Ricola University</curriculum_uni>
     <curriculum_desc>Very sweet but expensive</curriculum_desc>
   </Curriculum>
+  <Curriculum curriculum_id="4">
+    <curriculum_name>Ricola</curriculum_name>
+    <curriculum_uni>Ricola University</curriculum_uni>
+    <curriculum_desc>It is a good cert</curriculum_desc>
+  </Curriculum>
+  <Curriculum curriculum_id="5">
+    <curriculum_name>Campbell</curriculum_name>
+    <curriculum_uni>Campbell University</curriculum_uni>
+    <curriculum_desc>It is a good cert</curriculum_desc>
+  </Curriculum>
 </CurriculumList>

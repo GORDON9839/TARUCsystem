@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DepartmentList>
   <Department department_id="1">
-    <department_name>Department of Student Affair</department_name>
-    <department_desc>provide a myriad of student activities and services</department_desc>
-    <department_short_name>DSA</department_short_name>
+    <department_name>Department of Cocuriculum</department_name>
+    <department_desc>Department in-charge of cocuriculum.</department_desc>
+    <department_short_name>DC</department_short_name>
+  </Department>
+  <Department department_id="2">
+    <department_name>Department of Security</department_name>
+    <department_desc>A secure department.</department_desc>
+    <department_short_name>DS</department_short_name>
   </Department>
 </DepartmentList>

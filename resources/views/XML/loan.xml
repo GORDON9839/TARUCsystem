@@ -2,6 +2,14 @@
 <LoanList>
   <Loan loan_id="1">
     <loan_name>PTPTN</loan_name>
-    <loan_desc>HI</loan_desc>
+    <loan_desc>nice loan</loan_desc>
+  </Loan>
+  <Loan loan_id="2">
+    <loan_name>Loan of Study</loan_name>
+    <loan_desc>Good loan study</loan_desc>
+  </Loan>
+  <Loan loan_id="3">
+    <loan_name>PTPTN 123</loan_name>
+    <loan_desc>Good loan study</loan_desc>
   </Loan>
 </LoanList>

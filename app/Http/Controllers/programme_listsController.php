@@ -70,15 +70,14 @@ class programme_listsController extends Controller
             //echo "<script type='text/javascript'>alert('$cur->curriculum_id');</script>";
             foreach ($campus as $cam) {
 
-                $res=programme_list::where('programme_id',$request->get('programme'))->where('campus_id',$cam);
-                if(empty($res)){
+
                     $camp = new programme_list;
                     $camp->campus_id = $cam;
                     $camp->programme_id = $request->get('programme');
 
                     $camp->timestamps = false;
                     $camp->save();
-                }else{}
+
 
 
             }

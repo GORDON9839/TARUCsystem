@@ -6,7 +6,7 @@ Author Student ID: 18WMR08412
 <html>
 <head>
 
-    <title>No Sidebar - Landed by HTML5 UP</title>
+    <title>TARUC system</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
@@ -40,10 +40,7 @@ Author Student ID: 18WMR08412
 
             <!-- Content -->
             <section id="content">
-                @if(\Session::has('success'))
-                    <div class="alert alert-success">
-                        <p> {{\Session::get('success')}}</p></div><br/>
-                @endif
+
                 <div class="row">
                     <div class="col-12 col-12-xsmall" style="width: 100%">
 

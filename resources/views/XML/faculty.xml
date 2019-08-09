@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Faculties>
-  <Faculty FacultyID="1" FacultyShortName="FOCS">
-    <FacultyName>Faculty Of Computer Science</FacultyName>
-    <Description>haha</Description>
+<FacultyList>
+  <Faculty faculty_id="1">
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <faculty_desc>haha</faculty_desc>
+    <faculty_short_name>FOCS</faculty_short_name>
   </Faculty>
-  <Faculty FacultyID="2" FacultyShortName="FAFB">
-    <FacultyName>Faculty of Food and Beverage</FacultyName>
-    <Description>It is a good faculty with bunch of programmer.</Description>
+  <Faculty faculty_id="2">
+    <faculty_name>Faculty of Food and Beverage</faculty_name>
+    <faculty_desc>It is a good faculty with bunch of programmer.</faculty_desc>
+    <faculty_short_name>FAFB</faculty_short_name>
   </Faculty>
-</Faculties>
+</FacultyList>

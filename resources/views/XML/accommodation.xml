@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<AccommodationList/>
+<AccommodationList>
+  <Accommodation accommodation_id="5">
+    <accommodation_name>Swimming</accommodation_name>
+    <accommodation_address>Jalan Permas 7, Blok C #02-06, Pan Vista APT</accommodation_address>
+    <fees>200</fees>
+    <total_room>300</total_room>
+    <rent_number>199</rent_number>
+    <accommodation_type>On-Campus Hotel</accommodation_type>
+    <campus>Penang Branch Campus</campus>
+  </Accommodation>
+  <Accommodation accommodation_id="6">
+    <accommodation_name>Teratai</accommodation_name>
+    <accommodation_address>Jalan Permas 7, Blok C #02-06, Pan Vista APT</accommodation_address>
+    <fees>200</fees>
+    <total_room>300</total_room>
+    <rent_number>200</rent_number>
+    <accommodation_type>Off-Campus Accommodation</accommodation_type>
+    <campus>Kuala Lumpur Main Campus</campus>
+  </Accommodation>
+</AccommodationList>

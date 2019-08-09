@@ -31,6 +31,9 @@ Route::resource('userShortlistfilterController', 'userShortlistfilterController'
 Route::resource('userCompareselectController', 'userCompareselectController');
 Route::resource('userCompareresultController', 'userCompareresultController');
 
+Route::get('/faculty/faculty_adminhomepage',function(){
+    return view('/faculty/faculty_adminhomepage');
+})->name('faculty.adminpage');
 
 //for login
 Route::post('/login/custom',
@@ -40,9 +43,8 @@ Route::post('/login/custom',
 //only authenticated user can access these file
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('/faculty/faculty_adminhomepage',function(){
-        return view('/faculty/faculty_adminhomepage');
-    })->name('faculty.adminpage');
+    Route::get('users/all',"userControllers@getstaffByType");
+    Route::get('faculty/desc',"FacultiesController@getFacultyDescription");
     Route::resource('programmes','programmesController');
     Route::resource('subject','subjectsController');
     Route::resource('accommodations','accommodationsController');

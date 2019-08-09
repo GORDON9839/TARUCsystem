@@ -27,22 +27,14 @@ Author Student ID: 18WMR08426
                                 <tr><td align="left">Facility ID</td><td> {{$facility->facility_id}}</td></tr>
                                 <tr><td align="left">Facility Name</td><td> {{$facility->facility_name}}</td></tr>
                                 <tr><td align="left">Facility Description</td><td> {{$facility->facility_desc}}</td></tr>
-{{--                                <tr><td align="left">Campus</td><td></td></tr>--}}
-{{--                                @foreach($facilityList as $fl)--}}
-{{--                                <tr></td>--}}
-{{--                                    <?php $cam = \App\campus::where('campus_id',$fl->campus_id)->first();?>--}}
-{{--                                    <td>-> {{$cam->campus_name}}</td><td></td>--}}
-{{--                                @endforeach--}}
-{{--                                </tr>--}}
 
-{{--                                <tr>--}}
-{{--                                    <td></td>--}}
-{{--                                    <td align="right">--}}
-{{--                                        <a href="{{action('facilities_listsController@edit',$facility->facility_id)}}"><input type="button" value="Modify" class="button primary"/></a>&nbsp;&nbsp;&nbsp;&nbsp;--}}
-{{--                                        <a href=""><input type="button" value="Cancel" onclick="window.history.go(-1); return false;"/></a>--}}
-{{--                                    </td>--}}
+                                <tr>
+                                                                    <td></td>
+                                                                    <td align="right">
+                                                                        <a href="{{action('facilities_listsController@edit',$facility->facility_id)}}"><input type="button" value="Modify" class="button primary"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                        <a href=""><input type="button" value="Cancel" onclick="window.history.go(-1); return false;"/></a>
+                                                                    </td>
 
-{{--                                </tr>--}}
                             </table>
 
                         </ul>

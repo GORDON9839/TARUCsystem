@@ -48,13 +48,13 @@ class campusesController extends Controller
 
     public function store(Request $request)
     {
-        $c1 = new CampusCreator();
-        $c1->checkCampus($request->get('campus_name'));
-        $msg = $c1->showCampusMsg();
+//        $c1 = new CampusCreator();
+//        $c1->checkCampus($request->get('campus_name'));
+//        $msg = $c1->showCampusMsg($request->get('campus_name'));
 
-        if($c1->checkCampus($request->get('campus_name')) == false ) {
-            return redirect()->back()->with('success', "$msg");
-        }else{
+//        if($c1->checkCampus($request->get('campus_name')) == false ) {
+//            return redirect()->back()->with('success', "$msg");
+//        }else{
             $validator = Validator::make($request->all(), [
                 'campus_name' => 'required',
                 'campus_desc' => 'required',
@@ -92,7 +92,7 @@ class campusesController extends Controller
 //            $cam->save();
 //            return redirect('campus/create')->with('success', 'Information has been added');
 //        }
-    }
+
 
     public function show($id)
     {

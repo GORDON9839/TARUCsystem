@@ -20,7 +20,7 @@ class CampusCreator
     function checkCampus($campus)
     {
         if ($campus . is($campus)) {
-            $this->haveCampus = true;
+          //  $this->haveCampus = true;
             return true;
         }
         return false;
@@ -28,8 +28,8 @@ class CampusCreator
 
 
 
-    function showCampusMsg(){
-        if(true == $this->haveCampus){
+    function showCampusMsg($campus){
+        if(true == $this->checkCampus($campus)){
           return   $msg = "This campus name already existed!";
         }
          return $msg = "New campus is created!";

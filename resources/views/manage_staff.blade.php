@@ -34,34 +34,46 @@ Author Student ID: 18WMU08324
 
                                 </tr>
                                 <?php $xmlstaff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml") or die("Failed to load");
-                                foreach($xmlstaff as $staff){
-                                    $belongs_to="";
+                                echo action('users/all'."?role=admin");
+                                $url = Request::create('users/all'."?role=admin","GET");
+                                $real_staff = json_decode(Route::dispatch($url)->getContent());
 
-                                    if(empty($staff->faculty_id)){
-                                        $belongs_to="department";
-                                    }else{
-                                        $belongs_to="faculty";
-                                    }
+                                ?>
+
+                                <p>{{count($real_staff)}}</p>
+                                <?php
+
+                                foreach($xmlstaff as $staff){
+                                $belongs_to = "";
+
+                                if (empty($staff->faculty_id)) {
+                                    $belongs_to = "department";
+                                } else {
+                                    $belongs_to = "faculty";
+                                }
                                 ?>
 
                                 <tr>
 
                                     <td align="center">{{$staff->name}}</td>
                                     <td align="center">{{$staff->email}}</td>
-                                    <td align="center"><form action="{{action('userControllers@update',$staff->id)}}" method="post">
+                                    <td align="center">
+                                        <form action="{{action('userControllers@update',$staff->id)}}" method="post">
                                             @csrf
 
 
-                                            <select class="form-control" name="role" id="role" onchange="this.form.submit()">
-                                            @if($staff->role == "admin")
-                                            <option value="admin" selected="selected" >ADMIN</option>
-                                                <option value="staff"  >STAFF</option>
+                                            <select class="form-control" name="role" id="role"
+                                                    onchange="this.form.submit()">
+                                                @if($staff->role == "admin")
+                                                    <option value="admin" selected="selected">ADMIN</option>
+                                                    <option value="staff">STAFF</option>
                                                 @else
-                                                <option value="admin"  >ADMIN</option>
-                                                <option value="staff" selected="selected" >STAFF</option>
+                                                    <option value="admin">ADMIN</option>
+                                                    <option value="staff" selected="selected">STAFF</option>
                                                 @endif
                                                 {{$staff->role}}</select>
-                                        </form></td>
+                                        </form>
+                                    </td>
                                     </form>
                                     <td align="center">{{$belongs_to}}</td>
 
@@ -73,9 +85,9 @@ Author Student ID: 18WMU08324
 
                             </table>
                             <?php
-                            use App\XSLTTransformation;
+                            use App\XSLTTransformation;use Illuminate\Http\Request;use Illuminate\Routing\Route as RouteAlias1;use Illuminate\Support\Facades\Route as RouteAlias;
 
-                            $count = new XSLTTransformation("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml","/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl");
+                            $count = new XSLTTransformation("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml", "/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl");
 
                             $count_staff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/xslt/countstaff.xsl") or die("Failed to load");
                             ?>
@@ -102,5 +114,5 @@ Author Student ID: 18WMU08324
     <script src="{{asset('assets/js/breakpoints.min.js')}}"></script>
     <script src="{{asset('assets/js/util.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
-    @endsection
+@endsection
 

@@ -114,19 +114,19 @@ class structuresController extends Controller
         $subject = $request->input('subject');
 
 
-        foreach($subject as $sub){
+        foreach($subject as $sub) {
 
-            $res=structure::where('programme_id',$request->get('programme'))->where('subject_id',$sub);
-            if(empty($res)){
+//            $res=structure::where('programme_id',$request->get('programme'))->where('subject_id',$sub);
+//                if(empty($res)){
             $struc = new structure();
             $struc->programme_id = $request->get('programme');
-            $struc->subject_id= $sub;
-            $struc->timestamps=false;
+            $struc->subject_id = $sub;
+            $struc->timestamps = false;
             $struc->save();
-        }else{}
+
         }
 
-        return redirect('structure/create')->with('success','Information has been added');
+        return redirect('structure')->with('success','Information has been added');
     }
 
     /**

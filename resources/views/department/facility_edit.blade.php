@@ -38,31 +38,6 @@ Author Student ID: 18WMR08426
                                         <td align="left"><label for="facility_desc">Facility Description</label></td>
                                         <td> <input type="text" name="facility_desc" value="{{$facility->facility_desc}}" required/></td>
                                     </tr>
-{{--                                    <tr>--}}
-{{--                                        <td align="left"><label for="campus_id">Assigned To Campus :</label></td>--}}
-{{--                                    </tr>--}}
-{{--                                    <td>--}}
-{{--                                        <?php $xmlcam = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/campus.xml");--}}
-{{--                                        $camid=[];--}}
-{{--                                        foreach($facilityList as $fcl){--}}
-{{--                                        foreach($xmlcam as $cam){--}}
-{{--                                            $camattr = $cam->attributes();--}}
-{{--                                            if($fcl->campus_id == $camattr['campus_id']){--}}
-{{--                                            //$camid[]=$camattr['campus_id'];--}}
-{{--                                           // var_dump($camid);--}}
-{{--                                        ?>--}}
-{{--                                            <input type="checkbox" id="{{$camattr['campus_id']}}" name="{{$camattr['campus_name']}}" value="{{$camattr['campus_id']}}" checked>--}}
-{{--                                            <label for="{{$camattr['campus_id']}}">{{$cam->campus_name}}</label> &nbsp;&nbsp;&nbsp;--}}
-
-
-{{--                                        <?php }else{?>--}}
-{{--                                                <input type="checkbox" id="{{$camattr['campus_id']}}" name="{{$camattr['campus_id']}}" value="{{$camattr['campus_id']}}"/>--}}
-{{--                                            <label for="{{$camattr['campus_id']}}">{{$cam->campus_name}}</label> &nbsp;&nbsp;&nbsp;--}}
-{{--                                            <?php--}}
-{{--                                        }}}?>--}}
-
-{{--                                    </td>--}}
-{{--                                    <tr>--}}
                                         <td align="left">
                                         </td>
                                         <td align="right">

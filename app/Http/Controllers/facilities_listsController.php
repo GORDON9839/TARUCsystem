@@ -37,20 +37,20 @@ class facilities_listsController extends Controller
         $xmlfc->save("/xampp/htdocs/TARUCsystem/resources/views/XML/facility.xml");
 
         //load facility_campus list
-        $facilitylist = facilities_list::all();
-        $xmlfl = new \DOMDocument("1.0","UTF-8");
-        $xmlfl->formatOutput=true;
-        $xmlfacilitylist=$xmlfl->createElement('FacilityCampusList');
-        foreach($facilitylist as $fl) {
-            $xmlfll = $xmlfl->createElement('FacilityCampus');
-            $xmlfid = $xmlfl->createElement('facility_id', $fl->facility_id);
-            $xmlcid = $xmlfl->createElement('campus_id', $fl->campus_id);
-            $xmlfll->appendChild($xmlfid);
-            $xmlfll->appendChild($xmlcid);
-            $xmlfacilitylist->appendChild($xmlfll);
-        }
-        $xmlfl->appendChild($xmlfacilitylist);
-       $xmlfl->save("/xampp/htdocs/TARUCsystem/resources/views/XML/facility_campus.xml");
+//        $facilitylist = facilities_list::all();
+//        $xmlfl = new \DOMDocument("1.0","UTF-8");
+//        $xmlfl->formatOutput=true;
+//        $xmlfacilitylist=$xmlfl->createElement('FacilityCampusList');
+//        foreach($facilitylist as $fl) {
+//            $xmlfll = $xmlfl->createElement('FacilityCampus');
+//            $xmlfid = $xmlfl->createElement('facility_id', $fl->facility_id);
+//            $xmlcid = $xmlfl->createElement('campus_id', $fl->campus_id);
+//            $xmlfll->appendChild($xmlfid);
+//            $xmlfll->appendChild($xmlcid);
+//            $xmlfacilitylist->appendChild($xmlfll);
+//        }
+//        $xmlfl->appendChild($xmlfacilitylist);
+//       $xmlfl->save("/xampp/htdocs/TARUCsystem/resources/views/XML/facility_campus.xml");
 
         return view('department/facility_view');
     }
@@ -97,16 +97,16 @@ class facilities_listsController extends Controller
             $fc->save();
 
 
-            $facility = facility::where('facility_name', $request->get('facility_name'))->first();
-            $cam = campus::all()->get();
-            foreach ($cam as $c) {
-                echo "<script type='text/javascript'>alert('$c');</script>";
-                $fl = new facilities_list();
-                $fl->facility_id = $facility->facility_id;
-                $fl->campus_id = $c;
-                $fl->timestamps = false;
-                $fl->save();
-            }
+//            $facility = facility::where('facility_name', $request->get('facility_name'))->first();
+//            $cam = campus::all();
+//            foreach ($cam as $c) {
+//                echo "<script type='text/javascript'>alert('$c');</script>";
+//                $fl = new facilities_list();
+//                $fl->facility_id = $facility->facility_id;
+//                $fl->campus_id = $c;
+//                $fl->timestamps = false;
+//                $fl->save();
+//            }
             return redirect('facility/create')->with('success', 'Information has been added');
         }
     }

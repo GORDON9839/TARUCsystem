@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 use App\faculty;
 use App\campus;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -39,6 +40,12 @@ class FacultiesController extends Controller
         return view('department/faculty_view');
     }
 
+    public function getFacultyDescription(){
+        $faculty = $_GET["faculty"];
+        $faculty_description = faculty::where('faculty_short_name',$faculty)->get();
+
+        return json_encode($faculty_description);
+    }
     public function create()
     {
         return view('department/faculty_create');

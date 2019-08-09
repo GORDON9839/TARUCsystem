@@ -24,4 +24,32 @@
     <programme_id>11</programme_id>
     <subject_id>3</subject_id>
   </structure>
+  <structure>
+    <programme_id>14</programme_id>
+    <subject_id>1</subject_id>
+  </structure>
+  <structure>
+    <programme_id>14</programme_id>
+    <subject_id>2</subject_id>
+  </structure>
+  <structure>
+    <programme_id>14</programme_id>
+    <subject_id>3</subject_id>
+  </structure>
+  <structure>
+    <programme_id>16</programme_id>
+    <subject_id>1</subject_id>
+  </structure>
+  <structure>
+    <programme_id>16</programme_id>
+    <subject_id>2</subject_id>
+  </structure>
+  <structure>
+    <programme_id>16</programme_id>
+    <subject_id>3</subject_id>
+  </structure>
+  <structure>
+    <programme_id>16</programme_id>
+    <subject_id>4</subject_id>
+  </structure>
 </programme_structure>

@@ -30,7 +30,7 @@ Author Student ID: 18WMR08426
                         <option value="<?php $attr=$loan->attributes(); echo $attr['loan_id'] ?>"><?php echo $loan->loan_name; ?></option>
                         <?php } ?>
                     </select><br/>
-                    <label for="level_of_study_id">Loan</label>
+                    <label for="level_of_study_id">Level of Study</label>
                     <select name="level_of_study_id">
                         <?php $xmllevel = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/levelstudy.xml") or die("Failed to load");
                         foreach($xmllevel as $level){

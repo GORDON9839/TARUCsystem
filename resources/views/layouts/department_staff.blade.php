@@ -79,7 +79,7 @@ Author Student ID: 18WMU08324
                     </ul>
                 </li>
                 <li>
-                    <a href="action={{action('level_of_studiesController@index')}}">Study Level</a>
+                    <a href="{{action('level_of_studiesController@index')}}">Study Level</a>
                     <ul>
                         <li><a href="{{action('level_of_studiesController@create')}}">Create Study Level</a></li>
                         <li><a href="{{action('level_of_studiesController@index')}}">View All Study Level</a></li>

@@ -3,7 +3,13 @@
   <LoanDetails level_of_study_id="1" loan_id="1">
     <amount>30000</amount>
     <loan_name>PTPTN</loan_name>
-    <loan_desc>Nice loan</loan_desc>
-    <level_of_study_name>Diploma 1</level_of_study_name>
+    <loan_desc>HI</loan_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
+  </LoanDetails>
+  <LoanDetails level_of_study_id="1" loan_id="1">
+    <amount>50000</amount>
+    <loan_name>PTPTN</loan_name>
+    <loan_desc>HI</loan_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
   </LoanDetails>
 </LoanList>

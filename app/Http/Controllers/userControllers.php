@@ -55,6 +55,12 @@ class userControllers extends Controller
                 return view('manage_staff', compact('faculty'), compact('department'));
 
     }
+    public function getstaffByType(){
+        $role = $_GET["role"];
+        $user = User::where('role',$role)->get();
+
+        return json_encode($user);
+    }
     protected function create(array $data)
     {
         echo $data['role'];

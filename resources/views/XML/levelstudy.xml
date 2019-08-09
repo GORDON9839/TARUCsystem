@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LevelStudyList>
   <LevelStudy level_of_study_id="1">
-    <level_of_study_name>Diploma 1</level_of_study_name>
+    <level_of_study_name>Diploma</level_of_study_name>
   </LevelStudy>
   <LevelStudy level_of_study_id="2">
     <level_of_study_name>Degree</level_of_study_name>

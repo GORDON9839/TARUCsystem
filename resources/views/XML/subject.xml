@@ -12,4 +12,8 @@
     <subject_name>Integrative Programming</subject_name>
     <credit_hour>2</credit_hour>
   </Subject>
+  <Subject subject_id="4" subject_code="BACS2066">
+    <subject_name>Hubungan Etnik1</subject_name>
+    <credit_hour>2</credit_hour>
+  </Subject>
 </SubjectList>

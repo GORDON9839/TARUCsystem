@@ -114,15 +114,15 @@ class programmesController extends Controller
     {
 
         $validator = Validator::make($request->all(),[
-           'programme_code'=>'required|unique:programmes',
+            'programme_code'=>'required|unique:programmes',
             'programme_name'=>'required|string',
             'professional_certification'=>'required|string|max:100'
 
         ]);
 
-        if($validator->fails()){
-            return redirect()->back()->withInput()->with("error",$validator->errors()->first());
-        }else{
+            if($validator->fails()){
+                return redirect()->back()->withInput()->with("error",$validator->errors()->first());
+            }else{
             $prog = new programme();
             $prog->programme_name = $request->get('programme_name');
             $prog->programme_code = $request->get('programme_code');
@@ -209,10 +209,10 @@ class programmesController extends Controller
 
         ]);
 
-        if($validator->fails()){
-            \Session::flash('error',$validator->messages());
-            return redirect()->back()->withInput();
-        }else {
+//        if($validator->fails()){
+//            \Session::flash('error',$validator->messages());
+//            return redirect()->back()->withInput();
+//        }else {
 
             $prog = programme::find($id);
 
@@ -237,7 +237,7 @@ class programmesController extends Controller
             $prog->save();
 
             return redirect('programmes')->with('success', 'Information has been deleted');
-        }
+
     }
 
     /**

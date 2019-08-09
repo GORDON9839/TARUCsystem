@@ -25,4 +25,9 @@
     <campus_desc>at Pahang</campus_desc>
     <campus_address>Pahang</campus_address>
   </CampusOffered>
+  <CampusOffered campus_id="6">
+    <campus_name>Selangor branch</campus_name>
+    <campus_desc>A good campus</campus_desc>
+    <campus_address>Jalan Selangor</campus_address>
+  </CampusOffered>
 </CampusOfferedList>

@@ -16,8 +16,9 @@ Author Student ID: 18WMR08314
             <!-- Content -->
             <section id="content">
                 <form method="post" action="{{url('subject')}}">
+                    {{ method_field('POST') }}
                     @csrf
-                    {{ method_field('PUT') }}
+
 
                         @if(\Session::has('success'))
                             <div class="alert alert-success">

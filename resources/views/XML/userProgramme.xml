@@ -12,8 +12,8 @@
     <MER_desc>English pass</MER_desc>
     <level_of_study_name>Diploma</level_of_study_name>
     <faculty_name>Faculty Of Computer Science</faculty_name>
-    <fee_local>0</fee_local>
-    <fee_international>0</fee_international>
+    <fee_local>500</fee_local>
+    <fee_international>10000</fee_international>
   </Programme>
   <Programme programme_id="6" programme_code="RSF">
     <programme_name>Algorithm Study</programme_name>
@@ -27,8 +27,8 @@
     <MER_desc>English pass</MER_desc>
     <level_of_study_name>Degree</level_of_study_name>
     <faculty_name>Faculty Of Computer Science</faculty_name>
-    <fee_local>0</fee_local>
-    <fee_international>0</fee_international>
+    <fee_local>6000</fee_local>
+    <fee_international>120000</fee_international>
   </Programme>
   <Programme programme_id="7" programme_code="RHT">
     <programme_name>Hotel Management</programme_name>
@@ -42,6 +42,81 @@
     <MER_desc>ENGLISH MESTI PASS</MER_desc>
     <level_of_study_name>Degree</level_of_study_name>
     <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="11" programme_code="vcvcx">
+    <programme_name>czcx</programme_name>
+    <programme_desc>hotel field</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>122</profcer>
+    <MER_SPM>1</MER_SPM>
+    <MER_STPM>0.1</MER_STPM>
+    <MER_UEC>1</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="12" programme_code="DAU">
+    <programme_name>Accouting</programme_name>
+    <programme_desc>hotel field</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <level_of_study_name>Degree</level_of_study_name>
+    <faculty_name>Faculty of Food and Beverage</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="13" programme_code="REC">
+    <programme_name>E commerce</programme_name>
+    <programme_desc>Combination of business and Internet technology</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>2</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>ENGLISH MESTI PASS</MER_desc>
+    <level_of_study_name>Degree</level_of_study_name>
+    <faculty_name>Faculty Of Computer Science</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="14" programme_code="RSQ">
+    <programme_name>Software Quality</programme_name>
+    <programme_desc>programmer field</programme_desc>
+    <fulltime_duration>1</fulltime_duration>
+    <parttime_duration>1</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>1</MER_SPM>
+    <MER_STPM>0.1</MER_STPM>
+    <MER_UEC>1</MER_UEC>
+    <MER_desc>English pass</MER_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
+    <faculty_name>Faculty of Food and Beverage</faculty_name>
+    <fee_local>0</fee_local>
+    <fee_international>0</fee_international>
+  </Programme>
+  <Programme programme_id="16" programme_code="RSY">
+    <programme_name>Software Engineering</programme_name>
+    <programme_desc>programmer field</programme_desc>
+    <fulltime_duration>2</fulltime_duration>
+    <parttime_duration>1</parttime_duration>
+    <profcer>CISCO CERT</profcer>
+    <MER_SPM>2</MER_SPM>
+    <MER_STPM>0.2</MER_STPM>
+    <MER_UEC>2</MER_UEC>
+    <MER_desc>English pass</MER_desc>
+    <level_of_study_name>Diploma</level_of_study_name>
+    <faculty_name>Faculty of Food and Beverage</faculty_name>
     <fee_local>0</fee_local>
     <fee_international>0</fee_international>
   </Programme>
