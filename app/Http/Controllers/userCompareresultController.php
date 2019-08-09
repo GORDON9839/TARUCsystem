@@ -26,7 +26,7 @@ class userCompareresultController extends Controller
         $xmlp = new \DOMDocument("1.0", "UTF-8");
         $xmlp->formatOutput = true;
         $xmlprogrammes = $xmlp->createElement('userProgrammesList');
-        foreach($programmes as $prog) {
+        foreach ($programmes as $prog) {
             //$variable = $xmlp->createElement(nameUsedInXml, $prog->nameOfDatabaseField)
             $xmlprog = $xmlp->createElement('Programme');
             $xmlprogname = $xmlp->createElement('programme_name', $prog->programme_name);
@@ -70,7 +70,23 @@ class userCompareresultController extends Controller
         return view('user/user_viewprogrammes');
     }
 
-    public function store() {
+    public function getSubjectbyProgrammeId()
+    {
+        $structure = structure::all();
+
+        $subject_list = [];
+        foreach ($structure as $struc) {
+            if ($struc->programme_id == $_GET["id"]) {
+                $subject = Subject::where("subject_id", $struc->subject_id)->first();
+                array_push($subject_list, $subject);
+            }
+        }
+        return json_encode($subject_list);
+
+    }
+
+    public function store()
+    {
         //assign values into session for displaying in view
         $cp_comparefirst = $_POST["comparefirst"];
         $cp_comparesecond = $_POST["comparesecond"];
@@ -130,7 +146,7 @@ class userCompareresultController extends Controller
 
         $proglists = programme_list::all();
         $matchcampusnamelist = array();
-        foreach($proglists as $proglist) {
+        foreach ($proglists as $proglist) {
             if ($proglist->programme_id == $programmes->programme_id) {
                 $campus = campus::where('campus_id', $proglist->campus_id)->first();
                 array_push($matchcampusnamelist, $campus->campus_name);

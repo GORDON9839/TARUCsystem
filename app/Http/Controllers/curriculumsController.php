@@ -40,8 +40,13 @@ class curriculumsController extends Controller
         $xmlc->save("/xampp/htdocs/TARUCsystem/resources/views/XML/curriculum.xml");
         return view('faculty/curriculum_view');
     }
+    public function getProgrammeByCurriculum()
+    {
+        $prog = programme::where("curriculum_id",$_GET['id'])->get();
 
+        return json_encode($prog);
 
+    }
     public function create()
     {
         $programme = programme::all();

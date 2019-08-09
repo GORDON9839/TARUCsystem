@@ -39,10 +39,11 @@ Route::get('/faculty/faculty_adminhomepage',function(){
 Route::post('/login/custom',
     ['uses' =>'Auth\LoginController@login',
         'as' =>'login.custom']);
-
+Route::get('programme/subject',"userCompareresultController@getSubjectbyProgrammeId");
 //only authenticated user can access these file
 
 Route::group(['middleware'=>'auth'],function(){
+    Route::get('programme/curriculum',"curriculumsController@getProgrammeByCurriculum");
     Route::get('users/all',"userControllers@getstaffByType");
     Route::get('faculty/desc',"FacultiesController@getFacultyDescription");
     Route::resource('programmes','programmesController');
