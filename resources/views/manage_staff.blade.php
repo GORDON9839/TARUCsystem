@@ -34,13 +34,18 @@ Author Student ID: 18WMU08324
 
                                 </tr>
                                 <?php $xmlstaff = simplexml_load_file("/xampp/htdocs/TARUCsystem/resources/views/XML/all_staff.xml") or die("Failed to load");
-                                echo action('users/all'."?role=admin");
-                                $url = Request::create('users/all'."?role=admin","GET");
-                                $real_staff = json_decode(Route::dispatch($url)->getContent());
-
+//                                echo action('userControllers@getstaffByType') . "?role=admin";
+//                                $staff=action('userControllers@getstaffByType') . "?role=admin";
+//                                $ch = curl_init();
+//                                curl_setopt($ch, CURLOPT_URL, $staff);
+//                                curl_setopt($ch, CURLOPT_POST, 1);
+//                                curl_setopt($ch, CURLOPT_POSTFIELDS, "type");
+//                                $real_staff = curl_exec($ch);
+//                                print_r($real_staff);
+//                                curl_close($ch);
                                 ?>
 
-                                <p>{{count($real_staff)}}</p>
+{{--                                <p>{{$real_staff}} </p>--}}
                                 <?php
 
                                 foreach($xmlstaff as $staff){
